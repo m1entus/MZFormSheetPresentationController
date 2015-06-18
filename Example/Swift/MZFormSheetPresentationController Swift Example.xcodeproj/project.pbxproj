@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6494BD4C1B3343FC00C331EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD4B1B3343FC00C331EE /* AppDelegate.swift */; };
+		6494BD4E1B3343FC00C331EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD4D1B3343FC00C331EE /* ViewController.swift */; };
+		6494BD511B3343FC00C331EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6494BD4F1B3343FC00C331EE /* Main.storyboard */; };
+		6494BD531B3343FC00C331EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6494BD521B3343FC00C331EE /* Images.xcassets */; };
+		6494BD561B3343FC00C331EE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6494BD541B3343FC00C331EE /* LaunchScreen.xib */; };
+		6494BD621B3343FC00C331EE /* MZFormSheetPresentationController_Swift_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD611B3343FC00C331EE /* MZFormSheetPresentationController_Swift_ExampleTests.swift */; };
+		6494BD771B33445700C331EE /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD6E1B33445700C331EE /* MZFormSheetPresentationController.m */; };
+		6494BD781B33445700C331EE /* MZFormSheetPresentationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD701B33445700C331EE /* MZFormSheetPresentationControllerAnimator.m */; };
+		6494BD791B33445700C331EE /* MZFormSheetPresentationControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD721B33445700C331EE /* MZFormSheetPresentationControllerSegue.m */; };
+		6494BD7A1B33445700C331EE /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD741B33445700C331EE /* MZTransition.m */; };
+		6494BD7B1B33445700C331EE /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD761B33445700C331EE /* UIViewController+TargetViewController.m */; };
+		6494BD7D1B3344AA00C331EE /* PresentedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD7C1B3344AA00C331EE /* PresentedTableViewController.swift */; };
+		6494BD7F1B3344BC00C331EE /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD7E1B3344BC00C331EE /* CustomTransition.swift */; };
+		A353758F483F8E2C629E2014 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6981EFFBC4A3D8854472104 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6494BD5C1B3343FC00C331EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6494BD3E1B3343FC00C331EE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6494BD451B3343FC00C331EE;
+			remoteInfo = "MZFormSheetPresentationController Swift Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5E5F8D9FE03CE5560E3C5462 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		6494BD461B3343FC00C331EE /* MZFormSheetPresentationController Swift Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MZFormSheetPresentationController Swift Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6494BD4A1B3343FC00C331EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6494BD4B1B3343FC00C331EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6494BD4D1B3343FC00C331EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6494BD501B3343FC00C331EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6494BD521B3343FC00C331EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6494BD551B3343FC00C331EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		6494BD5B1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MZFormSheetPresentationController Swift ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6494BD601B3343FC00C331EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6494BD611B3343FC00C331EE /* MZFormSheetPresentationController_Swift_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MZFormSheetPresentationController_Swift_ExampleTests.swift; sourceTree = "<group>"; };
+		6494BD6C1B33445700C331EE /* MZFormSheetPresentationController Swift Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MZFormSheetPresentationController Swift Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		6494BD6D1B33445700C331EE /* MZFormSheetPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationController.h; sourceTree = "<group>"; };
+		6494BD6E1B33445700C331EE /* MZFormSheetPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetPresentationController.m; sourceTree = "<group>"; };
+		6494BD6F1B33445700C331EE /* MZFormSheetPresentationControllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationControllerAnimator.h; sourceTree = "<group>"; };
+		6494BD701B33445700C331EE /* MZFormSheetPresentationControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetPresentationControllerAnimator.m; sourceTree = "<group>"; };
+		6494BD711B33445700C331EE /* MZFormSheetPresentationControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationControllerSegue.h; sourceTree = "<group>"; };
+		6494BD721B33445700C331EE /* MZFormSheetPresentationControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetPresentationControllerSegue.m; sourceTree = "<group>"; };
+		6494BD731B33445700C331EE /* MZTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTransition.h; sourceTree = "<group>"; };
+		6494BD741B33445700C331EE /* MZTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTransition.m; sourceTree = "<group>"; };
+		6494BD751B33445700C331EE /* UIViewController+TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TargetViewController.h"; sourceTree = "<group>"; };
+		6494BD761B33445700C331EE /* UIViewController+TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TargetViewController.m"; sourceTree = "<group>"; };
+		6494BD7C1B3344AA00C331EE /* PresentedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedTableViewController.swift; sourceTree = "<group>"; };
+		6494BD7E1B3344BC00C331EE /* CustomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
+		92BC176FBB0849533237A49D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F6981EFFBC4A3D8854472104 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6494BD431B3343FC00C331EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A353758F483F8E2C629E2014 /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6494BD581B3343FC00C331EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6494BD3D1B3343FC00C331EE = {
+			isa = PBXGroup;
+			children = (
+				6494BD481B3343FC00C331EE /* MZFormSheetPresentationController Swift Example */,
+				6494BD5E1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests */,
+				6494BD471B3343FC00C331EE /* Products */,
+				CDFD95A2EED990290215E8AA /* Pods */,
+				A9434A5ACA7FAB7FDCFBFB4A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6494BD471B3343FC00C331EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6494BD461B3343FC00C331EE /* MZFormSheetPresentationController Swift Example.app */,
+				6494BD5B1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6494BD481B3343FC00C331EE /* MZFormSheetPresentationController Swift Example */ = {
+			isa = PBXGroup;
+			children = (
+				6494BD6B1B33443E00C331EE /* Source Code */,
+				6494BD4B1B3343FC00C331EE /* AppDelegate.swift */,
+				6494BD4D1B3343FC00C331EE /* ViewController.swift */,
+				6494BD4F1B3343FC00C331EE /* Main.storyboard */,
+				6494BD521B3343FC00C331EE /* Images.xcassets */,
+				6494BD541B3343FC00C331EE /* LaunchScreen.xib */,
+				6494BD491B3343FC00C331EE /* Supporting Files */,
+				6494BD7C1B3344AA00C331EE /* PresentedTableViewController.swift */,
+				6494BD7E1B3344BC00C331EE /* CustomTransition.swift */,
+			);
+			path = "MZFormSheetPresentationController Swift Example";
+			sourceTree = "<group>";
+		};
+		6494BD491B3343FC00C331EE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6494BD4A1B3343FC00C331EE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6494BD5E1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				6494BD611B3343FC00C331EE /* MZFormSheetPresentationController_Swift_ExampleTests.swift */,
+				6494BD5F1B3343FC00C331EE /* Supporting Files */,
+			);
+			path = "MZFormSheetPresentationController Swift ExampleTests";
+			sourceTree = "<group>";
+		};
+		6494BD5F1B3343FC00C331EE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6494BD601B3343FC00C331EE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6494BD6B1B33443E00C331EE /* Source Code */ = {
+			isa = PBXGroup;
+			children = (
+				6494BD6D1B33445700C331EE /* MZFormSheetPresentationController.h */,
+				6494BD6E1B33445700C331EE /* MZFormSheetPresentationController.m */,
+				6494BD6F1B33445700C331EE /* MZFormSheetPresentationControllerAnimator.h */,
+				6494BD701B33445700C331EE /* MZFormSheetPresentationControllerAnimator.m */,
+				6494BD711B33445700C331EE /* MZFormSheetPresentationControllerSegue.h */,
+				6494BD721B33445700C331EE /* MZFormSheetPresentationControllerSegue.m */,
+				6494BD731B33445700C331EE /* MZTransition.h */,
+				6494BD741B33445700C331EE /* MZTransition.m */,
+				6494BD751B33445700C331EE /* UIViewController+TargetViewController.h */,
+				6494BD761B33445700C331EE /* UIViewController+TargetViewController.m */,
+				6494BD6C1B33445700C331EE /* MZFormSheetPresentationController Swift Example-Bridging-Header.h */,
+			);
+			name = "Source Code";
+			path = ../../../MZFormSheetPresentationController;
+			sourceTree = "<group>";
+		};
+		A9434A5ACA7FAB7FDCFBFB4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6981EFFBC4A3D8854472104 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDFD95A2EED990290215E8AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E5F8D9FE03CE5560E3C5462 /* Pods.debug.xcconfig */,
+				92BC176FBB0849533237A49D /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6494BD451B3343FC00C331EE /* MZFormSheetPresentationController Swift Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6494BD651B3343FC00C331EE /* Build configuration list for PBXNativeTarget "MZFormSheetPresentationController Swift Example" */;
+			buildPhases = (
+				86A349FBC8C297B83F383178 /* Check Pods Manifest.lock */,
+				6494BD421B3343FC00C331EE /* Sources */,
+				6494BD431B3343FC00C331EE /* Frameworks */,
+				6494BD441B3343FC00C331EE /* Resources */,
+				DB4C3FF9A33F898F3AD9EAF1 /* Embed Pods Frameworks */,
+				E81F6B871D0D3C93DBA803F3 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MZFormSheetPresentationController Swift Example";
+			productName = "MZFormSheetPresentationController Swift Example";
+			productReference = 6494BD461B3343FC00C331EE /* MZFormSheetPresentationController Swift Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6494BD5A1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6494BD681B3343FC00C331EE /* Build configuration list for PBXNativeTarget "MZFormSheetPresentationController Swift ExampleTests" */;
+			buildPhases = (
+				6494BD571B3343FC00C331EE /* Sources */,
+				6494BD581B3343FC00C331EE /* Frameworks */,
+				6494BD591B3343FC00C331EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6494BD5D1B3343FC00C331EE /* PBXTargetDependency */,
+			);
+			name = "MZFormSheetPresentationController Swift ExampleTests";
+			productName = "MZFormSheetPresentationController Swift ExampleTests";
+			productReference = 6494BD5B1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6494BD3E1B3343FC00C331EE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Michal Zaborowski";
+				TargetAttributes = {
+					6494BD451B3343FC00C331EE = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					6494BD5A1B3343FC00C331EE = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 6494BD451B3343FC00C331EE;
+					};
+				};
+			};
+			buildConfigurationList = 6494BD411B3343FC00C331EE /* Build configuration list for PBXProject "MZFormSheetPresentationController Swift Example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6494BD3D1B3343FC00C331EE;
+			productRefGroup = 6494BD471B3343FC00C331EE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6494BD451B3343FC00C331EE /* MZFormSheetPresentationController Swift Example */,
+				6494BD5A1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6494BD441B3343FC00C331EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6494BD511B3343FC00C331EE /* Main.storyboard in Resources */,
+				6494BD561B3343FC00C331EE /* LaunchScreen.xib in Resources */,
+				6494BD531B3343FC00C331EE /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6494BD591B3343FC00C331EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86A349FBC8C297B83F383178 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB4C3FF9A33F898F3AD9EAF1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E81F6B871D0D3C93DBA803F3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6494BD421B3343FC00C331EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6494BD791B33445700C331EE /* MZFormSheetPresentationControllerSegue.m in Sources */,
+				6494BD7A1B33445700C331EE /* MZTransition.m in Sources */,
+				6494BD7B1B33445700C331EE /* UIViewController+TargetViewController.m in Sources */,
+				6494BD4E1B3343FC00C331EE /* ViewController.swift in Sources */,
+				6494BD7F1B3344BC00C331EE /* CustomTransition.swift in Sources */,
+				6494BD781B33445700C331EE /* MZFormSheetPresentationControllerAnimator.m in Sources */,
+				6494BD4C1B3343FC00C331EE /* AppDelegate.swift in Sources */,
+				6494BD7D1B3344AA00C331EE /* PresentedTableViewController.swift in Sources */,
+				6494BD771B33445700C331EE /* MZFormSheetPresentationController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6494BD571B3343FC00C331EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6494BD621B3343FC00C331EE /* MZFormSheetPresentationController_Swift_ExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6494BD5D1B3343FC00C331EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6494BD451B3343FC00C331EE /* MZFormSheetPresentationController Swift Example */;
+			targetProxy = 6494BD5C1B3343FC00C331EE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6494BD4F1B3343FC00C331EE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6494BD501B3343FC00C331EE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6494BD541B3343FC00C331EE /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6494BD551B3343FC00C331EE /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6494BD631B3343FC00C331EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6494BD641B3343FC00C331EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6494BD661B3343FC00C331EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E5F8D9FE03CE5560E3C5462 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "MZFormSheetPresentationController Swift Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "../../MZFormSheetPresentationController/MZFormSheetPresentationController Swift Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6494BD671B3343FC00C331EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92BC176FBB0849533237A49D /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "MZFormSheetPresentationController Swift Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "../../MZFormSheetPresentationController/MZFormSheetPresentationController Swift Example-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		6494BD691B3343FC00C331EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MZFormSheetPresentationController Swift ExampleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MZFormSheetPresentationController Swift Example.app/MZFormSheetPresentationController Swift Example";
+			};
+			name = Debug;
+		};
+		6494BD6A1B3343FC00C331EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MZFormSheetPresentationController Swift ExampleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MZFormSheetPresentationController Swift Example.app/MZFormSheetPresentationController Swift Example";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6494BD411B3343FC00C331EE /* Build configuration list for PBXProject "MZFormSheetPresentationController Swift Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6494BD631B3343FC00C331EE /* Debug */,
+				6494BD641B3343FC00C331EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6494BD651B3343FC00C331EE /* Build configuration list for PBXNativeTarget "MZFormSheetPresentationController Swift Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6494BD661B3343FC00C331EE /* Debug */,
+				6494BD671B3343FC00C331EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6494BD681B3343FC00C331EE /* Build configuration list for PBXNativeTarget "MZFormSheetPresentationController Swift ExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6494BD691B3343FC00C331EE /* Debug */,
+				6494BD6A1B3343FC00C331EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6494BD3E1B3343FC00C331EE /* Project object */;
+}

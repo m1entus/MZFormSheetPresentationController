@@ -1,0 +1,10 @@
+PODS:
+  - MZAppearance (1.1.5)
+
+DEPENDENCIES:
+  - MZAppearance
+
+SPEC CHECKSUMS:
+  MZAppearance: 6e9dc64e42074c0a19812a327f590746c3283bab
+
+COCOAPODS: 0.37.2
