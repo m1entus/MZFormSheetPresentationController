@@ -24,6 +24,13 @@ class PresentedTableViewController: UITableViewController {
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if textFieldBecomeFirstResponder {
+            self.textField.becomeFirstResponder()
+        }
+    }
+    
     func close() -> Void {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
