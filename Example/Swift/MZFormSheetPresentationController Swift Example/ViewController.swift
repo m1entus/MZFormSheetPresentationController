@@ -12,6 +12,7 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = true
         MZFormSheetPresentationController.registerTransitionClass(CustomTransition.self, forTransitionStyle: .Custom)
     }
 
@@ -43,6 +44,13 @@ class ViewController: UITableViewController {
         let presentedViewController = navigationController.viewControllers.first as! PresentedTableViewController
         presentedViewController.textFieldBecomeFirstResponder = true
         presentedViewController.passingString = "PASSED DATA"
+        
+        formSheetController.willPresentContentViewControllerHandler = { vc in
+            let navigationController = vc as! UINavigationController
+            let presentedViewController = navigationController.viewControllers.first as! PresentedTableViewController
+            presentedViewController.view?.layoutIfNeeded()
+            presentedViewController.textField?.text = "PASS DATA DIRECTLY TO OUTLET!!"
+        }
         
         self.presentViewController(formSheetController, animated: true, completion: nil)
     }

@@ -9,7 +9,6 @@
 #import "PresentedTableViewController.h"
 
 @interface PresentedTableViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 

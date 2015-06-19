@@ -23,6 +23,7 @@
     
     // Set Default Background collor for all presentation controllers
     [[MZFormSheetPresentationController appearance] setBackgroundColor:[[UIColor darkGrayColor] colorWithAlphaComponent:0.3]];
+    [[MZFormSheetPresentationController appearance] setShouldApplyBackgroundBlurEffect:YES];
 
     [MZFormSheetPresentationController registerTransitionClass:[CustomTransition class] forTransitionStyle:MZFormSheetTransitionStyleCustom];
 }
@@ -53,6 +54,14 @@
     PresentedTableViewController *presentedViewController = [navigationController.viewControllers firstObject];
     presentedViewController.textFieldBecomeFirstResponder = YES;
     presentedViewController.passingString = @"PASSSED DATA!!";
+    
+    formSheetController.willPresentContentViewControllerHandler = ^(UIViewController *vc) {
+        UINavigationController *navigationController = (id)vc;
+        PresentedTableViewController *presentedViewController = [navigationController.viewControllers firstObject];
+        [presentedViewController.view layoutIfNeeded];
+        presentedViewController.textField.text = @"PASS DATA DIRECTLY TO OUTLET!!";
+    };
+    
     [self presentViewController:formSheetController animated:YES completion:nil];
     
 }

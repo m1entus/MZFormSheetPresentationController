@@ -11,4 +11,5 @@
 @interface PresentedTableViewController : UITableViewController
 @property (nonatomic, assign) BOOL textFieldBecomeFirstResponder;
 @property (nonatomic, strong) NSString *passingString;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 @end
