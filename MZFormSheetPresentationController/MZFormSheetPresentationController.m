@@ -83,6 +83,7 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
         [appearance setContentViewSize:CGSizeMake(284.0, 284.0)];
         [appearance setPortraitTopInset:66.0];
         [appearance setLandscapeTopInset:6.0];
+        [appearance setContentViewCornerRadius:5.0];
         [appearance setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.5]];
         [appearance setBlurEffectStyle:UIBlurEffectStyleLight];
         [appearance setMovementActionWhenKeyboardAppears:MZFormSheetActionWhenKeyboardAppearsDoNothing];
@@ -111,6 +112,14 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
                                                            _contentViewSize.height);
         self.contentViewController.view.center = center;
         [self setupFormSheetViewControllerFrame];
+    }
+}
+
+- (void)setContentViewCornerRadius:(CGFloat)contentViewCornerRadius {
+    _contentViewCornerRadius = contentViewCornerRadius;
+    if (_contentViewCornerRadius > 0) {
+        self.contentViewController.view.layer.masksToBounds = YES;
+        self.contentViewController.view.layer.cornerRadius = _contentViewCornerRadius;
     }
 }
 
@@ -289,6 +298,7 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 - (void)setupFormSheetViewController {
     self.contentViewController.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     self.contentViewController.view.layer.masksToBounds = YES;
+    self.contentViewController.view.layer.cornerRadius = self.contentViewCornerRadius;
     self.contentViewController.view.frame = CGRectMake(0, 0, self.contentViewSize.width, self.contentViewSize.height);
     self.contentViewController.view.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
 }

@@ -23,7 +23,6 @@
     
     // Set Default Background collor for all presentation controllers
     [[MZFormSheetPresentationController appearance] setBackgroundColor:[[UIColor darkGrayColor] colorWithAlphaComponent:0.3]];
-    [[MZFormSheetPresentationController appearance] setShouldApplyBackgroundBlurEffect:YES];
 
     [MZFormSheetPresentationController registerTransitionClass:[CustomTransition class] forTransitionStyle:MZFormSheetTransitionStyleCustom];
 }

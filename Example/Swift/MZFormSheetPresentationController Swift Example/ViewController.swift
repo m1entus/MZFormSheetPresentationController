@@ -12,7 +12,6 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MZFormSheetPresentationController.appearance().shouldApplyBackgroundBlurEffect = true
         MZFormSheetPresentationController.registerTransitionClass(CustomTransition.self, forTransitionStyle: .Custom)
     }
 

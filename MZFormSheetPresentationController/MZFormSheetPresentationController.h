@@ -73,6 +73,12 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface MZFormSheetPresentationController : UIVie
 @property (nonatomic, assign) CGFloat portraitTopInset MZ_APPEARANCE_SELECTOR;
 
 /**
+ Corner radius of content view
+ By default, this is 5.0
+ */
+@property (nonatomic, assign) CGFloat contentViewCornerRadius MZ_APPEARANCE_SELECTOR;
+
+/**
  Returns whether the form sheet controller should dismiss after background view tap.
  By default, this is NO
  */
