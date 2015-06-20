@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'MZAppearance'
 
-  sp.source_files = 'MZFormSheetPresentationController/**/*.{h,m}'
+  s.source_files = 'MZFormSheetPresentationController/*.{h,m}'
 
   s.platform = :ios, '8.0'
   s.frameworks = 'QuartzCore'
