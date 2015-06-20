@@ -10,5 +10,4 @@
 #import "MZTransition.h"
 
 @interface CustomTransition : NSObject <MZFormSheetPresentationControllerTransitionProtocol>
-
 @end

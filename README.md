@@ -125,6 +125,120 @@ or
 formSheetController.shouldApplyBackgroundBlurEffect = true
 ```
 
+## Transitions
+
+MZFormSheetPresentationController has predefined couple transitions.
+
+Objective-C
+``` objective-c
+typedef NS_ENUM(NSInteger, MZFormSheetTransitionStyle) {
+   MZFormSheetTransitionStyleSlideFromTop = 0,
+   MZFormSheetTransitionStyleSlideFromBottom,
+   MZFormSheetTransitionStyleSlideFromLeft,
+   MZFormSheetTransitionStyleSlideFromRight,
+   MZFormSheetTransitionStyleSlideAndBounceFromLeft,
+   MZFormSheetTransitionStyleSlideAndBounceFromRight,
+   MZFormSheetTransitionStyleFade,
+   MZFormSheetTransitionStyleBounce,
+   MZFormSheetTransitionStyleDropDown,
+   MZFormSheetTransitionStyleCustom,
+   MZFormSheetTransitionStyleNone,
+};
+```
+
+If you want to use them you will have to just assign `contentViewControllerTransitionStyle` property
+
+Objective-C
+``` objective-c
+formSheetController.contentViewControllerTransitionStyle = MZFormSheetTransitionStyleFade;
+```
+
+You can also create your own transition by implementing `MZFormSheetPresentationControllerTransitionProtocol` protocol and register your transition class as a custom style.
+
+Objective-C
+``` objective-c
+@interface CustomTransition : NSObject <MZFormSheetPresentationControllerTransitionProtocol>
+@end
+
+[MZFormSheetPresentationController registerTransitionClass:[CustomTransition class] forTransitionStyle:MZFormSheetTransitionStyleCustom];
+
+formSheetController.contentViewControllerTransitionStyle = MZFormSheetTransitionStyleCustom;
+```
+
+Swift
+```swift
+class CustomTransition: NSObject, MZFormSheetPresentationControllerTransitionProtocol {
+}
+
+MZFormSheetPresentationController.registerTransitionClass(CustomTransition.self, forTransitionStyle: .Custom)
+
+formSheetController.contentViewControllerTransitionStyle = .Custom
+```
+
+if you are creating own transition you have to call completionBlock at the end of animation.
+
+Objective-C
+```objective-c
+- (void)exitFormSheetControllerTransition:(nonnull MZFormSheetPresentationController *)formSheetController
+                        completionHandler:(nonnull MZTransitionCompletionHandler)completionHandler {
+    CGRect formSheetRect = formSheetController.contentViewController.view.frame;
+    formSheetRect.origin.x = formSheetController.view.bounds.size.width;
+
+    [UIView animateWithDuration:0.3
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         formSheetController.contentViewController.view.frame = formSheetRect;
+                     }
+                     completion:^(BOOL finished) {
+                         completionHandler();
+                     }];
+}
+```
+
+Swift
+```swift
+func exitFormSheetControllerTransition(formSheetController: MZFormSheetPresentationController, completionHandler: MZTransitionCompletionHandler) {
+    var formSheetRect = formSheetController.contentViewController!.view.frame
+    formSheetRect.origin.x = formSheetController.view.bounds.size.width
+
+    UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+        formSheetController.contentViewController!.view.frame = formSheetRect
+    }, completion: {(value: Bool)  -> Void in
+        completionHandler()
+    })
+}
+```
+
+## Completion Blocks
+
+``` objective-c
+/**
+ The handler to call when user tap on background view.
+ */
+@property (nonatomic, copy, nullable) MZFormSheetPresentationControllerTapHandler didTapOnBackgroundViewCompletionHandler;
+
+/**
+ The handler to call when presented form sheet is before entry transition and its view will show on window.
+ */
+@property (nonatomic, copy, nullable) MZFormSheetPresentationControllerCompletionHandler willPresentContentViewControllerHandler;
+
+/**
+ The handler to call when presented form sheet is after entry transition animation.
+ */
+@property (nonatomic, copy, nullable) MZFormSheetPresentationControllerCompletionHandler didPresentContentViewControllerHandler;
+
+/**
+ The handler to call when presented form sheet will be dismiss, this is called before out transition animation.
+ */
+@property (nonatomic, copy, nullable) MZFormSheetPresentationControllerCompletionHandler willDismissContentViewControllerHandler;
+
+/**
+ The handler to call when presented form sheet is after dismiss.
+ */
+@property (nonatomic, copy, nullable) MZFormSheetPresentationControllerCompletionHandler didDismissContentViewControllerHandler;
+```
+
 ## Autolayout
 
 MZFormSheetPresentationController supports autolayout.
@@ -134,6 +248,38 @@ MZFormSheetPresentationController supports autolayout.
 MZFormSheetPresentationController supports storyboard.
 
 MZFormSheetPresentationSegue is a custom storyboard segue which use default MZFormSheetPresentationController settings.
+
+If you want to get acces to form sheet controller and pass data using storyboard segue, the code will look like this:
+
+Objective-C
+```objective-c
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"segue"]) {
+        MZFormSheetPresentationControllerSegue *presentationSegue = (id)segue;
+        presentationSegue.formSheetPresentationController.shouldApplyBackgroundBlurEffect = YES;
+        UINavigationController *navigationController = (id)presentationSegue.formSheetPresentationController.contentViewController;
+        PresentedTableViewController *presentedViewController = [navigationController.viewControllers firstObject];
+        presentedViewController.textFieldBecomeFirstResponder = YES;
+        presentedViewController.passingString = @"PASSSED DATA!!";
+    }
+}
+```
+
+Swift
+```swift
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let identifier = segue.identifier {
+        if identifier == "segue" {
+            let presentationSegue = segue as! MZFormSheetPresentationControllerSegue
+            presentationSegue.formSheetPresentationController.shouldApplyBackgroundBlurEffect = true
+            let navigationController = presentationSegue.formSheetPresentationController.contentViewController as! UINavigationController
+            let presentedViewController = navigationController.viewControllers.first as! PresentedTableViewController
+            presentedViewController.textFieldBecomeFirstResponder = true
+            presentedViewController.passingString = "PASSED DATA"
+        }
+    }
+}
+```
 
 ## ARC
 

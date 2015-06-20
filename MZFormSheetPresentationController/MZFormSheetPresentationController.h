@@ -41,7 +41,7 @@ typedef void(^MZFormSheetPresentationControllerCompletionHandler)(UIViewControll
 typedef void(^MZFormSheetPresentationControllerTapHandler)(CGPoint location);
 typedef void(^MZFormSheetPresentationControllerTransitionHandler)();
 
-NS_CLASS_AVAILABLE_IOS(8_0) @interface MZFormSheetPresentationController : UIViewController <MZAppearance, UIViewControllerTransitioningDelegate>
+@interface MZFormSheetPresentationController : UIViewController <MZAppearance, UIViewControllerTransitioningDelegate>
 
 /**
  *  Register custom transition animation style.
