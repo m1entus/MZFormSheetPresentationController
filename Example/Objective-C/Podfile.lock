@@ -1,10 +1,13 @@
 PODS:
+  - JGMethodSwizzler (2.0.1)
   - MZAppearance (1.1.5)
 
 DEPENDENCIES:
+  - JGMethodSwizzler
   - MZAppearance
 
 SPEC CHECKSUMS:
+  JGMethodSwizzler: e0ea5c1c6c55304ec4ef3f54e441400c6735c899
   MZAppearance: 6e9dc64e42074c0a19812a327f590746c3283bab
 
 COCOAPODS: 0.37.2

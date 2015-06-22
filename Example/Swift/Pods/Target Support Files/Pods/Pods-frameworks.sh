@@ -48,8 +48,10 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'JGMethodSwizzler.framework'
   install_framework 'MZAppearance.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework 'JGMethodSwizzler.framework'
   install_framework 'MZAppearance.framework'
 fi

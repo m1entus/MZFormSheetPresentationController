@@ -129,6 +129,13 @@ class ViewController: UITableViewController {
         })
     }
     
+    func transparentBackgroundViewAction() {
+        let viewController = self.storyboard!.instantiateViewControllerWithIdentifier("TransparentViewController") as! UIViewController
+        let formSheetController = MZFormSheetPresentationController(contentViewController: viewController)
+        formSheetController.transparentTouchEnabled = false
+        self.presentViewController(formSheetController, animated: true, completion: nil)
+    }
+    
     // MARK: -
     
     func presentFormSheetControllerWithTransition(transition: Int) {
@@ -165,6 +172,7 @@ class ViewController: UITableViewController {
             case 6: centerVerticallyAction()
             case 7: contentViewShadowAction()
             case 8: twoFormSheetControllersAction()
+            case 9: transparentBackgroundViewAction()
             default: break;
             }
         } else if indexPath.section == 1 {

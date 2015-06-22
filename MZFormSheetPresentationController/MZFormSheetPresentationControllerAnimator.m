@@ -24,8 +24,13 @@
 //  THE SOFTWARE.
 
 #import "MZFormSheetPresentationControllerAnimator.h"
+#import <objc/runtime.h>
 
 CGFloat const MZFormSheetPresentationControllerAnimatorDefaultTransitionDuration = 0.35;
+
+@interface MZFormSheetPresentationControllerAnimator ()
+@property (nonatomic, strong) UIView *transitionContextContainerView;
+@end
 
 @implementation MZFormSheetPresentationControllerAnimator
 
@@ -52,7 +57,9 @@ CGFloat const MZFormSheetPresentationControllerAnimatorDefaultTransitionDuration
 
 - (void)animateTransitionForPresentation:(id<UIViewControllerContextTransitioning>)transitionContext sourceViewController:(UIViewController *)sourceViewController sourceView:(UIView *)sourceView targetViewController:(UIViewController *)targetViewController targetView:(UIView *)targetView {
 
+    
     UIView *containerView = [transitionContext containerView];
+    self.transitionContextContainerView = containerView;
 
     [containerView addSubview:targetView];
     targetView.alpha = 0.0;

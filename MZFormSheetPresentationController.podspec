@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MZFormSheetPresentationController'
-  s.version  = '1.0.0'
+  s.version  = '1.0.1'
   s.license  = 'MIT'
   s.summary  = 'MZFormSheetPresentationController provides an alternative to the native iOS UIModalPresentationFormSheet'
   s.homepage = 'https://github.com/m1entus/MZFormSheetPresentationController'
@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency 'MZAppearance'
+  s.dependency 'JGMethodSwizzler'
 
   s.source_files = 'MZFormSheetPresentationController/*.{h,m}'
 

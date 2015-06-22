@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D2134" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u4B-UJ-VAl">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -157,6 +158,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Two Form Sheet Controllers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1cd-1k-TUy">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="DeW-Rn-qSR" style="IBUITableViewCellStyleDefault" id="4a3-pB-fJi">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4a3-pB-fJi" id="SdQ-1F-7DZ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Transparent background view" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DeW-Rn-qSR">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -537,6 +552,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cuZ-qF-A10" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2366" y="-365"/>
+        </scene>
+        <!--Transparent View Controller-->
+        <scene sceneID="3E1-Gt-8NS">
+            <objects>
+                <viewController storyboardIdentifier="TransparentViewController" id="aRh-1u-P1Q" customClass="TransparentViewController" customModule="MZFormSheetPresentationController_Swift_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3SU-NW-nBF"/>
+                        <viewControllerLayoutGuide type="bottom" id="PLo-B3-pCl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d35-68-cir">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bh3-ag-6k3">
+                                <rect key="frame" x="16" y="109" width="568" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8zH-Xp-gae"/>
+                                </constraints>
+                                <state key="normal" title="Dismiss">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss" destination="aRh-1u-P1Q" eventType="touchUpInside" id="UCE-Rl-tkj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODu-zO-ebF">
+                                <rect key="frame" x="16" y="71" width="568" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="t7u-xn-39D"/>
+                                </constraints>
+                                <state key="normal" title="Turn Off Transparent Background View">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="turnOffTransparencyButtonTapped" destination="aRh-1u-P1Q" eventType="touchUpInside" id="Vu3-CI-aSs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdg-R6-cxm">
+                                <rect key="frame" x="16" y="33" width="568" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="D2g-7M-PQu"/>
+                                </constraints>
+                                <state key="normal" title="Turn On Transparent Background View">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="turnOnTransparencyButtonTapped" destination="aRh-1u-P1Q" eventType="touchUpInside" id="edZ-H6-b6e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ODu-zO-ebF" firstAttribute="trailing" secondItem="d35-68-cir" secondAttribute="trailingMargin" id="AUK-uV-bfO"/>
+                            <constraint firstItem="Bh3-ag-6k3" firstAttribute="leading" secondItem="d35-68-cir" secondAttribute="leadingMargin" id="EZM-Ch-1K8"/>
+                            <constraint firstItem="Bh3-ag-6k3" firstAttribute="trailing" secondItem="d35-68-cir" secondAttribute="trailingMargin" id="Iou-nI-2rs"/>
+                            <constraint firstItem="zdg-R6-cxm" firstAttribute="top" secondItem="3SU-NW-nBF" secondAttribute="bottom" constant="13" id="QNS-3q-DTf"/>
+                            <constraint firstItem="zdg-R6-cxm" firstAttribute="trailing" secondItem="d35-68-cir" secondAttribute="trailingMargin" id="S5t-Zd-c75"/>
+                            <constraint firstItem="zdg-R6-cxm" firstAttribute="leading" secondItem="d35-68-cir" secondAttribute="leadingMargin" id="SXj-Pp-dVS"/>
+                            <constraint firstItem="ODu-zO-ebF" firstAttribute="top" secondItem="zdg-R6-cxm" secondAttribute="bottom" constant="8" id="ocJ-K0-KJg"/>
+                            <constraint firstItem="Bh3-ag-6k3" firstAttribute="top" secondItem="ODu-zO-ebF" secondAttribute="bottom" constant="8" id="rCr-zb-abA"/>
+                            <constraint firstItem="ODu-zO-ebF" firstAttribute="leading" secondItem="d35-68-cir" secondAttribute="leadingMargin" id="s0I-2r-Fig"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DLH-BI-WtY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2366" y="323"/>
         </scene>
     </scenes>
 </document>

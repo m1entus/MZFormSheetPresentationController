@@ -6,6 +6,12 @@
 // project.
 
 
+// JGMethodSwizzler
+#define COCOAPODS_POD_AVAILABLE_JGMethodSwizzler
+#define COCOAPODS_VERSION_MAJOR_JGMethodSwizzler 2
+#define COCOAPODS_VERSION_MINOR_JGMethodSwizzler 0
+#define COCOAPODS_VERSION_PATCH_JGMethodSwizzler 1
+
 // MZAppearance
 #define COCOAPODS_POD_AVAILABLE_MZAppearance
 #define COCOAPODS_VERSION_MAJOR_MZAppearance 1

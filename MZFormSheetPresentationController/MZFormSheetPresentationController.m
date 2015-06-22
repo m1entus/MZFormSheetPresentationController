@@ -26,6 +26,7 @@
 #import "MZFormSheetPresentationController.h"
 #import "UIViewController+TargetViewController.h"
 #import "MZFormSheetPresentationControllerAnimator.h"
+#import <JGMethodSwizzler/JGMethodSwizzler.h>
 
 CGFloat const MZFormSheetPresentationControllerDefaultAnimationDuration = 0.35;
 
@@ -39,6 +40,7 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 @property (nonatomic, assign, getter=isKeyboardVisible) BOOL keyboardVisible;
 @property (nonatomic, strong) NSValue *screenFrameWhenKeyboardVisible;
 @property (nonatomic, strong) UIVisualEffectView *blurBackgroundView;
+@property (nonatomic, strong) MZFormSheetPresentationControllerAnimator *animator;
 @end
 
 @implementation MZFormSheetPresentationController
@@ -46,6 +48,8 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 #pragma mark - Dealloc
 
 - (void)dealloc {
+    [self turnOffTransparentTouch];
+    
     [self.view removeGestureRecognizer:self.backgroundTapGestureRecognizer];
     self.backgroundTapGestureRecognizer = nil;
 
@@ -96,9 +100,28 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 
 #pragma mark - Setters
 
+- (void)setTransparentTouchEnabled:(BOOL)transparentTouchEnabled {
+    if (_transparentTouchEnabled != transparentTouchEnabled) {
+        _transparentTouchEnabled = transparentTouchEnabled;
+        if (_transparentTouchEnabled) {
+            [self turnOnTransparentTouch];
+        } else {
+            [self turnOffTransparentTouch];
+        }
+    }
+}
+
+- (void)setBackgroundColor:(UIColor * __nullable)backgroundColor {
+    _backgroundColor = backgroundColor;
+    self.view.backgroundColor = _backgroundColor;
+}
+
 - (void)setShouldApplyBackgroundBlurEffect:(BOOL)shouldApplyBackgroundBlurEffect {
-    _shouldApplyBackgroundBlurEffect = shouldApplyBackgroundBlurEffect;
-    self.backgroundColor = [UIColor clearColor];
+    if (_shouldApplyBackgroundBlurEffect != shouldApplyBackgroundBlurEffect) {
+        _shouldApplyBackgroundBlurEffect = shouldApplyBackgroundBlurEffect;
+        self.backgroundColor = [UIColor clearColor];
+        [self setupBackgroundBlurView];
+    }
 }
 
 - (void)setContentViewSize:(CGSize)contentViewSize {
@@ -178,9 +201,40 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
     [self handleEntryTransitionAnimated:animated];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (self.transparentTouchEnabled) {
+        [self turnOffTransparentTouch];
+        [self turnOnTransparentTouch];
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self handleOutTransitionAnimated:animated];
+}
+
+#pragma mark - Swizzle
+
+- (void)turnOnTransparentTouch {
+    __weak typeof(self) weakSelf = self;
+    if (self.animator.transitionContextContainerView) {
+        [self.animator.transitionContextContainerView swizzleMethod:@selector(pointInside:withEvent:) withReplacement:JGMethodReplacementProviderBlock {
+            return JGMethodReplacement(BOOL, UIView *, CGPoint point, UIEvent *event) {
+                if (!CGRectContainsPoint(weakSelf.contentViewController.view.frame, point)){
+                    return NO;
+                }
+                return YES;
+            };
+        }];
+    }
+}
+
+- (void)turnOffTransparentTouch {
+    if (self.animator.transitionContextContainerView) {
+        [self.animator.transitionContextContainerView deswizzleMethod:@selector(pointInside:withEvent:)];
+    }
 }
 
 #pragma mark - Transitions
@@ -471,15 +525,30 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 #pragma mark - <UIViewControllerTransitioningDelegate>
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    MZFormSheetPresentationControllerAnimator *animator = [[MZFormSheetPresentationControllerAnimator alloc] init];
-    animator.presenting = YES;
-    return animator;
+    self.animator = [[MZFormSheetPresentationControllerAnimator alloc] init];
+    self.animator.presenting = YES;
+    return self.animator;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    MZFormSheetPresentationControllerAnimator *animator = [[MZFormSheetPresentationControllerAnimator alloc] init];
-    animator.presenting = NO;
-    return animator;
+    self.animator.presenting = NO;
+    return self.animator;
 }
 
+@end
+
+@implementation UIViewController (MZFormSheetPresentationController)
+- (nullable MZFormSheetPresentationController *)mz_formSheetPresentingPresentationController {
+    if ([self.presentingViewController.presentedViewController isKindOfClass:[MZFormSheetPresentationController class]]) {
+        return (MZFormSheetPresentationController *)self.presentingViewController.presentedViewController;
+    }
+    return nil;
+}
+
+- (nullable MZFormSheetPresentationController *)mz_formSheetPresentedPresentationController {
+    if ([self.presentedViewController isKindOfClass:[MZFormSheetPresentationController class]]) {
+        return (MZFormSheetPresentationController *)self.presentedViewController;
+    }
+    return nil;
+}
 @end

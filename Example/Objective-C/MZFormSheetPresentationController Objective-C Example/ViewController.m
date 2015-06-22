@@ -145,6 +145,14 @@
     }];
 }
 
+- (void)transparentBackgroundViewAction {
+    UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TransparentViewController"];
+    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:viewController];
+    formSheetController.transparentTouchEnabled = NO;
+    
+    [self presentViewController:formSheetController animated:YES completion:nil];
+}
+
 - (void)presentFormSheetControllerWithTransition:(NSInteger)transition {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
@@ -182,6 +190,7 @@
             case 6: [self centerVerticallyAction]; break;
             case 7: [self contentViewShadowAction]; break;
             case 8: [self twoFormSheetControllersAction]; break;
+            case 9: [self transparentBackgroundViewAction]; break;
             default:
                 break;
         }

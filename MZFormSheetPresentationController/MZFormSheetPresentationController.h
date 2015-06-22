@@ -97,6 +97,14 @@ typedef void(^MZFormSheetPresentationControllerTransitionHandler)();
 @property (nonatomic, assign) BOOL shouldCenterVertically MZ_APPEARANCE_SELECTOR;
 
 /**
+ Returns whether the background view be touch transparent.
+ If transparent is set to YES, background view will not recive touch and didTapOnBackgroundViewCompletionHandler will not be called.
+ Also will not be possible to dismiss form sheet on background tap.
+ By default, this is NO.
+ */
+@property (nonatomic, assign, getter = isTransparentTouchEnabled) BOOL transparentTouchEnabled MZ_APPEARANCE_SELECTOR;
+
+/**
  The transition style to use when presenting the receiver.
  By default, this is MZFormSheetTransitionStyleSlideFromTop.
  */
@@ -157,5 +165,9 @@ typedef void(^MZFormSheetPresentationControllerTransitionHandler)();
  */
 - (nonnull instancetype)initWithContentViewController:(UIViewController * __nonnull )viewController;
 
+@end
 
+@interface UIViewController (MZFormSheetPresentationController)
+- (nullable MZFormSheetPresentationController *)mz_formSheetPresentingPresentationController;
+- (nullable MZFormSheetPresentationController *)mz_formSheetPresentedPresentationController;
 @end

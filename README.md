@@ -210,6 +210,22 @@ func exitFormSheetControllerTransition(formSheetController: MZFormSheetPresentat
 }
 ```
 
+## Transparent Touch Background
+
+If you want to have access to the controller that is below MZFormSheetPresentationController, you can set property `transparentTouchEnabled` and background view controller will get all touches.
+
+Objective-C
+```objective-c
+MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:viewController];
+formSheetController.transparentTouchEnabled = YES;
+```
+
+Swift
+```swift
+let formSheetController = MZFormSheetPresentationController(contentViewController: viewController)
+formSheetController.transparentTouchEnabled = true
+```
+
 ## Completion Blocks
 
 ``` objective-c

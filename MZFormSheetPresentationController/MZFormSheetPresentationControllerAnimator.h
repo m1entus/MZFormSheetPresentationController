@@ -30,4 +30,5 @@ extern CGFloat const MZFormSheetPresentationControllerAnimatorDefaultTransitionD
 @interface MZFormSheetPresentationControllerAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 @property (nonatomic, assign) CGFloat duration;
 @property (nonatomic, assign, getter=isPresenting) BOOL presenting;
+@property (nonatomic, readonly) UIView *transitionContextContainerView;
 @end
