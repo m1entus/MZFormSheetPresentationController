@@ -26,18 +26,18 @@
 #import "MZTransition.h"
 #import "MZFormSheetPresentationController.h"
 
-NSString *const MZTransitionExceptionMethodNotImplemented = @"MZTransitionExceptionMethodNotImplemented";
+NSString *const MZPresentationTransitionExceptionMethodNotImplemented = @"MZTransitionExceptionMethodNotImplemented";
 
-CGFloat const MZTransitionDefaultBounceDuration = 0.4;
-CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
+CGFloat const MZPresentationTransitionDefaultBounceDuration = 0.4;
+CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
 
 @implementation MZTransition
 
 - (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
-    [NSException raise:MZTransitionExceptionMethodNotImplemented format:@"-[%@ entryFormSheetControllerTransition:completionHandler:] must be implemented", NSStringFromClass([self class])];
+    [NSException raise:MZPresentationTransitionExceptionMethodNotImplemented format:@"-[%@ entryFormSheetControllerTransition:completionHandler:] must be implemented", NSStringFromClass([self class])];
 }
 - (void)exitFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
-    [NSException raise:MZTransitionExceptionMethodNotImplemented format:@"-[%@ exitFormSheetControllerTransition:completionHandler:] must be implemented", NSStringFromClass([self class])];
+    [NSException raise:MZPresentationTransitionExceptionMethodNotImplemented format:@"-[%@ exitFormSheetControllerTransition:completionHandler:] must be implemented", NSStringFromClass([self class])];
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
@@ -49,10 +49,10 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
 
 @end
 
-@interface MZSlideFromTopTransition : MZTransition
+@interface MZPresentationSlideFromTopTransition : MZTransition
 @end
 
-@implementation MZSlideFromTopTransition
+@implementation MZPresentationSlideFromTopTransition
 + (void)load {
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromTop];
 }
@@ -84,10 +84,10 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
 }
 @end
 
-@interface MZSlideFromBottomTransition : MZTransition
+@interface MZPresentationSlideFromBottomTransition : MZTransition
 @end
 
-@implementation MZSlideFromBottomTransition
+@implementation MZPresentationSlideFromBottomTransition
 + (void)load {
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromBottom];
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromBottom];
@@ -122,10 +122,10 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
 }
 @end
 
-@interface MZSlideFromLeftTransition : MZTransition
+@interface MZPresentationSlideFromLeftTransition : MZTransition
 @end
 
-@implementation MZSlideFromLeftTransition
+@implementation MZPresentationSlideFromLeftTransition
 + (void)load {
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromLeft];
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromLeft];
@@ -158,10 +158,10 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
 }
 @end
 
-@interface MZSlideFromRightTransition : MZTransition
+@interface MZPresentationSlideFromRightTransition : MZTransition
 @end
 
-@implementation MZSlideFromRightTransition
+@implementation MZPresentationSlideFromRightTransition
 + (void)load {
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromRight];
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromRight];
@@ -194,10 +194,10 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
 }
 @end
 
-@interface MZSlideBounceFromLeftTransition : MZTransition
+@interface MZPresentationSlideBounceFromLeftTransition : MZTransition
 @end
 
-@implementation MZSlideBounceFromLeftTransition
+@implementation MZPresentationSlideBounceFromLeftTransition
 + (void)load {
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:
      MZFormSheetPresentationTransitionStylelideAndBounceFromLeft];
@@ -210,7 +210,7 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
     animation.values = @[ @(x - formSheetController.view.bounds.size.width), @(x + 20), @(x - 10), @(x) ];
     animation.keyTimes = @[ @(0), @(0.5), @(0.75), @(1) ];
     animation.timingFunctions = @[ [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut] ];
-    animation.duration = MZTransitionDefaultDropDownDuration;
+    animation.duration = MZPresentationTransitionDefaultDropDownDuration;
     animation.delegate = self;
     [animation setValue:completionHandler forKey:@"completionHandler"];
     [formSheetController.contentViewController.view.layer addAnimation:animation forKey:@"bounceLeft"];
@@ -229,10 +229,10 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
 }
 @end
 
-@interface MZSlideBounceFromRightTransition : MZTransition
+@interface MZPresentationSlideBounceFromRightTransition : MZTransition
 @end
 
-@implementation MZSlideBounceFromRightTransition
+@implementation MZPresentationSlideBounceFromRightTransition
 + (void)load {
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideAndBounceFromRight];
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideAndBounceFromRight];
@@ -244,7 +244,7 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
     animation.values = @[ @(x + formSheetController.view.bounds.size.width), @(x - 20), @(x + 10), @(x) ];
     animation.keyTimes = @[ @(0), @(0.5), @(0.75), @(1) ];
     animation.timingFunctions = @[ [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut] ];
-    animation.duration = MZTransitionDefaultBounceDuration;
+    animation.duration = MZPresentationTransitionDefaultBounceDuration;
     animation.delegate = self;
     [animation setValue:completionHandler forKey:@"completionHandler"];
     [formSheetController.contentViewController.view.layer addAnimation:animation forKey:@"bounceRight"];
@@ -263,10 +263,10 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
 }
 @end
 
-@interface MZFadeTransition : MZTransition
+@interface MZPresentationFadeTransition : MZTransition
 @end
 
-@implementation MZFadeTransition
+@implementation MZPresentationFadeTransition
 + (void)load {
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleFade];
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleFade];
@@ -294,10 +294,10 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
 }
 @end
 
-@interface MZBounceTransition : MZTransition
+@interface MZPresentationBounceTransition : MZTransition
 @end
 
-@implementation MZBounceTransition
+@implementation MZPresentationBounceTransition
 + (void)load {
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleBounce];
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleBounce];
@@ -306,7 +306,7 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
 - (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     bounceAnimation.fillMode = kCAFillModeBoth;
-    bounceAnimation.duration = MZTransitionDefaultBounceDuration;
+    bounceAnimation.duration = MZPresentationTransitionDefaultBounceDuration;
     bounceAnimation.removedOnCompletion = YES;
     bounceAnimation.values = @[
         [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.01f, 0.01f, 0.01f)],
@@ -342,10 +342,10 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
 }
 @end
 
-@interface MZDropDownTransition : MZTransition
+@interface MZPresentationDropDownTransition : MZTransition
 @end
 
-@implementation MZDropDownTransition
+@implementation MZPresentationDropDownTransition
 + (void)load {
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleDropDown];
     [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleDropDown];
@@ -357,7 +357,7 @@ CGFloat const MZTransitionDefaultDropDownDuration = 0.4;
     animation.values = @[ @(y - formSheetController.view.bounds.size.height), @(y + 20), @(y - 10), @(y) ];
     animation.keyTimes = @[ @(0), @(0.5), @(0.75), @(1) ];
     animation.timingFunctions = @[ [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut] ];
-    animation.duration = MZTransitionDefaultDropDownDuration;
+    animation.duration = MZPresentationTransitionDefaultDropDownDuration;
     animation.delegate = self;
     [animation setValue:completionHandler forKey:@"completionHandler"];
     [formSheetController.contentViewController.view.layer addAnimation:animation forKey:@"dropdown"];
