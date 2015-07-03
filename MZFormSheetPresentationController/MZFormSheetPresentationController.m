@@ -63,11 +63,11 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 
 #pragma mark - Class methods
 
-+ (void)registerTransitionClass:(Class)transitionClass forTransitionStyle:(MZFormSheetTransitionStyle)transitionStyle {
++ (void)registerTransitionClass:(Class)transitionClass forTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle {
     [[MZFormSheetPresentationController sharedTransitionClasses] setObject:transitionClass forKey:@(transitionStyle)];
 }
 
-+ (Class)classForTransitionStyle:(MZFormSheetTransitionStyle)transitionStyle {
++ (Class)classForTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle {
     return [MZFormSheetPresentationController sharedTransitionClasses][@(transitionStyle)];
 }
 

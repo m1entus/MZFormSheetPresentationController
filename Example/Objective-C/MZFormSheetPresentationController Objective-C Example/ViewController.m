@@ -24,7 +24,7 @@
     // Set Default Background collor for all presentation controllers
     [[MZFormSheetPresentationController appearance] setBackgroundColor:[[UIColor darkGrayColor] colorWithAlphaComponent:0.3]];
 
-    [MZFormSheetPresentationController registerTransitionClass:[CustomTransition class] forTransitionStyle:MZFormSheetTransitionStyleCustom];
+    [MZFormSheetPresentationController registerTransitionClass:[CustomTransition class] forTransitionStyle:MZFormSheetPresentationTransitionStyleCustom];
 }
 
 - (UINavigationController *)formSheetControllerWithNavigationController {
@@ -157,9 +157,9 @@
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
     formSheetController.shouldDismissOnBackgroundViewTap = YES;
-    formSheetController.contentViewControllerTransitionStyle = (MZFormSheetTransitionStyle)transition;
+    formSheetController.contentViewControllerTransitionStyle = (MZFormSheetPresentationTransitionStyle)transition;
     
-    [self presentViewController:formSheetController animated:(transition != MZFormSheetTransitionStyleNone) completion:nil];
+    [self presentViewController:formSheetController animated:(transition != MZFormSheetPresentationTransitionStyleNone) completion:nil];
 }
 
 - (void)presentFormSheetControllerWithKeyboardMovement:(NSInteger)movementOption {
@@ -167,7 +167,7 @@
     MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
     formSheetController.shouldDismissOnBackgroundViewTap = YES;
     formSheetController.movementActionWhenKeyboardAppears = (MZFormSheetActionWhenKeyboardAppears)movementOption;
-    formSheetController.contentViewControllerTransitionStyle = MZFormSheetTransitionStyleFade;
+    formSheetController.contentViewControllerTransitionStyle = MZFormSheetPresentationTransitionStyleFade;
     PresentedTableViewController *presentedViewController = [navigationController.viewControllers firstObject];
     presentedViewController.textFieldBecomeFirstResponder = YES;
     
