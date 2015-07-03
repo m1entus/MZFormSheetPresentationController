@@ -50,9 +50,9 @@ typedef void(^MZFormSheetPresentationControllerTransitionHandler)();
  *  @param transitionClass Custom transition class.
  *  @param transitionStyle The transition style to use when presenting the receiver.
  */
-+ (void)registerTransitionClass:(Class __nonnull)transitionClass forTransitionStyle:(MZFormSheetTransitionStyle)transitionStyle;
++ (void)registerTransitionClass:(Class __nonnull)transitionClass forTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle;
 
-+ (nullable Class)classForTransitionStyle:(MZFormSheetTransitionStyle)transitionStyle;
++ (nullable Class)classForTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle;
 /**
  *  The view controller responsible for the content portion of the popup.
  */
@@ -106,9 +106,9 @@ typedef void(^MZFormSheetPresentationControllerTransitionHandler)();
 
 /**
  The transition style to use when presenting the receiver.
- By default, this is MZFormSheetTransitionStyleSlideFromTop.
+ By default, this is MZFormSheetPresentationTransitionStyleSlideFromTop.
  */
-@property (nonatomic, assign) MZFormSheetTransitionStyle contentViewControllerTransitionStyle MZ_APPEARANCE_SELECTOR;
+@property (nonatomic, assign) MZFormSheetPresentationTransitionStyle contentViewControllerTransitionStyle MZ_APPEARANCE_SELECTOR;
 
 /**
  The movement action to use when the keyboard appears.

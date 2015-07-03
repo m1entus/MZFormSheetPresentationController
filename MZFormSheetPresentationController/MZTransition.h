@@ -33,18 +33,18 @@ typedef void (^MZTransitionCompletionHandler)();
 
 @class MZFormSheetPresentationController;
 
-typedef NS_ENUM(NSInteger, MZFormSheetTransitionStyle) {
-  MZFormSheetTransitionStyleSlideFromTop = 0,
-  MZFormSheetTransitionStyleSlideFromBottom,
-  MZFormSheetTransitionStyleSlideFromLeft,
-  MZFormSheetTransitionStyleSlideFromRight,
-  MZFormSheetTransitionStyleSlideAndBounceFromLeft,
-  MZFormSheetTransitionStyleSlideAndBounceFromRight,
-  MZFormSheetTransitionStyleFade,
-  MZFormSheetTransitionStyleBounce,
-  MZFormSheetTransitionStyleDropDown,
-  MZFormSheetTransitionStyleCustom,
-  MZFormSheetTransitionStyleNone,
+typedef NS_ENUM(NSInteger, MZFormSheetPresentationTransitionStyle) {
+  MZFormSheetPresentationTransitionStyleSlideFromTop = 0,
+  MZFormSheetPresentationTransitionStyleSlideFromBottom,
+  MZFormSheetPresentationTransitionStyleSlideFromLeft,
+  MZFormSheetPresentationTransitionStyleSlideFromRight,
+  MZFormSheetPresentationTransitionStylelideAndBounceFromLeft,
+  MZFormSheetPresentationTransitionStyleSlideAndBounceFromRight,
+  MZFormSheetPresentationTransitionStyleFade,
+  MZFormSheetPresentationTransitionStyleBounce,
+  MZFormSheetPresentationTransitionStyleDropDown,
+  MZFormSheetPresentationTransitionStyleCustom,
+  MZFormSheetPresentationTransitionStyleNone,
 };
 
 @protocol MZFormSheetPresentationControllerTransitionProtocol <NSObject>
