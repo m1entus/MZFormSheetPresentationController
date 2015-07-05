@@ -27,6 +27,7 @@
 #import "UIViewController+TargetViewController.h"
 #import "MZFormSheetPresentationControllerAnimator.h"
 #import <JGMethodSwizzler/JGMethodSwizzler.h>
+#import "MZBlurEffect.h"
 
 CGFloat const MZFormSheetPresentationControllerDefaultAnimationDuration = 0.35;
 
@@ -124,6 +125,18 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
     }
 }
 
+- (void)setBlurEffectStyle:(UIBlurEffectStyle)blurEffectStyle {
+    if (_blurEffectStyle != blurEffectStyle) {
+        _blurEffectStyle = blurEffectStyle;
+        if (self.shouldApplyBackgroundBlurEffect) {
+            MZBlurEffect *blurEffect = (MZBlurEffect *)self.blurBackgroundView.effect;
+            if (blurEffectStyle != blurEffect.blurEffectStyle) {
+                [self setupBackgroundBlurView];
+            }
+        }
+    }
+}
+
 - (void)setContentViewSize:(CGSize)contentViewSize {
     if (!CGSizeEqualToSize(_contentViewSize, contentViewSize)) {
         _contentViewSize = CGSizeMake(nearbyintf(contentViewSize.width), nearbyintf(contentViewSize.height));
@@ -142,8 +155,8 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
     _contentViewCornerRadius = contentViewCornerRadius;
     if (_contentViewCornerRadius > 0) {
         self.contentViewController.view.layer.masksToBounds = YES;
-        self.contentViewController.view.layer.cornerRadius = _contentViewCornerRadius;
     }
+    self.contentViewController.view.layer.cornerRadius = _contentViewCornerRadius;
 }
 
 #pragma mark - Getters
@@ -333,7 +346,7 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 
     if (self.shouldApplyBackgroundBlurEffect) {
 
-        UIVisualEffect *visualEffect = [UIBlurEffect effectWithStyle:self.blurEffectStyle];
+        UIVisualEffect *visualEffect = [MZBlurEffect effectWithStyle:self.blurEffectStyle];
         self.blurBackgroundView = [[UIVisualEffectView alloc] initWithEffect:visualEffect];
 
         self.blurBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
