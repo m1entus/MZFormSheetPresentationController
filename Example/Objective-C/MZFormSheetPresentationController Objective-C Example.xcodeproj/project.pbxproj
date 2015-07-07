@@ -23,6 +23,7 @@
 		643ED5D51B332A02004663AF /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5D01B332A02004663AF /* UIViewController+TargetViewController.m */; };
 		6494BD391B33344700C331EE /* PresentedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD381B33344700C331EE /* PresentedTableViewController.m */; };
 		6494BD3C1B33355B00C331EE /* CustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD3B1B33355B00C331EE /* CustomTransition.m */; };
+		D2BC83911B4C05DC00BCAE95 /* MZBlurEffectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BC83901B4C05DC00BCAE95 /* MZBlurEffectAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		6494BD381B33344700C331EE /* PresentedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentedTableViewController.m; sourceTree = "<group>"; };
 		6494BD3A1B33355B00C331EE /* CustomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTransition.h; sourceTree = "<group>"; };
 		6494BD3B1B33355B00C331EE /* CustomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTransition.m; sourceTree = "<group>"; };
+		D2BC838F1B4C05DC00BCAE95 /* MZBlurEffectAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZBlurEffectAdapter.h; sourceTree = "<group>"; };
+		D2BC83901B4C05DC00BCAE95 /* MZBlurEffectAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZBlurEffectAdapter.m; sourceTree = "<group>"; };
 		DF6D3FC74FB8A87B637F99AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,6 +163,8 @@
 		643ED5C61B3329E5004663AF /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
+				D2BC838F1B4C05DC00BCAE95 /* MZBlurEffectAdapter.h */,
+				D2BC83901B4C05DC00BCAE95 /* MZBlurEffectAdapter.m */,
 				643ED5C71B332A02004663AF /* MZFormSheetPresentationController.h */,
 				643ED5C81B332A02004663AF /* MZFormSheetPresentationController.m */,
 				643ED5C91B332A02004663AF /* MZFormSheetPresentationControllerAnimator.h */,
@@ -333,6 +338,7 @@
 				643ED5A61B3329A2004663AF /* AppDelegate.m in Sources */,
 				643ED5D11B332A02004663AF /* MZFormSheetPresentationController.m in Sources */,
 				643ED5D21B332A02004663AF /* MZFormSheetPresentationControllerAnimator.m in Sources */,
+				D2BC83911B4C05DC00BCAE95 /* MZBlurEffectAdapter.m in Sources */,
 				640560971B389D3700CE2950 /* TransparentViewController.m in Sources */,
 				643ED5D31B332A02004663AF /* MZFormSheetPresentationControllerSegue.m in Sources */,
 				6494BD3C1B33355B00C331EE /* CustomTransition.m in Sources */,

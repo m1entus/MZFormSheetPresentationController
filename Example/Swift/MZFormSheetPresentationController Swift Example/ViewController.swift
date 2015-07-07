@@ -12,7 +12,7 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MZFormSheetPresentationController.registerTransitionClass(CustomTransition.self, forTransitionStyle: .Custom)
+        MZFormSheetPresentationController.registerTransitionClass(CustomTransition.self, forTransitionStyle: MZFormSheetPresentationTransitionStyle.StyleCustom)
     }
 
     func formSheetControllerWithNavigationController() -> UINavigationController {
@@ -58,7 +58,7 @@ class ViewController: UITableViewController {
         let navigationController = self.formSheetControllerWithNavigationController()
         let formSheetController = MZFormSheetPresentationController(contentViewController: navigationController)
         formSheetController.shouldApplyBackgroundBlurEffect = true
-        formSheetController.blurEffectStyle = UIBlurEffectStyle.Light
+        formSheetController.blurEffectStyle = UIBlurEffectStyle.Dark
         
         self.presentViewController(formSheetController, animated: true, completion: nil)
     }
@@ -142,9 +142,9 @@ class ViewController: UITableViewController {
         let navigationController = self.formSheetControllerWithNavigationController()
         let formSheetController = MZFormSheetPresentationController(contentViewController: navigationController)
         formSheetController.shouldDismissOnBackgroundViewTap = true
-        formSheetController.contentViewControllerTransitionStyle = MZFormSheetTransitionStyle(rawValue: transition)!
+        formSheetController.contentViewControllerTransitionStyle = MZFormSheetPresentationTransitionStyle(rawValue: transition)!
         
-        self.presentViewController(formSheetController, animated: MZFormSheetTransitionStyle(rawValue: transition)! != .None, completion: nil)
+        self.presentViewController(formSheetController, animated: MZFormSheetPresentationTransitionStyle(rawValue: transition)! != .None, completion: nil)
     }
     
     func presentFormSheetControllerWithKeyboardMovement(movementOption: Int) {
@@ -152,7 +152,7 @@ class ViewController: UITableViewController {
         let formSheetController = MZFormSheetPresentationController(contentViewController: navigationController)
         formSheetController.shouldApplyBackgroundBlurEffect = true
         formSheetController.movementActionWhenKeyboardAppears = MZFormSheetActionWhenKeyboardAppears(rawValue: movementOption)!
-        formSheetController.contentViewControllerTransitionStyle = .Fade
+        formSheetController.contentViewControllerTransitionStyle = MZFormSheetPresentationTransitionStyle.StyleFade
         let presentedViewController = navigationController.viewControllers.first as! PresentedTableViewController
         presentedViewController.textFieldBecomeFirstResponder = true
         

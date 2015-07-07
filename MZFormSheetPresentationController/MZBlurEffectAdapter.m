@@ -1,5 +1,5 @@
 //
-//  MZBlurEffectStyle.h
+//  MZBlurEffectStyle.m
 //  MZFormSheetPresentationController Objective-C Example
 //
 //  Created by Michał Zaborowski on 24.02.2015.
@@ -23,8 +23,21 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-@import UIKit;
+#import "MZBlurEffectAdapter.h"
+#import <objc/runtime.h>
 
-@interface MZBlurEffect : UIBlurEffect
-@property (nonatomic, readonly) UIBlurEffectStyle blurEffectStyle;
+@interface MZBlurEffectAdapter ()
+@property (nonatomic, strong) UIBlurEffect *blurEffect;
+@property (nonatomic, assign) UIBlurEffectStyle blurEffectStyle;
+@end
+
+@implementation MZBlurEffectAdapter
+
++ (instancetype)effectWithStyle:(UIBlurEffectStyle)style {
+    MZBlurEffectAdapter *result = [[[self class] alloc] init];
+    result.blurEffect = [UIBlurEffect effectWithStyle:style];
+    result.blurEffectStyle = style;
+    return result;
+}
+
 @end

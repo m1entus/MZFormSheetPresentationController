@@ -68,7 +68,7 @@
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
     formSheetController.shouldApplyBackgroundBlurEffect = YES;
-    formSheetController.blurEffectStyle = UIBlurEffectStyleLight;
+    formSheetController.blurEffectStyle = UIBlurEffectStyleDark;
     // To set blur effect color, but uglty animation
 //    formSheetController.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
     

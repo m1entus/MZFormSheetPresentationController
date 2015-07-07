@@ -27,7 +27,7 @@
 #import "UIViewController+TargetViewController.h"
 #import "MZFormSheetPresentationControllerAnimator.h"
 #import <JGMethodSwizzler/JGMethodSwizzler.h>
-#import "MZBlurEffect.h"
+#import "MZBlurEffectAdapter.h"
 
 CGFloat const MZFormSheetPresentationControllerDefaultAnimationDuration = 0.35;
 
@@ -42,6 +42,7 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 @property (nonatomic, strong) NSValue *screenFrameWhenKeyboardVisible;
 @property (nonatomic, strong) UIVisualEffectView *blurBackgroundView;
 @property (nonatomic, strong) MZFormSheetPresentationControllerAnimator *animator;
+@property (nonatomic, strong) MZBlurEffectAdapter *blurEffectAdapter;
 @end
 
 @implementation MZFormSheetPresentationController
@@ -112,6 +113,11 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
     }
 }
 
+- (void)setShouldCenterVertically:(BOOL)shouldCenterVertically {
+    _shouldCenterVertically = shouldCenterVertically;
+    [self setupFormSheetViewControllerFrame];
+}
+
 - (void)setBackgroundColor:(UIColor * __nullable)backgroundColor {
     _backgroundColor = backgroundColor;
     self.view.backgroundColor = _backgroundColor;
@@ -129,7 +135,7 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
     if (_blurEffectStyle != blurEffectStyle) {
         _blurEffectStyle = blurEffectStyle;
         if (self.shouldApplyBackgroundBlurEffect) {
-            MZBlurEffect *blurEffect = (MZBlurEffect *)self.blurBackgroundView.effect;
+            MZBlurEffectAdapter *blurEffect = self.blurEffectAdapter;
             if (blurEffectStyle != blurEffect.blurEffectStyle) {
                 [self setupBackgroundBlurView];
             }
@@ -346,7 +352,8 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 
     if (self.shouldApplyBackgroundBlurEffect) {
 
-        UIVisualEffect *visualEffect = [MZBlurEffect effectWithStyle:self.blurEffectStyle];
+        self.blurEffectAdapter = [MZBlurEffectAdapter effectWithStyle:self.blurEffectStyle];
+        UIVisualEffect *visualEffect = self.blurEffectAdapter.blurEffect;
         self.blurBackgroundView = [[UIVisualEffectView alloc] initWithEffect:visualEffect];
 
         self.blurBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
