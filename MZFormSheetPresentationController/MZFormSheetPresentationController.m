@@ -118,6 +118,12 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
     [self setupFormSheetViewControllerFrame];
 }
 
+- (void)setPortraitTopInset:(CGFloat)portraitTopInset
+{
+    _portraitTopInset = portraitTopInset;
+    [self setupFormSheetViewControllerFrame];
+}
+
 - (void)setBackgroundColor:(UIColor * __nullable)backgroundColor {
     _backgroundColor = backgroundColor;
     self.view.backgroundColor = _backgroundColor;
