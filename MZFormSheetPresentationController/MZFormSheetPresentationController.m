@@ -540,10 +540,13 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     
-    [self setupFormSheetViewControllerFrame];
-
-    [self.contentViewController viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+         [self setupFormSheetViewControllerFrame];
+         [self.contentViewController viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+         
+     } completion:nil];
+
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
