@@ -54,7 +54,6 @@
 		643ED5CE1B332A02004663AF /* MZTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTransition.m; sourceTree = "<group>"; };
 		643ED5CF1B332A02004663AF /* UIViewController+TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TargetViewController.h"; sourceTree = "<group>"; };
 		643ED5D01B332A02004663AF /* UIViewController+TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TargetViewController.m"; sourceTree = "<group>"; };
-		644C65831BD2571200ACE2C5 /* MZFormSheetPresentationViewControllerAnimatorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationViewControllerAnimatorProtocol.h; sourceTree = "<group>"; };
 		644C65841BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPrenstationControllerAnimator.h; sourceTree = "<group>"; };
 		644C65851BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPrenstationControllerAnimator.m; sourceTree = "<group>"; };
 		644C65871BD265A300ACE2C5 /* MZFormSheetPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationController.h; sourceTree = "<group>"; };
@@ -158,7 +157,6 @@
 				644C65881BD265A300ACE2C5 /* MZFormSheetPresentationController.m */,
 				643ED5C71B332A02004663AF /* MZFormSheetPresentationViewController.h */,
 				643ED5C81B332A02004663AF /* MZFormSheetPresentationViewController.m */,
-				644C65831BD2571200ACE2C5 /* MZFormSheetPresentationViewControllerAnimatorProtocol.h */,
 				643ED5C91B332A02004663AF /* MZFormSheetPresentationViewControllerAnimator.h */,
 				643ED5CA1B332A02004663AF /* MZFormSheetPresentationViewControllerAnimator.m */,
 				643ED5CB1B332A02004663AF /* MZFormSheetPresentationViewControllerSegue.h */,

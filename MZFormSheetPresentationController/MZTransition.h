@@ -54,10 +54,10 @@ typedef NS_ENUM(NSInteger, MZFormSheetPresentationTransitionStyle) {
  When animation is finished you must call super method or completionHandler to
  keep view life cycle.
  */
-- (void)entryFormSheetControllerTransition:(nonnull MZFormSheetPresentationViewController *)formSheetController
+- (void)entryFormSheetControllerTransition:(nonnull UIViewController *)formSheetController
                          completionHandler:(nonnull MZTransitionCompletionHandler)completionHandler;
 
-- (void)exitFormSheetControllerTransition:(nonnull MZFormSheetPresentationViewController *)formSheetController
+- (void)exitFormSheetControllerTransition:(nonnull UIViewController *)formSheetController
                         completionHandler:(nonnull MZTransitionCompletionHandler)completionHandler;
 
 @end

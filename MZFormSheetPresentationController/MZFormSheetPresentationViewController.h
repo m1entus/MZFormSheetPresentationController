@@ -26,8 +26,8 @@
 #import <UIKit/UIKit.h>
 #import "MZTransition.h"
 #import "MZFormSheetPresentationController.h"
-#import "MZFormSheetPresentationViewControllerAnimatorProtocol.h"
 #import <MZAppearance/MZAppearance.h>
+#import "MZFormSheetPresentationViewControllerAnimator.h"
 
 extern CGFloat const MZFormSheetPresentationViewControllerDefaultAnimationDuration;
 
@@ -137,7 +137,7 @@ typedef void(^MZFormSheetPresentationViewControllerTransitionHandler)();
  */
 @property (nonatomic, copy, nullable) MZFormSheetPresentationViewControllerCompletionHandler didDismissContentViewControllerHandler;
 
-@property (nonatomic, strong, null_resettable) id <MZFormSheetPresentationViewControllerAnimatorProtocol> animatorForPresentationController;
+@property (nonatomic, strong, null_resettable) MZFormSheetPresentationViewControllerAnimator <UIViewControllerAnimatedTransitioning> *animatorForPresentationController;
 
 /**
  The background color of the background view.

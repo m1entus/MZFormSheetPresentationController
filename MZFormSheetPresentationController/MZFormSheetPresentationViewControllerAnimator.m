@@ -59,37 +59,37 @@ CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDura
 
     
     UIView *containerView = [transitionContext containerView];
-    self.transitionContextContainerView = containerView;
 
     [containerView addSubview:targetView];
-    targetView.alpha = 0.0;
     targetView.frame = [transitionContext finalFrameForViewController:targetViewController];
     
-    [UIView animateWithDuration:self.duration animations:^{
-        targetView.alpha = 1.0;
-    } completion:^(BOOL finished) {
-        if (finished) {
+    if (self.transition) {
+
+        [self.transition entryFormSheetControllerTransition:targetViewController completionHandler:^{
             [sourceView removeFromSuperview];
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-        }
-    }];
+        }];
+    } else {
+        [sourceView removeFromSuperview];
+        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+    }
 }
 
 - (void)animateTransitionForDismiss:(id<UIViewControllerContextTransitioning>)transitionContext sourceViewController:(UIViewController *)sourceViewController sourceView:(UIView *)sourceView targetViewController:(UIViewController *)targetViewController targetView:(UIView *)targetView {
     UIView *containerView = [transitionContext containerView];
 
     [containerView insertSubview:targetView belowSubview:sourceView];
-    sourceView.alpha = 1.0;
 
-    [UIView animateWithDuration:self.duration animations:^{
-        sourceView.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        if (finished) {
+    if (self.transition) {
+        
+        [self.transition exitFormSheetControllerTransition:sourceViewController completionHandler:^{
             [sourceView removeFromSuperview];
-            sourceView.alpha = 1.0;
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-        }
-    }];
+        }];
+    } else {
+        [sourceView removeFromSuperview];
+        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+    }
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {

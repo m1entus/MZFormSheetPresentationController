@@ -250,7 +250,9 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     [self presentedView].frame = [self frameOfPresentedViewInContainerView];
     
     [self.presentingViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-        self.dimmingView.alpha = 1.0;
+        [UIView animateWithDuration:[context transitionDuration] animations:^{
+            self.dimmingView.alpha = 1.0;
+        }];
     } completion:nil];
 
 }
@@ -270,7 +272,9 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
         self.presentationTransitionWillBeginCompletionHandler(self.presentingViewController);
     }
     [self.presentingViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-        self.dimmingView.alpha = 0.0;
+        [UIView animateWithDuration:[context transitionDuration] animations:^{
+            self.dimmingView.alpha = 0.0;
+        }];
     } completion:nil];
     
 }

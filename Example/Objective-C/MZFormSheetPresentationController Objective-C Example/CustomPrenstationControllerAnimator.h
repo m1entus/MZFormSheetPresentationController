@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 @import UIKit;
-#import "MZFormSheetPresentationViewControllerAnimatorProtocol.h"
 
-@interface CustomPrenstationControllerAnimator : NSObject <MZFormSheetPresentationViewControllerAnimatorProtocol>
+@interface CustomPrenstationControllerAnimator : NSObject <UIViewControllerTransitioningDelegate>
 @property (nonatomic, assign) CGFloat duration;
 @property (nonatomic, assign, getter=isPresenting) BOOL presenting;
 @property (nonatomic, readonly) UIView *transitionContextContainerView;

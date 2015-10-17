@@ -24,12 +24,12 @@
 //  THE SOFTWARE.
 
 @import UIKit;
-#import "MZFormSheetPresentationViewControllerAnimatorProtocol.h"
+#import "MZTransition.h"
 
 extern CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDuration;
 
-@interface MZFormSheetPresentationViewControllerAnimator : NSObject <MZFormSheetPresentationViewControllerAnimatorProtocol>
+@interface MZFormSheetPresentationViewControllerAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 @property (nonatomic, assign) CGFloat duration;
 @property (nonatomic, assign, getter=isPresenting) BOOL presenting;
-@property (nonatomic, readonly) UIView *transitionContextContainerView;
+@property (nonatomic, strong) MZTransition *transition;
 @end

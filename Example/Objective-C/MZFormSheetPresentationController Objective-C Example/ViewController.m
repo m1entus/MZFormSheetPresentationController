@@ -149,7 +149,7 @@
 - (void)customPresentationControllerAnimator {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
-    formSheetController.animatorForPresentationController = [[CustomPrenstationControllerAnimator alloc] init];
+//    formSheetController.animatorForPresentationController = [[CustomPrenstationControllerAnimator alloc] init];
     formSheetController.backgroundColor = [UIColor clearColor];
     formSheetController.presentationController.shouldDismissOnBackgroundViewTap = YES;
     formSheetController.presentationController.transparentTouchEnabled = YES;

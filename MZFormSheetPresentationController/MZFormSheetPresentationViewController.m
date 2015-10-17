@@ -25,7 +25,6 @@
 
 #import "MZFormSheetPresentationViewController.h"
 #import "UIViewController+TargetViewController.h"
-#import "MZFormSheetPresentationViewControllerAnimator.h"
 #import "MZFormSheetPresentationController.h"
 #import <JGMethodSwizzler/JGMethodSwizzler.h>
 #import "MZBlurEffectAdapter.h"
@@ -50,8 +49,7 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 #pragma mark - Dealloc
 
 - (void)dealloc {
-    [self turnOffTransparentTouch];
-    
+
     [self.view removeGestureRecognizer:self.backgroundTapGestureRecognizer];
     self.backgroundTapGestureRecognizer = nil;
 
@@ -101,17 +99,6 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 }
 
 #pragma mark - Setters
-
-- (void)setTransparentTouchEnabled:(BOOL)transparentTouchEnabled {
-    if (_transparentTouchEnabled != transparentTouchEnabled) {
-        _transparentTouchEnabled = transparentTouchEnabled;
-        if (_transparentTouchEnabled) {
-            [self turnOnTransparentTouch];
-        } else {
-            [self turnOffTransparentTouch];
-        }
-    }
-}
 
 - (void)setShouldCenterVertically:(BOOL)shouldCenterVertically {
     _shouldCenterVertically = shouldCenterVertically;
@@ -189,7 +176,7 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
     }
 }
 
-- (id <MZFormSheetPresentationViewControllerAnimatorProtocol>)animatorForPresentationController {
+- (id <UIViewControllerAnimatedTransitioning>)animatorForPresentationController {
     if (!_animatorForPresentationController) {
         _animatorForPresentationController = [[MZFormSheetPresentationViewControllerAnimator alloc] init];
     }
@@ -236,47 +223,18 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (!self.presentedViewController) {
-        [self handleEntryTransitionAnimated:animated];
+//        [self handleEntryTransitionAnimated:animated];
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    if (self.transparentTouchEnabled) {
-        [self turnOffTransparentTouch];
-        [self turnOnTransparentTouch];
-    }
-}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     if (!self.presentedViewController) {
-        [self handleOutTransitionAnimated:animated];
+//        [self handleOutTransitionAnimated:animated];
     }
 }
 
-#pragma mark - Swizzle
-
-- (void)turnOnTransparentTouch {
-    __weak typeof(self) weakSelf = self;
-    if (self.animatorForPresentationController.transitionContextContainerView) {
-        [self.animatorForPresentationController.transitionContextContainerView swizzleMethod:@selector(pointInside:withEvent:) withReplacement:JGMethodReplacementProviderBlock {
-            return JGMethodReplacement(BOOL, UIView *, CGPoint point, UIEvent *event) {
-                if (!CGRectContainsPoint(weakSelf.contentViewController.view.frame, point)){
-                    return NO;
-                }
-                return YES;
-            };
-        }];
-    }
-}
-
-- (void)turnOffTransparentTouch {
-    if (self.animatorForPresentationController.transitionContextContainerView) {
-        [self.animatorForPresentationController.transitionContextContainerView deswizzleMethod:@selector(pointInside:withEvent:)];
-    }
-}
 
 #pragma mark - Transitions
 
@@ -579,12 +537,22 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    Class transitionClass = [MZFormSheetPresentationViewController sharedTransitionClasses][@(self.contentViewControllerTransitionStyle)];
+    id<MZFormSheetPresentationViewControllerTransitionProtocol> transition = [[transitionClass alloc] init];
+    
     self.animatorForPresentationController.presenting = YES;
+    self.animatorForPresentationController.transition = transition;
+    
     return self.animatorForPresentationController;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    Class transitionClass = [MZFormSheetPresentationViewController sharedTransitionClasses][@(self.contentViewControllerTransitionStyle)];
+    id<MZFormSheetPresentationViewControllerTransitionProtocol> transition = [[transitionClass alloc] init];
+    
     self.animatorForPresentationController.presenting = NO;
+    self.animatorForPresentationController.transition = transition;
+    
     return self.animatorForPresentationController;
 }
 
