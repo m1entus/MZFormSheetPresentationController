@@ -51,6 +51,12 @@ typedef void(^MZFormSheetPresentationViewControllerCompletionHandler)(UIViewCont
 @property (nonatomic, assign) CGFloat contentViewCornerRadius MZ_APPEARANCE_SELECTOR;
 
 /**
+ The blur radius (in points) used to render the layer’s shadow.
+ By default, this is 6.0
+ */
+@property (nonatomic, assign) CGFloat shadowRadius MZ_APPEARANCE_SELECTOR;
+
+/**
  The transition style to use when presenting the receiver.
  By default, this is MZFormSheetPresentationTransitionStyleSlideFromTop.
  */

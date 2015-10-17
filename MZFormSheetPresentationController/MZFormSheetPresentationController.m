@@ -57,7 +57,6 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
         [appearance setPortraitTopInset:66.0];
         [appearance setLandscapeTopInset:6.0];
         [appearance setShouldCenterHorizontally:YES];
-        [appearance setPresentedViewCornerRadius:5.0];
         [appearance setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.5]];
         [appearance setBlurEffectStyle:UIBlurEffectStyleLight];
     }
@@ -87,11 +86,6 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
             [self turnOffTransparentTouch];
         }
     }
-}
-
-- (void)setPresentedViewCornerRadius:(CGFloat)presentedViewCornerRadius {
-    _presentedViewCornerRadius = presentedViewCornerRadius;
-    [self updatePresentedViewCornerRadius];
 }
 
 - (void)setBackgroundColor:(UIColor * __nullable)backgroundColor {
@@ -133,13 +127,6 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 
 
 #pragma mark - Private
-
-- (void)updatePresentedViewCornerRadius {
-    if (self.presentedViewCornerRadius > 0) {
-        self.presentedView.layer.masksToBounds = YES;
-    }
-    self.presentedView.layer.cornerRadius = self.presentedViewCornerRadius;
-}
 
 - (void)setupBackgroundBlurView {
     [self.blurBackgroundView removeFromSuperview];
@@ -235,7 +222,6 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     }
     
     [self setupBackgroundBlurView];
-    [self updatePresentedViewCornerRadius];
 
     self.dimmingView.frame = self.containerView.bounds;
     self.dimmingView.alpha = 0.0;

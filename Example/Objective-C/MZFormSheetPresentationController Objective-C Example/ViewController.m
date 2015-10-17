@@ -55,7 +55,7 @@
     presentedViewController.textFieldBecomeFirstResponder = YES;
     presentedViewController.passingString = @"PASSSED DATA!!";
     
-    formSheetController.presentationController.presentationTransitionWillBeginCompletionHandler = ^(UIViewController *vc) {
+    formSheetController.willPresentContentViewControllerHandler = ^(UIViewController *vc) {
         UINavigationController *navigationController = (id)vc;
         PresentedTableViewController *presentedViewController = [navigationController.viewControllers firstObject];
         [presentedViewController.view layoutIfNeeded];
@@ -111,21 +111,11 @@
 - (void)contentViewShadowAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
-    formSheetController.presentationController.backgroundColor = [UIColor clearColor];
 
     __weak MZFormSheetPresentationViewController *weakController = formSheetController;
     formSheetController.willPresentContentViewControllerHandler = ^(UIViewController *a) {
-        weakController.contentViewController.view.layer.masksToBounds = NO;
-        
-        CALayer *layer = weakController.contentViewController.view.layer;
-        
-        [layer setShadowOffset:CGSizeMake(0, 3)];
-        [layer setShadowOpacity:0.8];
-        [layer setShadowRadius:3.0f];
-        
-        [layer setShadowPath:
-         [[UIBezierPath bezierPathWithRoundedRect:[weakController.contentViewController.view bounds]
-                                     cornerRadius:12.0f] CGPath]];
+        weakController.contentViewCornerRadius = 5.0;
+        weakController.shadowRadius = 6.0;
     };
     
     [self presentViewController:formSheetController animated:YES completion:nil];

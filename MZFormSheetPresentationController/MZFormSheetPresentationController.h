@@ -60,12 +60,6 @@ typedef NS_ENUM(NSInteger, MZFormSheetActionWhenKeyboardAppears) {
 @property (nonatomic, assign) CGFloat portraitTopInset MZ_APPEARANCE_SELECTOR;
 
 /**
- Corner radius of content view
- By default, this is 5.0
- */
-@property (nonatomic, assign) CGFloat presentedViewCornerRadius MZ_APPEARANCE_SELECTOR;
-
-/**
  Returns whether the form sheet controller should dismiss after background view tap.
  By default, this is NO
  */

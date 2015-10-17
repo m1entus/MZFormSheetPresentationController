@@ -81,6 +81,7 @@
     @autoreleasepool {
         MZFormSheetPresentationViewController *appearance = [self appearance];
         [appearance setContentViewCornerRadius:5.0];
+        [appearance setShadowRadius:0.0];
     }
 }
 
@@ -97,6 +98,17 @@
         self.contentViewController.view.layer.masksToBounds = YES;
     }
     self.contentViewController.view.layer.cornerRadius = _contentViewCornerRadius;
+}
+
+- (void)setShadowRadius:(CGFloat)shadowRadius {
+    _shadowRadius = shadowRadius;
+    if (_shadowRadius > 0) {
+        self.view.layer.shadowOffset = CGSizeZero;
+        self.view.layer.shadowRadius = _shadowRadius;
+        self.view.layer.shadowOpacity = 0.7;
+        self.view.layer.masksToBounds = NO;
+    }
+    self.view.layer.shadowRadius = shadowRadius;
 }
 
 #pragma mark - Getters
@@ -180,10 +192,12 @@
 #pragma mark - Setup
 
 - (void)setupFormSheetViewController {
-    
+
     self.contentViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.contentViewController.view.layer.masksToBounds = YES;
     self.contentViewController.view.layer.cornerRadius = self.contentViewCornerRadius;
+    //update shadow radius
+    self.shadowRadius = self.shadowRadius;
     self.contentViewController.view.frame = self.view.bounds;
 }
 
