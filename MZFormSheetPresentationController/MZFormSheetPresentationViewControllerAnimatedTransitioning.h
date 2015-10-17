@@ -27,4 +27,5 @@
 
 @protocol MZFormSheetPresentationViewControllerAnimatedTransitioning <UIViewControllerAnimatedTransitioning>
 @property (nonatomic, assign, getter=isPresenting) BOOL presenting;
+@property (nonatomic, assign, getter=isInteractive) BOOL interactive;
 @end

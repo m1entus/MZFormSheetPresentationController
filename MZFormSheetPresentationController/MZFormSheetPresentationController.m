@@ -43,6 +43,10 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 @implementation MZFormSheetPresentationController
 
 - (void)dealloc {
+    for (UIGestureRecognizer *gestureRecognizer in [self.containerView.gestureRecognizers copy]) {
+        [self.containerView removeGestureRecognizer:gestureRecognizer];
+    }
+    
     [self removeKeyboardNotifications];
     [self.dimmingView removeGestureRecognizer:self.backgroundTapGestureRecognizer];
     self.backgroundTapGestureRecognizer = nil;
@@ -54,7 +58,7 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     @autoreleasepool {
         MZFormSheetPresentationController *appearance = [self appearance];
         [appearance setContentViewSize:CGSizeMake(284.0, 284.0)];
-        [appearance setPortraitTopInset:66.0];
+        [appearance setPortraitTopInset:106.0];
         [appearance setLandscapeTopInset:6.0];
         [appearance setShouldCenterHorizontally:YES];
         [appearance setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.5]];

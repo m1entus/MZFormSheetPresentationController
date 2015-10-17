@@ -27,10 +27,6 @@
 #import "UIViewController+TargetViewController.h"
 #import "MZFormSheetPresentationViewControllerAnimator.h"
 
-@interface MZFormSheetPresentationViewController ()
-@property (nonatomic, strong) UIViewController *contentViewController;
-@end
-
 @interface MZFormSheetPresentationViewControllerCustomView: UIView
 @property (nonatomic, weak) MZFormSheetPresentationViewController *viewController;
 @end
@@ -57,6 +53,15 @@
     [super setFrame:frame];
 }
 
+@end
+
+@interface MZFormSheetPresentationViewController ()
+@property (nonatomic, strong) UIViewController *contentViewController;
+
+@property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
+@property (nonatomic, assign) CGRect panGestureRecognizerViewInitialFrame;
+@property (nonatomic, assign) CGPoint panGestureRecognizerStartLocation;
+@property (nonatomic, assign, getter=isPanGestureRecognized) BOOL panGestureRecognized;
 @end
 
 @implementation MZFormSheetPresentationViewController
@@ -117,6 +122,13 @@
     return (MZFormSheetPresentationController *)[super presentationController];
 }
 
+- (UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning> *)interactionAnimatorForPresentationController {
+    if (!_interactionAnimatorForPresentationController) {
+        _interactionAnimatorForPresentationController = [[MZFormSheetPresentationViewControllerAnimator alloc] init];
+    }
+    return _interactionAnimatorForPresentationController;
+}
+
 
 - (id <UIViewControllerAnimatedTransitioning>)animatorForPresentationController {
     if (!_animatorForPresentationController) {
@@ -154,6 +166,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (!self.presentedViewController) {
+        
+        if (self.allowInteractivePanGestureDissmisal) {
+            [self addDismissalPanGestureRecognizer];
+        }
+        
         if (self.willPresentContentViewControllerHandler) {
             self.willPresentContentViewControllerHandler(self.contentViewController);
         }
@@ -187,6 +204,65 @@
     }
     
     [super viewDidDisappear:animated];
+}
+
+#pragma mark - UIGestureRecognizer
+
+- (void)addDismissalPanGestureRecognizer {
+    [self removeDismissalPanGestureRecognizer];
+    self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleDismissalPanGestureRecognizer:)];
+    [self.presentationController.containerView addGestureRecognizer:self.panGestureRecognizer];
+}
+
+- (void)removeDismissalPanGestureRecognizer {
+    [self.panGestureRecognizer.view removeGestureRecognizer:self.panGestureRecognizer];
+    self.panGestureRecognizer = nil;
+}
+
+- (void)handleDismissalPanGestureRecognizer:(UIPanGestureRecognizer *)recognizer {
+
+    CGPoint location = [recognizer locationInView:self.presentationController.containerView];
+    CGPoint velocity = [recognizer velocityInView:self.presentationController.containerView];
+    
+    CGFloat animationRatio = (location.y - self.panGestureRecognizerViewInitialFrame.origin.y) / (CGRectGetHeight([UIScreen mainScreen].bounds) - self.panGestureRecognizerViewInitialFrame.origin.y);
+    
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        if (location.y > self.view.frame.origin.y || (location.x < self.view.frame.origin.x || location.x > self.view.frame.origin.x + self.view.frame.size.width)) {
+            recognizer.enabled = NO;
+            recognizer.enabled = YES;
+            return;
+        }
+        
+        self.panGestureRecognized = YES;
+        self.interactionAnimatorForPresentationController.interactive = YES;
+        self.panGestureRecognizerStartLocation = location;
+        self.panGestureRecognizerViewInitialFrame = self.view.frame;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    } else if (recognizer.state == UIGestureRecognizerStateChanged) {
+
+        if (location.y > self.panGestureRecognizerViewInitialFrame.origin.y) {
+            [self.interactionAnimatorForPresentationController updateInteractiveTransition:animationRatio];
+        } else {
+            [self.interactionAnimatorForPresentationController updateInteractiveTransition:0];
+        }
+        
+        
+    } else if (recognizer.state == UIGestureRecognizerStateEnded) {
+        
+        self.panGestureRecognized = NO;
+        CGFloat velocityForSelectedDirection = velocity.y;
+        
+        if (animationRatio > 0.5 || velocityForSelectedDirection > 300) {
+            [self.interactionAnimatorForPresentationController finishInteractiveTransition];
+        } else {
+            [self.interactionAnimatorForPresentationController cancelInteractiveTransition];
+        }
+        self.interactionAnimatorForPresentationController.interactive = NO;
+        
+    } else if (recognizer.state == UIGestureRecognizerStateCancelled || recognizer.state == UIGestureRecognizerStateFailed) {
+        self.interactionAnimatorForPresentationController.interactive = NO;
+    }
 }
 
 #pragma mark - Setup
@@ -273,8 +349,18 @@
         }
     }
     
+    
     self.animatorForPresentationController.presenting = NO;
     return self.animatorForPresentationController;
+}
+
+- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator {
+    return nil;
+}
+
+- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator {
+    self.interactionAnimatorForPresentationController.interactive = YES;
+    return self.isPanGestureRecognized ? self.interactionAnimatorForPresentationController : nil;
 }
 
 @end

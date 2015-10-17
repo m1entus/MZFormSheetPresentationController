@@ -57,12 +57,21 @@ typedef void(^MZFormSheetPresentationViewControllerCompletionHandler)(UIViewCont
 @property (nonatomic, assign) CGFloat shadowRadius MZ_APPEARANCE_SELECTOR;
 
 /**
+ *  Allow dismiss the modals by swiping down on the navigation bar.
+ *  By default, this is NO.
+ */
+@property (nonatomic, assign) BOOL allowInteractivePanGestureDissmisal;
+
+/**
  The transition style to use when presenting the receiver.
  By default, this is MZFormSheetPresentationTransitionStyleSlideFromTop.
  */
 @property (nonatomic, assign) MZFormSheetPresentationTransitionStyle contentViewControllerTransitionStyle MZ_APPEARANCE_SELECTOR;
 
 @property (nonatomic, strong, null_resettable) id <MZFormSheetPresentationViewControllerAnimatedTransitioning> animatorForPresentationController;
+
+
+@property (nonatomic, strong, null_resettable) UIPercentDrivenInteractiveTransition <MZFormSheetPresentationViewControllerAnimatedTransitioning> *interactionAnimatorForPresentationController;
 
 /**
  The handler to call when presented form sheet is before entry transition and its view will show on window.

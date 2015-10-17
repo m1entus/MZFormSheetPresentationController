@@ -13,4 +13,5 @@
 @interface CustomPrenstationControllerAnimator : NSObject <MZFormSheetPresentationViewControllerAnimatedTransitioning>
 @property (nonatomic, assign) CGFloat duration;
 @property (nonatomic, assign, getter=isPresenting) BOOL presenting;
+@property (nonatomic, assign, getter=isInteractive) BOOL interactive;
 @end
