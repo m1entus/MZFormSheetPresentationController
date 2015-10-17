@@ -15,26 +15,16 @@
 		643ED5AC1B3329A2004663AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 643ED5AA1B3329A2004663AF /* Main.storyboard */; };
 		643ED5AE1B3329A2004663AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 643ED5AD1B3329A2004663AF /* Images.xcassets */; };
 		643ED5B11B3329A2004663AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 643ED5AF1B3329A2004663AF /* LaunchScreen.xib */; };
-		643ED5BD1B3329A2004663AF /* MZFormSheetPresentationController_Objective_C_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5BC1B3329A2004663AF /* MZFormSheetPresentationController_Objective_C_ExampleTests.m */; };
 		643ED5D11B332A02004663AF /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5C81B332A02004663AF /* MZFormSheetPresentationController.m */; };
 		643ED5D21B332A02004663AF /* MZFormSheetPresentationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5CA1B332A02004663AF /* MZFormSheetPresentationControllerAnimator.m */; };
 		643ED5D31B332A02004663AF /* MZFormSheetPresentationControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5CC1B332A02004663AF /* MZFormSheetPresentationControllerSegue.m */; };
 		643ED5D41B332A02004663AF /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5CE1B332A02004663AF /* MZTransition.m */; };
 		643ED5D51B332A02004663AF /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5D01B332A02004663AF /* UIViewController+TargetViewController.m */; };
+		644C65861BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 644C65851BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m */; settings = {ASSET_TAGS = (); }; };
 		6494BD391B33344700C331EE /* PresentedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD381B33344700C331EE /* PresentedTableViewController.m */; };
 		6494BD3C1B33355B00C331EE /* CustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD3B1B33355B00C331EE /* CustomTransition.m */; };
 		D2BC83911B4C05DC00BCAE95 /* MZBlurEffectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BC83901B4C05DC00BCAE95 /* MZBlurEffectAdapter.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		643ED5B71B3329A2004663AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 643ED5951B3329A2004663AF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 643ED59C1B3329A2004663AF;
-			remoteInfo = "MZFormSheetPresentationController Objective-C Example";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		333C114802656D29351E2C45 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -51,7 +41,6 @@
 		643ED5AB1B3329A2004663AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		643ED5AD1B3329A2004663AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		643ED5B01B3329A2004663AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		643ED5B61B3329A2004663AF /* MZFormSheetPresentationController Objective-C ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MZFormSheetPresentationController Objective-C ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		643ED5BB1B3329A2004663AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		643ED5BC1B3329A2004663AF /* MZFormSheetPresentationController_Objective_C_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetPresentationController_Objective_C_ExampleTests.m; sourceTree = "<group>"; };
 		643ED5C71B332A02004663AF /* MZFormSheetPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationController.h; sourceTree = "<group>"; };
@@ -64,6 +53,9 @@
 		643ED5CE1B332A02004663AF /* MZTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTransition.m; sourceTree = "<group>"; };
 		643ED5CF1B332A02004663AF /* UIViewController+TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TargetViewController.h"; sourceTree = "<group>"; };
 		643ED5D01B332A02004663AF /* UIViewController+TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TargetViewController.m"; sourceTree = "<group>"; };
+		644C65831BD2571200ACE2C5 /* MZFormSheetPresentationControllerAnimatorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationControllerAnimatorProtocol.h; sourceTree = "<group>"; };
+		644C65841BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPrenstationControllerAnimator.h; sourceTree = "<group>"; };
+		644C65851BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPrenstationControllerAnimator.m; sourceTree = "<group>"; };
 		6494BD371B33344700C331EE /* PresentedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentedTableViewController.h; sourceTree = "<group>"; };
 		6494BD381B33344700C331EE /* PresentedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentedTableViewController.m; sourceTree = "<group>"; };
 		6494BD3A1B33355B00C331EE /* CustomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTransition.h; sourceTree = "<group>"; };
@@ -79,13 +71,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3449AD15F7D386B8B9120EFB /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		643ED5B31B3329A2004663AF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				643ED59D1B3329A2004663AF /* MZFormSheetPresentationController Objective-C Example.app */,
-				643ED5B61B3329A2004663AF /* MZFormSheetPresentationController Objective-C ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +114,8 @@
 				6494BD3B1B33355B00C331EE /* CustomTransition.m */,
 				640560951B389D3700CE2950 /* TransparentViewController.h */,
 				640560961B389D3700CE2950 /* TransparentViewController.m */,
+				644C65841BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.h */,
+				644C65851BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m */,
 			);
 			path = "MZFormSheetPresentationController Objective-C Example";
 			sourceTree = "<group>";
@@ -167,6 +153,7 @@
 				D2BC83901B4C05DC00BCAE95 /* MZBlurEffectAdapter.m */,
 				643ED5C71B332A02004663AF /* MZFormSheetPresentationController.h */,
 				643ED5C81B332A02004663AF /* MZFormSheetPresentationController.m */,
+				644C65831BD2571200ACE2C5 /* MZFormSheetPresentationControllerAnimatorProtocol.h */,
 				643ED5C91B332A02004663AF /* MZFormSheetPresentationControllerAnimator.h */,
 				643ED5CA1B332A02004663AF /* MZFormSheetPresentationControllerAnimator.m */,
 				643ED5CB1B332A02004663AF /* MZFormSheetPresentationControllerSegue.h */,
@@ -219,39 +206,17 @@
 			productReference = 643ED59D1B3329A2004663AF /* MZFormSheetPresentationController Objective-C Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		643ED5B51B3329A2004663AF /* MZFormSheetPresentationController Objective-C ExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 643ED5C31B3329A2004663AF /* Build configuration list for PBXNativeTarget "MZFormSheetPresentationController Objective-C ExampleTests" */;
-			buildPhases = (
-				643ED5B21B3329A2004663AF /* Sources */,
-				643ED5B31B3329A2004663AF /* Frameworks */,
-				643ED5B41B3329A2004663AF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				643ED5B81B3329A2004663AF /* PBXTargetDependency */,
-			);
-			name = "MZFormSheetPresentationController Objective-C ExampleTests";
-			productName = "MZFormSheetPresentationController Objective-C ExampleTests";
-			productReference = 643ED5B61B3329A2004663AF /* MZFormSheetPresentationController Objective-C ExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		643ED5951B3329A2004663AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Michal Zaborowski";
 				TargetAttributes = {
 					643ED59C1B3329A2004663AF = {
 						CreatedOnToolsVersion = 6.3.2;
-					};
-					643ED5B51B3329A2004663AF = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 643ED59C1B3329A2004663AF;
 					};
 				};
 			};
@@ -269,7 +234,6 @@
 			projectRoot = "";
 			targets = (
 				643ED59C1B3329A2004663AF /* MZFormSheetPresentationController Objective-C Example */,
-				643ED5B51B3329A2004663AF /* MZFormSheetPresentationController Objective-C ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -282,13 +246,6 @@
 				643ED5AC1B3329A2004663AF /* Main.storyboard in Resources */,
 				643ED5B11B3329A2004663AF /* LaunchScreen.xib in Resources */,
 				643ED5AE1B3329A2004663AF /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		643ED5B41B3329A2004663AF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +293,7 @@
 				643ED5A91B3329A2004663AF /* ViewController.m in Sources */,
 				6494BD391B33344700C331EE /* PresentedTableViewController.m in Sources */,
 				643ED5A61B3329A2004663AF /* AppDelegate.m in Sources */,
+				644C65861BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m in Sources */,
 				643ED5D11B332A02004663AF /* MZFormSheetPresentationController.m in Sources */,
 				643ED5D21B332A02004663AF /* MZFormSheetPresentationControllerAnimator.m in Sources */,
 				D2BC83911B4C05DC00BCAE95 /* MZBlurEffectAdapter.m in Sources */,
@@ -347,23 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		643ED5B21B3329A2004663AF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				643ED5BD1B3329A2004663AF /* MZFormSheetPresentationController_Objective_C_ExampleTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		643ED5B81B3329A2004663AF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 643ED59C1B3329A2004663AF /* MZFormSheetPresentationController Objective-C Example */;
-			targetProxy = 643ED5B71B3329A2004663AF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		643ED5AA1B3329A2004663AF /* Main.storyboard */ = {
@@ -406,6 +348,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -475,6 +418,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "MZFormSheetPresentationController Objective-C Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.zaborowski.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -488,41 +432,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "MZFormSheetPresentationController Objective-C Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.zaborowski.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		643ED5C41B3329A2004663AF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MZFormSheetPresentationController Objective-C ExampleTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MZFormSheetPresentationController Objective-C Example.app/MZFormSheetPresentationController Objective-C Example";
-			};
-			name = Debug;
-		};
-		643ED5C51B3329A2004663AF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MZFormSheetPresentationController Objective-C ExampleTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MZFormSheetPresentationController Objective-C Example.app/MZFormSheetPresentationController Objective-C Example";
 			};
 			name = Release;
 		};
@@ -543,15 +454,6 @@
 			buildConfigurations = (
 				643ED5C11B3329A2004663AF /* Debug */,
 				643ED5C21B3329A2004663AF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		643ED5C31B3329A2004663AF /* Build configuration list for PBXNativeTarget "MZFormSheetPresentationController Objective-C ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				643ED5C41B3329A2004663AF /* Debug */,
-				643ED5C51B3329A2004663AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

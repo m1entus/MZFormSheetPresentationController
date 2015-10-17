@@ -25,6 +25,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MZTransition.h"
+#import "MZFormSheetPresentationControllerAnimatorProtocol.h"
 #import <MZAppearance/MZAppearance.h>
 
 extern CGFloat const MZFormSheetPresentationControllerDefaultAnimationDuration;
@@ -140,6 +141,8 @@ typedef void(^MZFormSheetPresentationControllerTransitionHandler)();
  The handler to call when presented form sheet is after dismiss.
  */
 @property (nonatomic, copy, nullable) MZFormSheetPresentationControllerCompletionHandler didDismissContentViewControllerHandler;
+
+@property (nonatomic, strong, null_resettable) id <MZFormSheetPresentationControllerAnimatorProtocol> animatorForPresentationController;
 
 /**
  The background color of the background view.

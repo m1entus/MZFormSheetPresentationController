@@ -11,6 +11,7 @@
 #import "CustomTransition.h"
 #import "PresentedTableViewController.h"
 #import "MZFormSheetPresentationControllerSegue.h"
+#import "CustomPrenstationControllerAnimator.h"
 
 @interface ViewController ()
 
@@ -145,6 +146,15 @@
     }];
 }
 
+- (void)customPresentationControllerAnimator {
+    UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
+    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    formSheetController.animatorForPresentationController = [[CustomPrenstationControllerAnimator alloc] init];
+    formSheetController.backgroundColor = [UIColor clearColor];
+    
+    [self presentViewController:formSheetController animated:YES completion:nil];
+}
+
 - (void)transparentBackgroundViewAction {
     UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TransparentViewController"];
     MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:viewController];
@@ -191,6 +201,7 @@
             case 7: [self contentViewShadowAction]; break;
             case 8: [self twoFormSheetControllersAction]; break;
             case 9: [self transparentBackgroundViewAction]; break;
+            case 10: [self customPresentationControllerAnimator]; break;
             default:
                 break;
         }
