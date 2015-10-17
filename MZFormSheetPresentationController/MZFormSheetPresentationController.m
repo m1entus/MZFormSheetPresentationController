@@ -223,7 +223,9 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self handleEntryTransitionAnimated:animated];
+    if (!self.presentedViewController) {
+        [self handleEntryTransitionAnimated:animated];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -237,7 +239,9 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self handleOutTransitionAnimated:animated];
+    if (!self.presentedViewController) {
+        [self handleOutTransitionAnimated:animated];
+    }
 }
 
 #pragma mark - Swizzle
@@ -529,11 +533,12 @@ static NSMutableDictionary *_instanceOfTransitionClasses = nil;
 #pragma mark - Rotation
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-
+    
     [self setupFormSheetViewControllerFrame];
 
     [self.contentViewController viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
