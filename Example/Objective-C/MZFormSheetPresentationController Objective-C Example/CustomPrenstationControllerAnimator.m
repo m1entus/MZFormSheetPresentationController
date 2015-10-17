@@ -42,17 +42,16 @@
     
     
     UIView *containerView = [transitionContext containerView];
-    self.transitionContextContainerView = containerView;
-    
-    self.customBackgorundView.frame = [transitionContext finalFrameForViewController:targetViewController];
+
+    self.customBackgorundView.frame = containerView.bounds;
     self.customBackgorundView.alpha = 0.0;
     [containerView addSubview:self.customBackgorundView];
     
     [containerView addSubview:targetView];
-    targetView.alpha = 1.0;
-//    targetView.frame = [transitionContext finalFrameForViewController:targetViewController];
+    targetView.alpha = 0.0;
     
     [UIView animateWithDuration:self.duration animations:^{
+        targetView.alpha = 1.0;
         self.customBackgorundView.alpha = 1.0;
     } completion:^(BOOL finished) {
         if (finished) {
@@ -70,6 +69,7 @@
     
     [UIView animateWithDuration:self.duration animations:^{
         self.customBackgorundView.alpha = 0.0;
+        sourceView.alpha = 0.0;
     } completion:^(BOOL finished) {
         if (finished) {
             [self.customBackgorundView removeFromSuperview];

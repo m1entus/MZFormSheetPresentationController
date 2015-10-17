@@ -26,11 +26,11 @@
 }
 - (IBAction)turnOnTransparencyButtonTapped:(id)sender {
     self.mz_formSheetPresentingPresentationController.presentationController.backgroundColor = [UIColor clearColor];
-    self.mz_formSheetPresentingPresentationController.transparentTouchEnabled = YES;
+    self.mz_formSheetPresentingPresentationController.presentationController.transparentTouchEnabled = YES;
 }
 - (IBAction)turnOffTransparencyButtonTapped:(id)sender {
     self.mz_formSheetPresentingPresentationController.presentationController.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
-    self.mz_formSheetPresentingPresentationController.transparentTouchEnabled = NO;
+    self.mz_formSheetPresentingPresentationController.presentationController.transparentTouchEnabled = NO;
     
 }
 - (IBAction)dismissButtonTapped:(id)sender {

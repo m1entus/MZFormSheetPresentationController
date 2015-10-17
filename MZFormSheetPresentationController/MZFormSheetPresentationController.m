@@ -1,10 +1,27 @@
 //
-//  MZFormSheetPresentationController.m
-//  MZFormSheetPresentationController Objective-C Example
+//  MZFormSheetPresentationViewControllerAnimator.m
+//  MZFormSheetPresentationViewControllerAnimator
 //
-//  Created by Michal Zaborowski on 17.10.2015.
-//  Copyright © 2015 Michal Zaborowski. All rights reserved.
+//  Created by Michał Zaborowski on 24.02.2015.
+//  Copyright (c) 2015 Michał Zaborowski. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 #import "MZFormSheetPresentationController.h"
 #import <objc/runtime.h>
@@ -31,25 +48,7 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     self.backgroundTapGestureRecognizer = nil;
 }
 
-#pragma mark - Class methods
-
-+ (NSMutableDictionary *)sharedTransitionClasses {
-    static dispatch_once_t onceToken;
-    static NSMutableDictionary *_instanceOfTransitionClasses = nil;
-    dispatch_once(&onceToken, ^{
-        _instanceOfTransitionClasses = [[NSMutableDictionary alloc] init];
-    });
-    return _instanceOfTransitionClasses;
-}
-
-
-+ (void)registerTransitionClass:(Class)transitionClass forTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle {
-    [[MZFormSheetPresentationController sharedTransitionClasses] setObject:transitionClass forKey:@(transitionStyle)];
-}
-
-+ (Class)classForTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle {
-    return [MZFormSheetPresentationController sharedTransitionClasses][@(transitionStyle)];
-}
+#pragma mark - Appearance
 
 + (void)load {
     @autoreleasepool {
@@ -68,12 +67,16 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     return [MZAppearance appearanceForClass:[self class]];
 }
 
+#pragma mark - Getters
+
 - (UIView *)dimmingView {
     if (!_dimmingView) {
         _dimmingView = [[UIView alloc] initWithFrame:self.containerView.frame];
     }
     return _dimmingView;
 }
+
+#pragma mark - Setters
 
 - (void)setTransparentTouchEnabled:(BOOL)transparentTouchEnabled {
     if (_transparentTouchEnabled != transparentTouchEnabled) {
@@ -116,6 +119,21 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     }
 }
 
+#pragma mark - Init
+
+- (instancetype)initWithPresentedViewController:(UIViewController *)presentedViewController presentingViewController:(UIViewController *)presentingViewController {
+    if (self = [super initWithPresentedViewController:presentedViewController presentingViewController:presentingViewController]) {
+        
+        [[[self class] appearance] applyInvocationTo:self];
+        
+        [self addKeyboardNotifications];
+    }
+    return self;
+}
+
+
+#pragma mark - Private
+
 - (void)updatePresentedViewCornerRadius {
     if (self.presentedViewCornerRadius > 0) {
         self.presentedView.layer.masksToBounds = YES;
@@ -147,8 +165,19 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     
 }
 
+- (CGFloat)yCoordinateBelowStatusBar {
+    return [UIApplication sharedApplication].statusBarFrame.size.height;
+}
 
-#pragma mark - Swizzle
+- (CGFloat)topInset {
+    if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
+        return self.portraitTopInset + [self yCoordinateBelowStatusBar];
+    } else {
+        return self.landscapeTopInset + [self yCoordinateBelowStatusBar];
+    }
+}
+
+#pragma mark - Transparent Touch
 
 - (void)turnOnTransparentTouch {
     __weak typeof(self) weakSelf = self;
@@ -183,42 +212,10 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     [self.presentedView addMotionEffect:effects];
 }
 
-
-- (instancetype)initWithPresentedViewController:(UIViewController *)presentedViewController presentingViewController:(UIViewController *)presentingViewController {
-    if (self = [super initWithPresentedViewController:presentedViewController presentingViewController:presentingViewController]) {
-        
-        [[[self class] appearance] applyInvocationTo:self];
-        
-        [self addKeyboardNotifications];
-    }
-    return self;
-}
-
-- (void)addKeyboardNotifications {
-    [self removeKeyboardNotifications];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(willShowKeyboardNotification:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(willHideKeyboardNotification:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-}
-
-- (void)removeKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillShowNotification
-                                                  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification
-                                                  object:nil];
-}
+#pragma mark - SuperClass Override
 
 - (void)presentationTransitionWillBegin {
+    
     
     if (self.presentationTransitionWillBeginCompletionHandler) {
         self.presentationTransitionWillBeginCompletionHandler(self.presentingViewController);
@@ -243,21 +240,24 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     self.dimmingView.frame = self.containerView.bounds;
     self.dimmingView.alpha = 0.0;
     [self.containerView addSubview:self.dimmingView];
-//    [self.containerView addSubview:[self presentedView]];
-    
+
     // this is some kind of bug :<, if we will delete this line, then inside custom animator
     // we need to set finalFrameForViewController to targetView
     [self presentedView].frame = [self frameOfPresentedViewInContainerView];
+    [self setupFormSheetViewControllerFrame];
     
     [self.presentingViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         [UIView animateWithDuration:[context transitionDuration] animations:^{
             self.dimmingView.alpha = 1.0;
         }];
     } completion:nil];
-
+    
+    [super presentationTransitionWillBegin];
 }
 
 - (void)presentationTransitionDidEnd:(BOOL)completed {
+    [super presentationTransitionDidEnd:completed];
+    
     if (!completed) {
         [self.dimmingView removeFromSuperview];
     }
@@ -265,7 +265,6 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
         self.presentationTransitionDidEndCompletionHandler(self.presentingViewController, completed);
     }
 }
-
 
 - (void)dismissalTransitionWillBegin {
     if (self.presentationTransitionWillBeginCompletionHandler) {
@@ -277,6 +276,7 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
         }];
     } completion:nil];
     
+    [super dismissalTransitionWillBegin];
 }
 
 - (void)dismissalTransitionDidEnd:(BOOL)completed {
@@ -288,32 +288,20 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     if (self.dismissalTransitionDidEndCompletionHandler) {
         self.dismissalTransitionDidEndCompletionHandler(self.presentingViewController, completed);
     }
+    
+    [super dismissalTransitionDidEnd:completed];
 }
 
 - (CGRect)frameOfPresentedViewInContainerView {
     return CGRectMake(CGRectGetMidX([UIScreen mainScreen].bounds) - self.contentViewSize.width/2, [self topInset], self.contentViewSize.width, self.contentViewSize.height);
 }
 
-- (CGFloat)yCoordinateBelowStatusBar {
-    return [UIApplication sharedApplication].statusBarFrame.size.height;
+- (BOOL)shouldPresentInFullscreen {
+    return YES;
 }
 
-- (CGFloat)topInset {
-    if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
-        return self.portraitTopInset + [self yCoordinateBelowStatusBar];
-    } else {
-        return self.landscapeTopInset + [self yCoordinateBelowStatusBar];
-    }
-}
-
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        self.dimmingView.frame = self.containerView.bounds;
-        [self setupFormSheetViewControllerFrame];
-        
-    } completion:nil];
-    
-    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+- (BOOL)shouldRemovePresentersView {
+    return NO;
 }
 
 #pragma mark - UIGestureRecognizer
@@ -357,6 +345,30 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 
 #pragma mark - UIKeyboard Notifications
 
+- (void)addKeyboardNotifications {
+    [self removeKeyboardNotifications];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(willShowKeyboardNotification:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(willHideKeyboardNotification:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)removeKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
 - (void)willShowKeyboardNotification:(NSNotification *)notification {
     CGRect screenRect = [[notification userInfo][UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
@@ -395,6 +407,7 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
                      } completion:nil];
 }
 
+#pragma mark - Frame Configuration
 
 - (void)setupFormSheetViewControllerFrame {
 
@@ -441,5 +454,16 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     }
 }
 
+#pragma mark - Rotation
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        self.dimmingView.frame = self.containerView.bounds;
+        [self setupFormSheetViewControllerFrame];
+        
+    } completion:nil];
+    
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+}
 
 @end

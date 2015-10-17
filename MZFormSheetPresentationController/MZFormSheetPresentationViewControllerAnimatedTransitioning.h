@@ -1,5 +1,5 @@
 //
-//  MZFormSheetPresentationViewControllerAnimator.h
+//  MZFormSheetPresentationViewControllerAnimator.m
 //  MZFormSheetPresentationViewControllerAnimator
 //
 //  Created by Michał Zaborowski on 24.02.2015.
@@ -24,15 +24,7 @@
 //  THE SOFTWARE.
 
 @import UIKit;
-#import "MZTransition.h"
-#import "MZFormSheetPresentationViewControllerAnimatedTransitioning.h"
 
-extern CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDuration;
-
-@interface MZFormSheetPresentationViewControllerAnimator : NSObject <MZFormSheetPresentationViewControllerAnimatedTransitioning>
-@property (nonatomic, assign) CGFloat duration;
+@protocol MZFormSheetPresentationViewControllerAnimatedTransitioning <UIViewControllerAnimatedTransitioning>
 @property (nonatomic, assign, getter=isPresenting) BOOL presenting;
-@property (nonatomic, strong) MZTransition *transition;
-
-+ (instancetype)animatorForTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle;
 @end

@@ -34,6 +34,16 @@ CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDura
 
 @implementation MZFormSheetPresentationViewControllerAnimator
 
++ (instancetype)animatorForTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle {
+    MZFormSheetPresentationViewControllerAnimator *animator = [[[self class] alloc] init];
+    
+    Class transitionClass = [MZTransition sharedTransitionClasses][@(transitionStyle)];
+    id<MZFormSheetPresentationViewControllerTransitionProtocol> transition = [[transitionClass alloc] init];
+    animator.transition = transition;
+    
+    return animator;
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         self.duration = MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDuration;

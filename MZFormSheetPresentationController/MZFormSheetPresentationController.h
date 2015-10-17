@@ -1,10 +1,27 @@
 //
-//  MZFormSheetPresentationController.h
-//  MZFormSheetPresentationController Objective-C Example
+//  MZFormSheetPresentationViewControllerAnimator.m
+//  MZFormSheetPresentationViewControllerAnimator
 //
-//  Created by Michal Zaborowski on 17.10.2015.
-//  Copyright © 2015 Michal Zaborowski. All rights reserved.
+//  Created by Michał Zaborowski on 24.02.2015.
+//  Copyright (c) 2015 Michał Zaborowski. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
 #import <MZAppearance/MZAppearance.h>
@@ -23,9 +40,11 @@ typedef NS_ENUM(NSInteger, MZFormSheetActionWhenKeyboardAppears) {
     MZFormSheetActionWhenKeyboardAppearsAboveKeyboard
 };
 
-@interface MZFormSheetPresentationController : UIPresentationController
+@interface MZFormSheetPresentationController : UIPresentationController <MZAppearance>
 
-
+/**
+ *  The preferred size for the container’s content. (required)
+ */
 @property (nonatomic, assign) CGSize contentViewSize MZ_APPEARANCE_SELECTOR;
 
 /**
@@ -110,12 +129,30 @@ typedef NS_ENUM(NSInteger, MZFormSheetActionWhenKeyboardAppears) {
  */
 @property (nonatomic, copy, nullable) MZFormSheetPresentationControllerTapHandler didTapOnBackgroundViewCompletionHandler;
 
+/**
+ *  Notifies the presentation controller that the presentation animations are about to start.
+ */
 @property (nonatomic, copy, nullable) MZFormSheetPresentationControllerTransitionBeginCompletionHandler presentationTransitionWillBeginCompletionHandler;
+
+/**
+ *  Notifies the presentation controller that the presentation animations finished.
+ */
 @property (nonatomic, copy, nullable) MZFormSheetPresentationControllerTransitionEndCompletionHandler presentationTransitionDidEndCompletionHandler;
 
+/**
+ *  Notifies the presentation controller that the dismissal animations are about to start.
+ */
 @property (nonatomic, copy, nullable) MZFormSheetPresentationControllerTransitionBeginCompletionHandler dismissalTransitionWillBeginCompletionHandler;
+
+/**
+ *  Notifies the presentation controller that the dismissal animations finished.
+ */
 @property (nonatomic, copy, nullable) MZFormSheetPresentationControllerTransitionEndCompletionHandler dismissalTransitionDidEndCompletionHandler;
 
+/**
+ *  This completion handler allow you to change frame during rotation and animations
+ *  for presentedView
+ */
 @property (nonatomic, copy, nonnull) MZFormSheetPresentationFrameConfigurationHandler frameConfigurationHandler;
 
 @end

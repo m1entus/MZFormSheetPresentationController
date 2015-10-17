@@ -65,4 +65,17 @@ typedef NS_ENUM(NSInteger, MZFormSheetPresentationTransitionStyle) {
 @interface MZTransition
     : NSObject <MZFormSheetPresentationViewControllerTransitionProtocol>
 
+/**
+ *  Register custom transition animation style.
+ *  You need to setup transitionStyle to MZFormSheetTransitionStyleCustom.
+ *
+ *  @param transitionClass Custom transition class.
+ *  @param transitionStyle The transition style to use when presenting the receiver.
+ */
++ (void)registerTransitionClass:(Class __nonnull)transitionClass forTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle;
+
++ (nullable Class)classForTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle;
+
++ (NSDictionary * _Nonnull)sharedTransitionClasses;
+
 @end
