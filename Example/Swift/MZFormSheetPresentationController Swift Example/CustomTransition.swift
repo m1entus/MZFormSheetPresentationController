@@ -24,7 +24,7 @@ class CustomTransition: NSObject, MZFormSheetPresentationControllerTransitionPro
         bounceAnimation.keyTimes = [0.0, 0.5, 0.75, 1.0]
         bounceAnimation.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut),CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut),CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)]
         bounceAnimation.delegate = self
-        bounceAnimation.setValue(completionHandler as? AnyObject, forKey: "completionHandler")
+        bounceAnimation.setValue((completionHandler as? AnyObject)!, forKey: "completionHandler")
         formSheetController.contentViewController!.view.layer.addAnimation(bounceAnimation, forKey: "bounce")
     }
     

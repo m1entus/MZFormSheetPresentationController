@@ -130,7 +130,7 @@ class ViewController: UITableViewController {
     }
     
     func transparentBackgroundViewAction() {
-        let viewController = self.storyboard!.instantiateViewControllerWithIdentifier("TransparentViewController") as! UIViewController
+        let viewController = self.storyboard!.instantiateViewControllerWithIdentifier("TransparentViewController") 
         let formSheetController = MZFormSheetPresentationController(contentViewController: viewController)
         formSheetController.transparentTouchEnabled = false
         self.presentViewController(formSheetController, animated: true, completion: nil)

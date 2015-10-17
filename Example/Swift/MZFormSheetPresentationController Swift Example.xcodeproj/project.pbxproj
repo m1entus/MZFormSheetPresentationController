@@ -13,7 +13,6 @@
 		6494BD511B3343FC00C331EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6494BD4F1B3343FC00C331EE /* Main.storyboard */; };
 		6494BD531B3343FC00C331EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6494BD521B3343FC00C331EE /* Images.xcassets */; };
 		6494BD561B3343FC00C331EE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6494BD541B3343FC00C331EE /* LaunchScreen.xib */; };
-		6494BD621B3343FC00C331EE /* MZFormSheetPresentationController_Swift_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD611B3343FC00C331EE /* MZFormSheetPresentationController_Swift_ExampleTests.swift */; };
 		6494BD771B33445700C331EE /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD6E1B33445700C331EE /* MZFormSheetPresentationController.m */; };
 		6494BD781B33445700C331EE /* MZFormSheetPresentationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD701B33445700C331EE /* MZFormSheetPresentationControllerAnimator.m */; };
 		6494BD791B33445700C331EE /* MZFormSheetPresentationControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD721B33445700C331EE /* MZFormSheetPresentationControllerSegue.m */; };
@@ -25,16 +24,6 @@
 		D2BC838E1B4C037600BCAE95 /* MZBlurEffectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BC838D1B4C037600BCAE95 /* MZBlurEffectAdapter.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		6494BD5C1B3343FC00C331EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6494BD3E1B3343FC00C331EE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6494BD451B3343FC00C331EE;
-			remoteInfo = "MZFormSheetPresentationController Swift Example";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		5E5F8D9FE03CE5560E3C5462 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		640560981B389F4300CE2950 /* TransparentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentViewController.swift; sourceTree = "<group>"; };
@@ -45,7 +34,6 @@
 		6494BD501B3343FC00C331EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6494BD521B3343FC00C331EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6494BD551B3343FC00C331EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		6494BD5B1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MZFormSheetPresentationController Swift ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6494BD601B3343FC00C331EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6494BD611B3343FC00C331EE /* MZFormSheetPresentationController_Swift_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MZFormSheetPresentationController_Swift_ExampleTests.swift; sourceTree = "<group>"; };
 		6494BD6C1B33445700C331EE /* MZFormSheetPresentationController Swift Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MZFormSheetPresentationController Swift Example-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -76,13 +64,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6494BD581B3343FC00C331EE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -101,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				6494BD461B3343FC00C331EE /* MZFormSheetPresentationController Swift Example.app */,
-				6494BD5B1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,39 +189,19 @@
 			productReference = 6494BD461B3343FC00C331EE /* MZFormSheetPresentationController Swift Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6494BD5A1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6494BD681B3343FC00C331EE /* Build configuration list for PBXNativeTarget "MZFormSheetPresentationController Swift ExampleTests" */;
-			buildPhases = (
-				6494BD571B3343FC00C331EE /* Sources */,
-				6494BD581B3343FC00C331EE /* Frameworks */,
-				6494BD591B3343FC00C331EE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6494BD5D1B3343FC00C331EE /* PBXTargetDependency */,
-			);
-			name = "MZFormSheetPresentationController Swift ExampleTests";
-			productName = "MZFormSheetPresentationController Swift ExampleTests";
-			productReference = 6494BD5B1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		6494BD3E1B3343FC00C331EE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Michal Zaborowski";
 				TargetAttributes = {
 					6494BD451B3343FC00C331EE = {
 						CreatedOnToolsVersion = 6.3.2;
-					};
-					6494BD5A1B3343FC00C331EE = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 6494BD451B3343FC00C331EE;
 					};
 				};
 			};
@@ -259,7 +219,6 @@
 			projectRoot = "";
 			targets = (
 				6494BD451B3343FC00C331EE /* MZFormSheetPresentationController Swift Example */,
-				6494BD5A1B3343FC00C331EE /* MZFormSheetPresentationController Swift ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,13 +231,6 @@
 				6494BD511B3343FC00C331EE /* Main.storyboard in Resources */,
 				6494BD561B3343FC00C331EE /* LaunchScreen.xib in Resources */,
 				6494BD531B3343FC00C331EE /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6494BD591B3343FC00C331EE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,23 +303,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6494BD571B3343FC00C331EE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6494BD621B3343FC00C331EE /* MZFormSheetPresentationController_Swift_ExampleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6494BD5D1B3343FC00C331EE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6494BD451B3343FC00C331EE /* MZFormSheetPresentationController Swift Example */;
-			targetProxy = 6494BD5C1B3343FC00C331EE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6494BD4F1B3343FC00C331EE /* Main.storyboard */ = {
@@ -499,40 +435,6 @@
 			};
 			name = Release;
 		};
-		6494BD691B3343FC00C331EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MZFormSheetPresentationController Swift ExampleTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MZFormSheetPresentationController Swift Example.app/MZFormSheetPresentationController Swift Example";
-			};
-			name = Debug;
-		};
-		6494BD6A1B3343FC00C331EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MZFormSheetPresentationController Swift ExampleTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MZFormSheetPresentationController Swift Example.app/MZFormSheetPresentationController Swift Example";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -550,15 +452,6 @@
 			buildConfigurations = (
 				6494BD661B3343FC00C331EE /* Debug */,
 				6494BD671B3343FC00C331EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6494BD681B3343FC00C331EE /* Build configuration list for PBXNativeTarget "MZFormSheetPresentationController Swift ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6494BD691B3343FC00C331EE /* Debug */,
-				6494BD6A1B3343FC00C331EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
