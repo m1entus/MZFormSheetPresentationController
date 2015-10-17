@@ -1,6 +1,6 @@
 //
-//  MZFormSheetPresentationController_Objective_C_ExampleTests.m
-//  MZFormSheetPresentationController Objective-C ExampleTests
+//  MZFormSheetPresentationViewController_Objective_C_ExampleTests.m
+//  MZFormSheetPresentationViewController Objective-C ExampleTests
 //
 //  Created by Michal Zaborowski on 18.06.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface MZFormSheetPresentationController_Objective_C_ExampleTests : XCTestCase
+@interface MZFormSheetPresentationViewController_Objective_C_ExampleTests : XCTestCase
 
 @end
 
-@implementation MZFormSheetPresentationController_Objective_C_ExampleTests
+@implementation MZFormSheetPresentationViewController_Objective_C_ExampleTests
 
 - (void)setUp {
     [super setUp];

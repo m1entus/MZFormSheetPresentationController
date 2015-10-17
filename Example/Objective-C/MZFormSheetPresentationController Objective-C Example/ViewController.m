@@ -1,16 +1,16 @@
 //
 //  ViewController.m
-//  MZFormSheetPresentationController Objective-C Example
+//  MZFormSheetPresentationViewController Objective-C Example
 //
 //  Created by Michal Zaborowski on 18.06.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "MZFormSheetPresentationController.h"
+#import "MZFormSheetPresentationViewController.h"
 #import "CustomTransition.h"
 #import "PresentedTableViewController.h"
-#import "MZFormSheetPresentationControllerSegue.h"
+#import "MZFormSheetPresentationViewControllerSegue.h"
 #import "CustomPrenstationControllerAnimator.h"
 
 @interface ViewController ()
@@ -23,9 +23,9 @@
     [super viewDidLoad];
     
     // Set Default Background collor for all presentation controllers
-    [[MZFormSheetPresentationController appearance] setBackgroundColor:[[UIColor darkGrayColor] colorWithAlphaComponent:0.3]];
+    [[MZFormSheetPresentationViewController appearance] setBackgroundColor:[[UIColor darkGrayColor] colorWithAlphaComponent:0.3]];
 
-    [MZFormSheetPresentationController registerTransitionClass:[CustomTransition class] forTransitionStyle:MZFormSheetPresentationTransitionStyleCustom];
+    [MZFormSheetPresentationViewController registerTransitionClass:[CustomTransition class] forTransitionStyle:MZFormSheetPresentationTransitionStyleCustom];
 }
 
 - (UINavigationController *)formSheetControllerWithNavigationController {
@@ -34,7 +34,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segue"]) {
-        MZFormSheetPresentationControllerSegue *presentationSegue = (id)segue;
+        MZFormSheetPresentationViewControllerSegue *presentationSegue = (id)segue;
         presentationSegue.formSheetPresentationController.shouldApplyBackgroundBlurEffect = YES;
         UINavigationController *navigationController = (id)presentationSegue.formSheetPresentationController.contentViewController;
         PresentedTableViewController *presentedViewController = [navigationController.viewControllers firstObject];
@@ -47,7 +47,7 @@
 
 - (void)passDataToViewControllerAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
     formSheetController.shouldDismissOnBackgroundViewTap = YES;
     formSheetController.shouldApplyBackgroundBlurEffect = YES;
     
@@ -67,7 +67,7 @@
 }
 - (void)blurEffectAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
     formSheetController.shouldApplyBackgroundBlurEffect = YES;
     formSheetController.blurEffectStyle = UIBlurEffectStyleDark;
     // To set blur effect color, but uglty animation
@@ -77,14 +77,14 @@
 }
 - (void)parallaxEffectAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
     formSheetController.shouldUseMotionEffect = YES;
     
     [self presentViewController:formSheetController animated:YES completion:nil];
 }
 - (void)customContentViewSizeAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
     formSheetController.contentViewSize = CGSizeMake(100, 100);
     
     [self presentViewController:formSheetController animated:YES completion:nil];
@@ -92,7 +92,7 @@
 
 - (void)customBackgroundColorAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
     formSheetController.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
     
     [self presentViewController:formSheetController animated:YES completion:nil];
@@ -100,7 +100,7 @@
 
 - (void)centerVerticallyAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
     formSheetController.shouldCenterVertically = YES;
     PresentedTableViewController *presentedViewController = [navigationController.viewControllers firstObject];
     presentedViewController.textFieldBecomeFirstResponder = YES;
@@ -110,10 +110,10 @@
 
 - (void)contentViewShadowAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
     formSheetController.backgroundColor = [UIColor clearColor];
 
-    __weak MZFormSheetPresentationController *weakController = formSheetController;
+    __weak MZFormSheetPresentationViewController *weakController = formSheetController;
     formSheetController.willPresentContentViewControllerHandler = ^(UIViewController *a) {
         weakController.contentViewController.view.layer.masksToBounds = NO;
         
@@ -133,13 +133,13 @@
 
 - (void)twoFormSheetControllersAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
     formSheetController.shouldDismissOnBackgroundViewTap = YES;
     formSheetController.portraitTopInset = 10;
     
     [self presentViewController:formSheetController animated:YES completion:^{
         UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-        MZFormSheetPresentationController *formSheetController2 = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+        MZFormSheetPresentationViewController *formSheetController2 = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
         formSheetController2.shouldDismissOnBackgroundViewTap = YES;
         formSheetController2.shouldApplyBackgroundBlurEffect = YES;
         [formSheetController presentViewController:formSheetController2 animated:YES completion:nil];
@@ -148,16 +148,18 @@
 
 - (void)customPresentationControllerAnimator {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
     formSheetController.animatorForPresentationController = [[CustomPrenstationControllerAnimator alloc] init];
     formSheetController.backgroundColor = [UIColor clearColor];
-    
+    formSheetController.presentationController.shouldDismissOnBackgroundViewTap = YES;
+    formSheetController.presentationController.transparentTouchEnabled = YES;
+
     [self presentViewController:formSheetController animated:YES completion:nil];
 }
 
 - (void)transparentBackgroundViewAction {
     UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TransparentViewController"];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:viewController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:viewController];
     formSheetController.transparentTouchEnabled = NO;
     
     [self presentViewController:formSheetController animated:YES completion:nil];
@@ -165,7 +167,7 @@
 
 - (void)presentFormSheetControllerWithTransition:(NSInteger)transition {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
     formSheetController.shouldDismissOnBackgroundViewTap = YES;
     formSheetController.contentViewControllerTransitionStyle = (MZFormSheetPresentationTransitionStyle)transition;
     
@@ -174,9 +176,9 @@
 
 - (void)presentFormSheetControllerWithKeyboardMovement:(NSInteger)movementOption {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationController *formSheetController = [[MZFormSheetPresentationController alloc] initWithContentViewController:navigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
     formSheetController.shouldDismissOnBackgroundViewTap = YES;
-    formSheetController.movementActionWhenKeyboardAppears = (MZFormSheetActionWhenKeyboardAppears)movementOption;
+    formSheetController.presentationController.movementActionWhenKeyboardAppears = (MZFormSheetActionWhenKeyboardAppears)movementOption;
     formSheetController.contentViewControllerTransitionStyle = MZFormSheetPresentationTransitionStyleFade;
     PresentedTableViewController *presentedViewController = [navigationController.viewControllers firstObject];
     presentedViewController.textFieldBecomeFirstResponder = YES;

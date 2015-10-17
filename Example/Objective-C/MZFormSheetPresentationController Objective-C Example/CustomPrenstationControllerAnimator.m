@@ -1,6 +1,6 @@
 //
 //  CustomPrenstationControllerAnimator.m
-//  MZFormSheetPresentationController Objective-C Example
+//  MZFormSheetPresentationViewController Objective-C Example
 //
 //  Created by Michal Zaborowski on 17.10.2015.
 //  Copyright © 2015 Michal Zaborowski. All rights reserved.
@@ -50,6 +50,7 @@
     
     [containerView addSubview:targetView];
     targetView.alpha = 1.0;
+//    targetView.frame = [transitionContext finalFrameForViewController:targetViewController];
     
     [UIView animateWithDuration:self.duration animations:^{
         self.customBackgorundView.alpha = 1.0;

@@ -1,8 +1,8 @@
 //
-//  MZFormSheetPresentationControllerAnimator.h
-//  MZFormSheetPresentationControllerAnimator
+//  MZFormSheetPresentationViewControllerSegue.m
+//  MZFormSheetPresentationViewControllerSegue
 //
-//  Created by Michał Zaborowski on 24.02.2015.
+//  Created by Michał Zaborowski on 25.02.2015.
 //  Copyright (c) 2015 Michał Zaborowski. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,13 +23,21 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-@import UIKit;
-#import "MZFormSheetPresentationControllerAnimatorProtocol.h"
+#import "MZFormSheetPresentationViewControllerSegue.h"
 
-extern CGFloat const MZFormSheetPresentationControllerAnimatorDefaultTransitionDuration;
+@implementation MZFormSheetPresentationViewControllerSegue
 
-@interface MZFormSheetPresentationControllerAnimator : NSObject <MZFormSheetPresentationControllerAnimatorProtocol>
-@property (nonatomic, assign) CGFloat duration;
-@property (nonatomic, assign, getter=isPresenting) BOOL presenting;
-@property (nonatomic, readonly) UIView *transitionContextContainerView;
+- (id)initWithIdentifier:(NSString *)identifier source:(UIViewController *)source destination:(UIViewController *)destination {
+    if (self = [super initWithIdentifier:identifier source:source destination:destination]) {
+        _formSheetPresentationController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:destination];
+    }
+    return self;
+}
+
+- (void)perform {
+    UIViewController *sourceViewController = [self sourceViewController];
+
+    [sourceViewController presentViewController:self.formSheetPresentationController animated:YES completion:nil];
+}
+
 @end

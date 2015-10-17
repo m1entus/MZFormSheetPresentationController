@@ -1,6 +1,6 @@
 //
 //  MZTransition.m
-//  MZFormSheetPresentationController
+//  MZFormSheetPresentationViewController
 //
 //  Created by Michał Zaborowski on 21.12.2013.
 //  Copyright (c) 2013 Michał Zaborowski. All rights reserved.
@@ -24,7 +24,7 @@
 //  THE SOFTWARE.
 
 #import "MZTransition.h"
-#import "MZFormSheetPresentationController.h"
+#import "MZFormSheetPresentationViewController.h"
 
 NSString *const MZPresentationTransitionExceptionMethodNotImplemented = @"MZTransitionExceptionMethodNotImplemented";
 
@@ -33,10 +33,10 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
 
 @implementation MZTransition
 
-- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     [NSException raise:MZPresentationTransitionExceptionMethodNotImplemented format:@"-[%@ entryFormSheetControllerTransition:completionHandler:] must be implemented", NSStringFromClass([self class])];
 }
-- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     [NSException raise:MZPresentationTransitionExceptionMethodNotImplemented format:@"-[%@ exitFormSheetControllerTransition:completionHandler:] must be implemented", NSStringFromClass([self class])];
 }
 
@@ -54,15 +54,15 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
 
 @implementation MZPresentationSlideFromTopTransition
 + (void)load {
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromTop];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromTop];
 }
 
-- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGRect formSheetRect = formSheetController.contentViewController.view.frame;
     CGRect originalFormSheetRect = formSheetRect;
     formSheetRect.origin.y = -formSheetRect.size.height;
     formSheetController.contentViewController.view.frame = formSheetRect;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         animations:^{
                          formSheetController.contentViewController.view.frame = originalFormSheetRect;
         }
@@ -71,10 +71,10 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
         }];
 }
 
-- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGRect formSheetRect = formSheetController.contentViewController.view.frame;
     formSheetRect.origin.y = -formSheetController.view.bounds.size.height;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         animations:^{
                          formSheetController.contentViewController.view.frame = formSheetRect;
         }
@@ -89,16 +89,16 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
 
 @implementation MZPresentationSlideFromBottomTransition
 + (void)load {
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromBottom];
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromBottom];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromBottom];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromBottom];
 }
 
-- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGRect formSheetRect = formSheetController.contentViewController.view.frame;
     CGRect originalFormSheetRect = formSheetRect;
     formSheetRect.origin.y = formSheetController.view.bounds.size.height;
     formSheetController.contentViewController.view.frame = formSheetRect;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         animations:^{
                          formSheetController.contentViewController.view.frame = originalFormSheetRect;
         }
@@ -107,10 +107,10 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
         }];
 }
 
-- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGRect formSheetRect = formSheetController.contentViewController.view.frame;
     formSheetRect.origin.y = formSheetController.view.bounds.size.height;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         delay:0
         options:UIViewAnimationOptionCurveEaseIn
         animations:^{
@@ -127,16 +127,16 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
 
 @implementation MZPresentationSlideFromLeftTransition
 + (void)load {
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromLeft];
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromLeft];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromLeft];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromLeft];
 }
 
-- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGRect formSheetRect = formSheetController.contentViewController.view.frame;
     CGRect originalFormSheetRect = formSheetRect;
     formSheetRect.origin.x = -formSheetController.view.bounds.size.width;
     formSheetController.contentViewController.view.frame = formSheetRect;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         animations:^{
                          formSheetController.contentViewController.view.frame = originalFormSheetRect;
         }
@@ -145,10 +145,10 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
         }];
 }
 
-- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGRect formSheetRect = formSheetController.contentViewController.view.frame;
     formSheetRect.origin.x = -formSheetController.view.bounds.size.width;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         animations:^{
                          formSheetController.contentViewController.view.frame = formSheetRect;
         }
@@ -163,16 +163,16 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
 
 @implementation MZPresentationSlideFromRightTransition
 + (void)load {
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromRight];
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromRight];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromRight];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideFromRight];
 }
 
-- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGRect formSheetRect = formSheetController.contentViewController.view.frame;
     CGRect originalFormSheetRect = formSheetRect;
     formSheetRect.origin.x = formSheetController.view.bounds.size.width;
     formSheetController.contentViewController.view.frame = formSheetRect;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         animations:^{
                          formSheetController.contentViewController.view.frame = originalFormSheetRect;
         }
@@ -181,10 +181,10 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
         }];
 }
 
-- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGRect formSheetRect = formSheetController.contentViewController.view.frame;
     formSheetRect.origin.x = formSheetController.view.bounds.size.width;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         animations:^{
                          formSheetController.contentViewController.view.frame = formSheetRect;
         }
@@ -199,12 +199,12 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
 
 @implementation MZPresentationSlideBounceFromLeftTransition
 + (void)load {
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:
      MZFormSheetPresentationTransitionStylelideAndBounceFromLeft];
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStylelideAndBounceFromLeft];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStylelideAndBounceFromLeft];
 }
 
-- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGFloat x = formSheetController.contentViewController.view.center.x;
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
     animation.values = @[ @(x - formSheetController.view.bounds.size.width), @(x + 20), @(x - 10), @(x) ];
@@ -216,10 +216,10 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
     [formSheetController.contentViewController.view.layer addAnimation:animation forKey:@"bounceLeft"];
 }
 
-- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGRect formSheetRect = formSheetController.contentViewController.view.frame;
     formSheetRect.origin.x = -formSheetController.view.bounds.size.width;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         animations:^{
                          formSheetController.contentViewController.view.frame = formSheetRect;
         }
@@ -234,11 +234,11 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
 
 @implementation MZPresentationSlideBounceFromRightTransition
 + (void)load {
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideAndBounceFromRight];
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideAndBounceFromRight];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideAndBounceFromRight];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideAndBounceFromRight];
 }
 
-- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGFloat x = formSheetController.contentViewController.view.center.x;
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
     animation.values = @[ @(x + formSheetController.view.bounds.size.width), @(x - 20), @(x + 10), @(x) ];
@@ -250,10 +250,10 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
     [formSheetController.contentViewController.view.layer addAnimation:animation forKey:@"bounceRight"];
 }
 
-- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGRect formSheetRect = formSheetController.contentViewController.view.frame;
     formSheetRect.origin.x = formSheetController.view.bounds.size.width;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         animations:^{
                          formSheetController.contentViewController.view.frame = formSheetRect;
         }
@@ -268,13 +268,13 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
 
 @implementation MZPresentationFadeTransition
 + (void)load {
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleFade];
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleFade];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleFade];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleFade];
 }
 
-- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     formSheetController.contentViewController.view.alpha = 0;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         animations:^{
                          formSheetController.contentViewController.view.alpha = 1;
         }
@@ -283,8 +283,8 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
         }];
 }
 
-- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         animations:^{
                          formSheetController.contentViewController.view.alpha = 0;
         }
@@ -299,11 +299,11 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
 
 @implementation MZPresentationBounceTransition
 + (void)load {
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleBounce];
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleBounce];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleBounce];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleBounce];
 }
 
-- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     bounceAnimation.fillMode = kCAFillModeBoth;
     bounceAnimation.duration = MZPresentationTransitionDefaultBounceDuration;
@@ -325,14 +325,14 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
     [formSheetController.contentViewController.view.layer addAnimation:bounceAnimation forKey:@"bounce"];
 }
 
-- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     formSheetController.contentViewController.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
 
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
     animation.values = @[ @(1), @(1.2), @(0.01) ];
     animation.keyTimes = @[ @(0), @(0.4), @(1) ];
     animation.timingFunctions = @[ [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut] ];
-    animation.duration = MZFormSheetPresentationControllerDefaultAnimationDuration;
+    animation.duration = MZFormSheetPresentationViewControllerDefaultAnimationDuration;
     animation.removedOnCompletion = YES;
     animation.delegate = self;
     [animation setValue:completionHandler forKey:@"completionHandler"];
@@ -347,11 +347,11 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
 
 @implementation MZPresentationDropDownTransition
 + (void)load {
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleDropDown];
-    [MZFormSheetPresentationController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleDropDown];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleDropDown];
+    [MZFormSheetPresentationViewController registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleDropDown];
 }
 
-- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)entryFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGFloat y = formSheetController.contentViewController.view.center.y;
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
     animation.values = @[ @(y - formSheetController.view.bounds.size.height), @(y + 20), @(y - 10), @(y) ];
@@ -363,10 +363,10 @@ CGFloat const MZPresentationTransitionDefaultDropDownDuration = 0.4;
     [formSheetController.contentViewController.view.layer addAnimation:animation forKey:@"dropdown"];
 }
 
-- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+- (void)exitFormSheetControllerTransition:(MZFormSheetPresentationViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
     CGPoint point = formSheetController.contentViewController.view.center;
     point.y += formSheetController.view.bounds.size.height;
-    [UIView animateWithDuration:MZFormSheetPresentationControllerDefaultAnimationDuration
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
         delay:0
         options:UIViewAnimationOptionCurveEaseIn
         animations:^{

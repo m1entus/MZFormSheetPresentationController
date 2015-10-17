@@ -1,8 +1,8 @@
 //
-//  MZFormSheetPresentationControllerSegue.h
-//  MZFormSheetPresentationControllerSegue
+//  MZFormSheetPresentationViewControllerAnimator.h
+//  MZFormSheetPresentationViewControllerAnimator
 //
-//  Created by Michał Zaborowski on 25.02.2015.
+//  Created by Michał Zaborowski on 24.02.2015.
 //  Copyright (c) 2015 Michał Zaborowski. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,9 +23,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
-#import "MZFormSheetPresentationController.h"
+@import UIKit;
+#import "MZFormSheetPresentationViewControllerAnimatorProtocol.h"
 
-@interface MZFormSheetPresentationControllerSegue : UIStoryboardSegue
-@property (nonatomic, strong, nonnull) MZFormSheetPresentationController *formSheetPresentationController;
+extern CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDuration;
+
+@interface MZFormSheetPresentationViewControllerAnimator : NSObject <MZFormSheetPresentationViewControllerAnimatorProtocol>
+@property (nonatomic, assign) CGFloat duration;
+@property (nonatomic, assign, getter=isPresenting) BOOL presenting;
+@property (nonatomic, readonly) UIView *transitionContextContainerView;
 @end

@@ -1,6 +1,6 @@
 //
-//  MZFormSheetPresentationControllerAnimatorProtocol.h
-//  MZFormSheetPresentationController Objective-C Example
+//  MZFormSheetPresentationViewControllerAnimatorProtocol.h
+//  MZFormSheetPresentationViewController Objective-C Example
 //
 //  Created by Michal Zaborowski on 17.10.2015.
 //  Copyright © 2015 Michal Zaborowski. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MZFormSheetPresentationControllerAnimatorProtocol <UIViewControllerAnimatedTransitioning>
+@protocol MZFormSheetPresentationViewControllerAnimatorProtocol <UIViewControllerAnimatedTransitioning>
 @property (nonatomic, assign, getter=isPresenting) BOOL presenting;
 
 /* Needed to be able to turn on transparentTouchEnabled */

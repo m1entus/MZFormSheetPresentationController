@@ -1,6 +1,6 @@
 //
-//  MZFormSheetPresentationControllerSegue.m
-//  MZFormSheetPresentationControllerSegue
+//  MZFormSheetPresentationViewControllerSegue.h
+//  MZFormSheetPresentationViewControllerSegue
 //
 //  Created by Michał Zaborowski on 25.02.2015.
 //  Copyright (c) 2015 Michał Zaborowski. All rights reserved.
@@ -23,21 +23,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "MZFormSheetPresentationControllerSegue.h"
+#import <UIKit/UIKit.h>
+#import "MZFormSheetPresentationViewController.h"
 
-@implementation MZFormSheetPresentationControllerSegue
-
-- (id)initWithIdentifier:(NSString *)identifier source:(UIViewController *)source destination:(UIViewController *)destination {
-    if (self = [super initWithIdentifier:identifier source:source destination:destination]) {
-        _formSheetPresentationController = [[MZFormSheetPresentationController alloc] initWithContentViewController:destination];
-    }
-    return self;
-}
-
-- (void)perform {
-    UIViewController *sourceViewController = [self sourceViewController];
-
-    [sourceViewController presentViewController:self.formSheetPresentationController animated:YES completion:nil];
-}
-
+@interface MZFormSheetPresentationViewControllerSegue : UIStoryboardSegue
+@property (nonatomic, strong, nonnull) MZFormSheetPresentationViewController *formSheetPresentationController;
 @end

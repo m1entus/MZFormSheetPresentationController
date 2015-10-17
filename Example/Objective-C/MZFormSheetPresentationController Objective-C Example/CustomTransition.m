@@ -1,17 +1,17 @@
 //
 //  CustomTransition.m
-//  MZFormSheetPresentationController Objective-C Example
+//  MZFormSheetPresentationViewController Objective-C Example
 //
 //  Created by Michal Zaborowski on 18.06.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
 //
 
 #import "CustomTransition.h"
-#import "MZFormSheetPresentationController.h"
+#import "MZFormSheetPresentationViewController.h"
 
 @implementation CustomTransition
 
-- (void)entryFormSheetControllerTransition:(nonnull MZFormSheetPresentationController *)formSheetController
+- (void)entryFormSheetControllerTransition:(nonnull MZFormSheetPresentationViewController *)formSheetController
                          completionHandler:(nonnull MZTransitionCompletionHandler)completionHandler {
     
     CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
@@ -34,7 +34,7 @@
     
 }
 
-- (void)exitFormSheetControllerTransition:(nonnull MZFormSheetPresentationController *)formSheetController
+- (void)exitFormSheetControllerTransition:(nonnull MZFormSheetPresentationViewController *)formSheetController
                         completionHandler:(nonnull MZTransitionCompletionHandler)completionHandler {
     CGRect formSheetRect = formSheetController.contentViewController.view.frame;
     formSheetRect.origin.x = formSheetController.view.bounds.size.width;

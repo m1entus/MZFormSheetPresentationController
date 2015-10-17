@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="576" y="-231"/>
         </scene>
-        <!--MZFormSheetPresentationController-->
+        <!--MZFormSheetPresentationViewController-->
         <scene sceneID="uZM-P6-Bex">
             <objects>
                 <tableViewController id="Fc1-8y-TCg" customClass="ViewController" sceneMemberID="viewController">
@@ -160,7 +160,7 @@
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="0.010051519906342232" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="B2U-3m-4DE" kind="custom" identifier="segue" customClass="MZFormSheetPresentationControllerSegue" id="iqU-PU-GP3"/>
+                                            <segue destination="B2U-3m-4DE" kind="custom" identifier="segue" customClass="MZFormSheetPresentationViewControllerSegue" id="iqU-PU-GP3"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="bOy-Ea-JGf" style="IBUITableViewCellStyleDefault" id="Xi1-yq-HQf">
@@ -599,7 +599,7 @@
                             <outlet property="delegate" destination="Fc1-8y-TCg" id="QIi-uL-WZo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="MZFormSheetPresentationController" id="Z5n-XV-vmf"/>
+                    <navigationItem key="navigationItem" title="MZFormSheetPresentationViewController" id="Z5n-XV-vmf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaU-2r-vbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

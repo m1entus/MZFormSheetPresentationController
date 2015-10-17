@@ -1,6 +1,6 @@
 //
-//  MZFormSheetPresentationControllerAnimator.m
-//  MZFormSheetPresentationControllerAnimator
+//  MZFormSheetPresentationViewControllerAnimator.m
+//  MZFormSheetPresentationViewControllerAnimator
 //
 //  Created by Michał Zaborowski on 24.02.2015.
 //  Copyright (c) 2015 Michał Zaborowski. All rights reserved.
@@ -23,20 +23,20 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "MZFormSheetPresentationControllerAnimator.h"
+#import "MZFormSheetPresentationViewControllerAnimator.h"
 #import <objc/runtime.h>
 
-CGFloat const MZFormSheetPresentationControllerAnimatorDefaultTransitionDuration = 0.35;
+CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDuration = 0.35;
 
-@interface MZFormSheetPresentationControllerAnimator ()
+@interface MZFormSheetPresentationViewControllerAnimator ()
 @property (nonatomic, strong) UIView *transitionContextContainerView;
 @end
 
-@implementation MZFormSheetPresentationControllerAnimator
+@implementation MZFormSheetPresentationViewControllerAnimator
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.duration = MZFormSheetPresentationControllerAnimatorDefaultTransitionDuration;
+        self.duration = MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDuration;
     }
     return self;
 }
@@ -63,7 +63,8 @@ CGFloat const MZFormSheetPresentationControllerAnimatorDefaultTransitionDuration
 
     [containerView addSubview:targetView];
     targetView.alpha = 0.0;
-
+    targetView.frame = [transitionContext finalFrameForViewController:targetViewController];
+    
     [UIView animateWithDuration:self.duration animations:^{
         targetView.alpha = 1.0;
     } completion:^(BOOL finished) {
