@@ -111,7 +111,7 @@
 - (void)contentViewShadowAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
-    formSheetController.allowInteractivePanGestureDissmisal = YES;
+    formSheetController.interactivePanGestureDissmisalDireciton = MZFormSheetPanGestureDismissDirectionUp | MZFormSheetPanGestureDismissDirectionDown | MZFormSheetPanGestureDismissDirectionLeft | MZFormSheetPanGestureDismissDirectionRight;
 
     __weak MZFormSheetPresentationViewController *weakController = formSheetController;
     formSheetController.willPresentContentViewControllerHandler = ^(UIViewController *a) {

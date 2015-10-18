@@ -29,10 +29,6 @@
 
 CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDuration = 0.35;
 
-@interface MZFormSheetPresentationViewControllerAnimator ()
-@property (nonatomic, strong) id<UIViewControllerContextTransitioning> transitionContext;
-@property (nonatomic, assign) CGRect sourceViewInitialFrame;
-@end
 
 @implementation MZFormSheetPresentationViewControllerAnimator
 
@@ -111,81 +107,6 @@ CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDura
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
     return self.transitionDuration;
-}
-
-#pragma mark - UIViewControllerInteractiveTransitioning Methods
-
-- (void)startInteractiveTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    self.transitionContext = transitionContext;
-    
-    UIView *sourceView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-    self.sourceViewInitialFrame = sourceView.frame;
-}
-
-- (void)animationEnded:(BOOL)transitionCompleted {
-    self.interactive = NO;
-    self.presenting = NO;
-    if (transitionCompleted) {
-        if (self.presenting == NO) {
-            self.transitionContext = nil;
-        }
-    }
-}
-
-#pragma mark - UIPercentDrivenInteractiveTransition Overridden Methods
-
-
-- (void)updateInteractiveTransition:(CGFloat)percentComplete {
-    id<UIViewControllerContextTransitioning> transitionContext = self.transitionContext;
-    UIView *sourceView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-    
-    CGFloat heightToPass = CGRectGetHeight(transitionContext.containerView.bounds) - CGRectGetMinY(self.sourceViewInitialFrame);
-    
-    if (percentComplete < 0) {
-        percentComplete = 0;
-    }
-    
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    MZFormSheetPresentationController *presentationController = (id)[fromViewController presentationController];
-    
-    presentationController.dimmingView.alpha = (1.0 - percentComplete);
-    
-    CGRect sourceViewFrame = sourceView.frame;
-    sourceViewFrame.origin.y = self.sourceViewInitialFrame.origin.y + (heightToPass * percentComplete);
-    sourceView.frame = sourceViewFrame;
-}
-
-- (void)finishInteractiveTransition {
-    id<UIViewControllerContextTransitioning> transitionContext = self.transitionContext;
-    UIView *sourceView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-    
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    MZFormSheetPresentationController *presentationController = (id)[fromViewController presentationController];
-    
-    CGRect sourceViewFrame = sourceView.frame;
-    sourceViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height;
-    
-    [UIView animateWithDuration:MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDuration delay:0 options:0 animations:^{
-        sourceView.frame = sourceViewFrame;
-        presentationController.dimmingView.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        [transitionContext completeTransition:YES];
-    }];
-}
-
-- (void)cancelInteractiveTransition {
-    id<UIViewControllerContextTransitioning> transitionContext = self.transitionContext;
-    UIView *sourceView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-    
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    MZFormSheetPresentationController *presentationController = (id)[fromViewController presentationController];
-    
-    [UIView animateWithDuration:MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDuration delay:0 options:0 animations:^{
-        presentationController.dimmingView.alpha = 1.0;
-        sourceView.frame = self.sourceViewInitialFrame;
-    } completion:^(BOOL finished) {
-        [transitionContext completeTransition:NO];
-    }];
 }
 
 @end

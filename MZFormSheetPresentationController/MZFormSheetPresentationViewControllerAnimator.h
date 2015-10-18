@@ -29,7 +29,7 @@
 
 extern CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDuration;
 
-@interface MZFormSheetPresentationViewControllerAnimator : UIPercentDrivenInteractiveTransition <MZFormSheetPresentationViewControllerAnimatedTransitioning>
+@interface MZFormSheetPresentationViewControllerAnimator : NSObject <MZFormSheetPresentationViewControllerAnimatedTransitioning>
 @property (nonatomic, assign, getter=isPresenting) BOOL presenting;
 @property (nonatomic, assign, getter=isInteractive) BOOL interactive;
 @property (nonatomic, assign) CGFloat transitionDuration;

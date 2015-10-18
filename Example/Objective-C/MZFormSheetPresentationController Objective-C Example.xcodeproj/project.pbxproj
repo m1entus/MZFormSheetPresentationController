@@ -22,6 +22,7 @@
 		643ED5D51B332A02004663AF /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5D01B332A02004663AF /* UIViewController+TargetViewController.m */; };
 		644C65861BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 644C65851BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m */; settings = {ASSET_TAGS = (); }; };
 		644C65891BD265A300ACE2C5 /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 644C65881BD265A300ACE2C5 /* MZFormSheetPresentationController.m */; settings = {ASSET_TAGS = (); }; };
+		64717C381BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C371BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m */; settings = {ASSET_TAGS = (); }; };
 		6494BD391B33344700C331EE /* PresentedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD381B33344700C331EE /* PresentedTableViewController.m */; };
 		6494BD3C1B33355B00C331EE /* CustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD3B1B33355B00C331EE /* CustomTransition.m */; };
 		D2BC83911B4C05DC00BCAE95 /* MZBlurEffectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BC83901B4C05DC00BCAE95 /* MZBlurEffectAdapter.m */; };
@@ -58,6 +59,9 @@
 		644C65851BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPrenstationControllerAnimator.m; sourceTree = "<group>"; };
 		644C65871BD265A300ACE2C5 /* MZFormSheetPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationController.h; sourceTree = "<group>"; };
 		644C65881BD265A300ACE2C5 /* MZFormSheetPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetPresentationController.m; sourceTree = "<group>"; };
+		64717C361BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationViewControllerInteractiveAnimator.h; sourceTree = "<group>"; };
+		64717C371BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetPresentationViewControllerInteractiveAnimator.m; sourceTree = "<group>"; };
+		64717C391BD395E1005CBA5A /* MZFormSheetPresentationViewControllerInteractiveTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationViewControllerInteractiveTransitioning.h; sourceTree = "<group>"; };
 		6494BD371B33344700C331EE /* PresentedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentedTableViewController.h; sourceTree = "<group>"; };
 		6494BD381B33344700C331EE /* PresentedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentedTableViewController.m; sourceTree = "<group>"; };
 		6494BD3A1B33355B00C331EE /* CustomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTransition.h; sourceTree = "<group>"; };
@@ -161,6 +165,9 @@
 				64F090211BD2ABFB0040E7EA /* MZFormSheetPresentationViewControllerAnimatedTransitioning.h */,
 				643ED5C91B332A02004663AF /* MZFormSheetPresentationViewControllerAnimator.h */,
 				643ED5CA1B332A02004663AF /* MZFormSheetPresentationViewControllerAnimator.m */,
+				64717C391BD395E1005CBA5A /* MZFormSheetPresentationViewControllerInteractiveTransitioning.h */,
+				64717C361BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.h */,
+				64717C371BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m */,
 				643ED5CB1B332A02004663AF /* MZFormSheetPresentationViewControllerSegue.h */,
 				643ED5CC1B332A02004663AF /* MZFormSheetPresentationViewControllerSegue.m */,
 				643ED5CD1B332A02004663AF /* MZTransition.h */,
@@ -302,6 +309,7 @@
 				644C65861BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m in Sources */,
 				643ED5D11B332A02004663AF /* MZFormSheetPresentationViewController.m in Sources */,
 				643ED5D21B332A02004663AF /* MZFormSheetPresentationViewControllerAnimator.m in Sources */,
+				64717C381BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m in Sources */,
 				D2BC83911B4C05DC00BCAE95 /* MZBlurEffectAdapter.m in Sources */,
 				640560971B389D3700CE2950 /* TransparentViewController.m in Sources */,
 				643ED5D31B332A02004663AF /* MZFormSheetPresentationViewControllerSegue.m in Sources */,
