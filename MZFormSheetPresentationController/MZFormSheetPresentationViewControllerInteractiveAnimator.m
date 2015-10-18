@@ -275,7 +275,7 @@
         sourceViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height;
     }
 
-    [UIView animateWithDuration:self.transitionDuration delay:0 options:0 animations:^{
+    [UIView animateWithDuration:self.transitionDuration delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.3 options:0 animations:^{
         sourceView.frame = sourceViewFrame;
         presentationController.dimmingView.alpha = 0.0;
     } completion:^(BOOL finished) {
@@ -290,7 +290,7 @@
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     MZFormSheetPresentationController *presentationController = (id)[fromViewController presentationController];
 
-    [UIView animateWithDuration:self.transitionDuration/2 delay:0 options:0 animations:^{
+    [UIView animateWithDuration:self.transitionDuration delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.3 options:0 animations:^{
         presentationController.dimmingView.alpha = 1.0;
         sourceView.frame = self.sourceViewInitialFrame;
     } completion:^(BOOL finished) {
