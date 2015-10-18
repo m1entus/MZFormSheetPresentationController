@@ -68,10 +68,9 @@
 - (void)blurEffectAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
+    formSheetController.interactivePanGestureDissmisalDireciton = MZFormSheetPanGestureDismissDirectionAll;
     formSheetController.presentationController.shouldApplyBackgroundBlurEffect = YES;
-    formSheetController.presentationController.blurEffectStyle = UIBlurEffectStyleDark;
-    // To set blur effect color, but uglty animation
-//    formSheetController.presentationController.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
+    formSheetController.presentationController.blurEffectStyle = UIBlurEffectStyleLight;
     
     [self presentViewController:formSheetController animated:YES completion:nil];
 }
