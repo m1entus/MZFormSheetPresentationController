@@ -28,7 +28,7 @@
 #import "MZFormSheetPresentationViewControllerAnimator.h"
 #import "MZFormSheetPresentationViewControllerInteractiveAnimator.h"
 
-@interface MZFormSheetPresentationViewControllerCustomView: UIView
+@interface MZFormSheetPresentationViewControllerCustomView : UIView
 @property (nonatomic, weak) MZFormSheetPresentationViewController *viewController;
 @end
 
@@ -42,12 +42,12 @@
 }
 
 - (void)setFrame:(CGRect)frame {
-    
+
     // This is workaroud for UIViewControllerBuiltinTransitionViewAnimator
     // who is setting frame to [UIScreen mainScreen] when modally presented over
     // MZFormSheetPresentationViewController using UIModalPresentationFullScreen style !!!
     // Made this workaround to have less github issues, for people who is not reading docs :)
-    
+
     if (self.viewController.presentedViewController && (self.viewController.presentedViewController.modalPresentationStyle != UIModalPresentationOverFullScreen || self.viewController.modalPresentationStyle != UIModalPresentationCurrentContext || self.viewController.modalPresentationStyle != UIModalPresentationCustom)) {
         return;
     }
@@ -76,7 +76,6 @@
     [self.contentViewController.view removeFromSuperview];
     [self.contentViewController removeFromParentViewController];
     self.contentViewController = nil;
-
 }
 
 #pragma mark - Appearance
@@ -94,7 +93,6 @@
 }
 
 #pragma mark - Setters
-
 
 - (void)setContentViewCornerRadius:(CGFloat)contentViewCornerRadius {
     _contentViewCornerRadius = contentViewCornerRadius;
@@ -130,15 +128,14 @@
     return (MZFormSheetPresentationController *)[super presentationController];
 }
 
-- (UIPercentDrivenInteractiveTransition <MZFormSheetPresentationViewControllerInteractiveTransitioning> *)interactionAnimatorForPresentationController {
+- (UIPercentDrivenInteractiveTransition<MZFormSheetPresentationViewControllerInteractiveTransitioning> *)interactionAnimatorForPresentationController {
     if (!_interactionAnimatorForPresentationController) {
         _interactionAnimatorForPresentationController = [[MZFormSheetPresentationViewControllerInteractiveAnimator alloc] init];
     }
     return _interactionAnimatorForPresentationController;
 }
 
-
-- (id <UIViewControllerAnimatedTransitioning>)animatorForPresentationController {
+- (id<UIViewControllerAnimatedTransitioning>)animatorForPresentationController {
     if (!_animatorForPresentationController) {
         _animatorForPresentationController = [[MZFormSheetPresentationViewControllerAnimator alloc] init];
     }
@@ -149,7 +146,7 @@
 
 - (instancetype)initWithContentViewController:(UIViewController *)viewController {
     if (self = [self init]) {
-    
+
         NSParameterAssert(viewController);
         self.contentViewController = viewController;
         self.modalPresentationStyle = UIModalPresentationCustom;
@@ -174,11 +171,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (!self.presentedViewController) {
-        
+
         if (self.interactivePanGestureDissmisalDireciton != MZFormSheetPanGestureDismissDirectionNone) {
             [self addDismissalPanGestureRecognizer];
         }
-        
+
         if (self.willPresentContentViewControllerHandler) {
             self.willPresentContentViewControllerHandler(self.contentViewController);
         }
@@ -200,7 +197,7 @@
             self.willDismissContentViewControllerHandler(self.contentViewController);
         }
     }
-    
+
     [super viewWillDisappear:animated];
 }
 
@@ -210,7 +207,7 @@
             self.didDismissContentViewControllerHandler(self.contentViewController);
         }
     }
-    
+
     [super viewDidDisappear:animated];
 }
 
@@ -231,9 +228,9 @@
 
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         self.panGestureRecognized = YES;
-        
+
     } else if (recognizer.state == UIGestureRecognizerStateEnded) {
-        
+
         self.panGestureRecognized = NO;
     }
     [self.interactionAnimatorForPresentationController handleDismissalPanGestureRecognizer:recognizer dismissDirection:self.interactivePanGestureDissmisalDireciton forPresentingView:self.view fromViewController:self];
@@ -273,14 +270,12 @@
 #pragma mark - Rotation
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    
+
     [self.contentViewController viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return [self.contentViewController supportedInterfaceOrientations];
 }
 
@@ -294,11 +289,10 @@
     return [[MZFormSheetPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
 }
 
-
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    
+
     if ([self.animatorForPresentationController isKindOfClass:[MZFormSheetPresentationViewControllerAnimator class]]) {
-        
+
         MZFormSheetPresentationViewControllerAnimator *animator = (id)self.animatorForPresentationController;
         if (!animator.transition) {
             Class transitionClass = [MZTransition sharedTransitionClasses][@(self.contentViewControllerTransitionStyle)];
@@ -306,15 +300,15 @@
             animator.transition = transition;
         }
     }
-    
+
     self.animatorForPresentationController.presenting = YES;
     return self.animatorForPresentationController;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    
+
     if ([self.animatorForPresentationController isKindOfClass:[MZFormSheetPresentationViewControllerAnimator class]]) {
-        
+
         MZFormSheetPresentationViewControllerAnimator *animator = (id)self.animatorForPresentationController;
         if (!animator.transition) {
             Class transitionClass = [MZTransition sharedTransitionClasses][@(self.contentViewControllerTransitionStyle)];
@@ -322,17 +316,16 @@
             animator.transition = transition;
         }
     }
-    
-    
+
     self.animatorForPresentationController.presenting = NO;
     return self.animatorForPresentationController;
 }
 
-- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator {
+- (nullable id<UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id<UIViewControllerAnimatedTransitioning>)animator {
     return nil;
 }
 
-- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator {
+- (nullable id<UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<UIViewControllerAnimatedTransitioning>)animator {
     self.interactionAnimatorForPresentationController.presenting = NO;
     return self.isPanGestureRecognized ? self.interactionAnimatorForPresentationController : nil;
 }

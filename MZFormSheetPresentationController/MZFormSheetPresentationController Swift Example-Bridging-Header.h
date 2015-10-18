@@ -4,4 +4,9 @@
 
 
 #import "MZFormSheetPresentationController.h"
-#import "MZFormSheetPresentationControllerSegue.h"
+#import "MZFormSheetPresentationViewController.h"
+#import "MZFormSheetPresentationViewControllerSegue.h"
+#import "MZFormSheetPresentationViewControllerAnimatedTransitioning.h"
+#import "MZFormSheetPresentationViewControllerAnimator.h"
+#import "MZFormSheetPresentationViewControllerInteractiveAnimator.h"
+#import "MZFormSheetPresentationViewControllerInteractiveTransitioning.h"

@@ -29,16 +29,15 @@
 
 CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDuration = 0.35;
 
-
 @implementation MZFormSheetPresentationViewControllerAnimator
 
 + (instancetype)animatorForTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle {
     MZFormSheetPresentationViewControllerAnimator *animator = [[[self class] alloc] init];
-    
+
     Class transitionClass = [MZTransition sharedTransitionClasses][@(transitionStyle)];
     id<MZFormSheetPresentationViewControllerTransitionProtocol> transition = [[transitionClass alloc] init];
     animator.transition = transition;
-    
+
     return animator;
 }
 
@@ -50,11 +49,11 @@ CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDura
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    
+
     if (self.interactive) {
         return;
     }
-    
+
     UIViewController *sourceViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *targetViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 
@@ -70,12 +69,11 @@ CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDura
 
 - (void)animateTransitionForPresentation:(id<UIViewControllerContextTransitioning>)transitionContext sourceViewController:(UIViewController *)sourceViewController sourceView:(UIView *)sourceView targetViewController:(UIViewController *)targetViewController targetView:(UIView *)targetView {
 
-    
     UIView *containerView = [transitionContext containerView];
 
     [containerView addSubview:targetView];
     targetView.frame = [transitionContext finalFrameForViewController:targetViewController];
-    
+
     if (self.transition) {
 
         [self.transition entryFormSheetControllerTransition:targetViewController completionHandler:^{
@@ -94,7 +92,7 @@ CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDura
     [containerView insertSubview:targetView belowSubview:sourceView];
 
     if (self.transition) {
-        
+
         [self.transition exitFormSheetControllerTransition:sourceViewController completionHandler:^{
             [sourceView removeFromSuperview];
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];

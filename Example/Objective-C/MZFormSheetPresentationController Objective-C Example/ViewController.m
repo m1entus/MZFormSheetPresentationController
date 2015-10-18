@@ -156,6 +156,14 @@
     [self presentViewController:formSheetController animated:YES completion:nil];
 }
 
+- (void)panGestureDismissIngGesture {
+    UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
+    formSheetController.interactivePanGestureDissmisalDireciton = MZFormSheetPanGestureDismissDirectionAll;
+
+    [self presentViewController:formSheetController animated:YES completion:nil];
+}
+
 - (void)presentFormSheetControllerWithTransition:(NSInteger)transition {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
@@ -195,6 +203,7 @@
             case 8: [self twoFormSheetControllersAction]; break;
             case 9: [self transparentBackgroundViewAction]; break;
             case 10: [self customPresentationControllerAnimator]; break;
+            case 11: [self panGestureDismissIngGesture]; break;
             default:
                 break;
         }
