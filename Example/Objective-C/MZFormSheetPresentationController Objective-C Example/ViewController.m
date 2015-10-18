@@ -156,9 +156,11 @@
 }
 
 - (void)panGestureDismissIngGesture {
-    UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
-    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
+//    UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
+    UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TransparentViewController"];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:viewController];
     formSheetController.interactivePanGestureDissmisalDireciton = MZFormSheetPanGestureDismissDirectionAll;
+    formSheetController.allowDismissByPanningPresentedView = YES;
 
     [self presentViewController:formSheetController animated:YES completion:nil];
 }

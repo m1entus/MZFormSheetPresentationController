@@ -64,6 +64,12 @@ typedef void(^MZFormSheetPresentationViewControllerCompletionHandler)(UIViewCont
 @property (nonatomic, assign) MZFormSheetPanGestureDismissDirection interactivePanGestureDissmisalDireciton;
 
 /**
+ *  Allow dismiss the modals by swiping up/down/left/right on the presented view.
+ *  By default, this is NO.
+ */
+@property (nonatomic, assign) BOOL allowDismissByPanningPresentedView;
+
+/**
  The transition style to use when presenting the receiver.
  By default, this is MZFormSheetPresentationTransitionStyleSlideFromTop.
  */

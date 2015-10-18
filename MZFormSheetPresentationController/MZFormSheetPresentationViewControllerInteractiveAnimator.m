@@ -33,6 +33,8 @@
 @property (nonatomic, assign) CGPoint panGestureRecognizerStartLocation;
 @property (nonatomic, assign) MZFormSheetPanGestureDismissDirection dismissDirection;
 @property (nonatomic, assign) MZFormSheetPanGestureDismissDirection currentDirection;
+
+@property (nonatomic, assign) BOOL edgeDismissing;
 @end
 
 @implementation MZFormSheetPresentationViewControllerInteractiveAnimator
@@ -136,8 +138,9 @@
     return 0;
 }
 
-- (void)handleDismissalPanGestureRecognizer:(UIPanGestureRecognizer *)recognizer dismissDirection:(MZFormSheetPanGestureDismissDirection)dismissDirection forPresentingView:(UIView *)presentingView fromViewController:(UIViewController *)viewController {
+- (void)handleEdgeDismissalPanGestureRecognizer:(UIPanGestureRecognizer *)recognizer dismissDirection:(MZFormSheetPanGestureDismissDirection)dismissDirection forPresentingView:(UIView *)presentingView fromViewController:(UIViewController *)viewController {
 
+    self.edgeDismissing = YES;
     self.dismissDirection = dismissDirection;
 
     CGPoint location = [recognizer locationInView:viewController.presentationController.containerView];
@@ -192,6 +195,42 @@
     }
 }
 
+- (void)handlePresentingViewDismissalPanGestureRecognizer:(UIPanGestureRecognizer *)recognizer forPresentingView:(UIView *)presentingView fromViewController:(UIViewController *)viewController {
+    self.edgeDismissing = NO;
+    
+    CGPoint location = [recognizer locationInView:viewController.presentationController.containerView];
+    CGPoint velocity = [recognizer velocityInView:viewController.presentationController.containerView];
+    
+    CGFloat animationRatio = (location.y - self.panGestureRecognizerStartLocation.y) / (self.panGestureRecognizerStartLocation.y + presentingView.frame.size.height/2);
+    
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        if (!CGRectContainsPoint(presentingView.frame, location)) {
+            recognizer.enabled = NO;
+            recognizer.enabled = YES;
+            return;
+        }
+        
+        self.panGestureRecognizerStartLocation = location;
+        self.sourceViewInitialFrame = presentingView.frame;
+        [viewController dismissViewControllerAnimated:YES completion:nil];
+        
+    } else if (recognizer.state == UIGestureRecognizerStateChanged) {
+        
+        [self updateInteractiveTransition:animationRatio];
+        
+    } else if (recognizer.state == UIGestureRecognizerStateEnded) {
+        
+        CGFloat velocityForSelectedDirection = velocity.y;
+        
+        if (fabs(animationRatio) > 0.5 || velocityForSelectedDirection > 300) {
+            [self finishInteractiveTransition];
+        } else {
+            [self cancelInteractiveTransition];
+        }
+    }
+
+}
+
 #pragma mark - UIViewControllerInteractiveTransitioning Methods
 
 - (void)startInteractiveTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
@@ -218,35 +257,47 @@
 
     CGFloat distanceToPass = 0;
 
-    if (percentComplete < 0) {
-        percentComplete = 0;
-    }
+    
 
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     MZFormSheetPresentationController *presentationController = (id)[fromViewController presentationController];
 
-    presentationController.dimmingView.alpha = (1.0 - percentComplete);
-
     CGRect sourceViewFrame = sourceView.frame;
-
-    if (self.currentDirection == MZFormSheetPanGestureDismissDirectionLeft) {
-        distanceToPass = CGRectGetWidth(transitionContext.containerView.bounds) - CGRectGetMinX(self.sourceViewInitialFrame);
-
-        sourceViewFrame.origin.x = CGRectGetMinX(self.sourceViewInitialFrame) - (distanceToPass * percentComplete);
-
-    } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionRight) {
-        distanceToPass = CGRectGetWidth(transitionContext.containerView.bounds) - CGRectGetMinX(self.sourceViewInitialFrame);
-
-        sourceViewFrame.origin.x = CGRectGetMinX(self.sourceViewInitialFrame) + (distanceToPass * percentComplete);
-
-    } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionUp) {
-        distanceToPass = CGRectGetMaxY(self.sourceViewInitialFrame);
-
-        sourceViewFrame.origin.y = CGRectGetMinY(self.sourceViewInitialFrame) - (distanceToPass * percentComplete);
-
-    } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionDown) {
-        distanceToPass = CGRectGetHeight(transitionContext.containerView.bounds) - CGRectGetMinY(self.sourceViewInitialFrame);
-
+    
+    if (self.edgeDismissing) {
+        if (percentComplete < 0) {
+            percentComplete = 0;
+        }
+        
+        presentationController.dimmingView.alpha = (1.0 - percentComplete);
+        
+        
+        if (self.currentDirection == MZFormSheetPanGestureDismissDirectionLeft) {
+            distanceToPass = CGRectGetWidth(transitionContext.containerView.bounds) - CGRectGetMinX(self.sourceViewInitialFrame);
+            
+            sourceViewFrame.origin.x = CGRectGetMinX(self.sourceViewInitialFrame) - (distanceToPass * percentComplete);
+            
+        } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionRight) {
+            distanceToPass = CGRectGetWidth(transitionContext.containerView.bounds) - CGRectGetMinX(self.sourceViewInitialFrame);
+            
+            sourceViewFrame.origin.x = CGRectGetMinX(self.sourceViewInitialFrame) + (distanceToPass * percentComplete);
+            
+        } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionUp) {
+            distanceToPass = CGRectGetMaxY(self.sourceViewInitialFrame);
+            
+            sourceViewFrame.origin.y = CGRectGetMinY(self.sourceViewInitialFrame) - (distanceToPass * percentComplete);
+            
+        } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionDown) {
+            distanceToPass = CGRectGetHeight(transitionContext.containerView.bounds) - CGRectGetMinY(self.sourceViewInitialFrame);
+            
+            sourceViewFrame.origin.y = CGRectGetMinY(self.sourceViewInitialFrame) + (distanceToPass * percentComplete);
+        }
+    } else {
+        presentationController.dimmingView.alpha = (1.0 - fabs(percentComplete));
+        
+        
+        distanceToPass = CGRectGetHeight(transitionContext.containerView.bounds) - CGRectGetMidY(self.sourceViewInitialFrame);
+        
         sourceViewFrame.origin.y = CGRectGetMinY(self.sourceViewInitialFrame) + (distanceToPass * percentComplete);
     }
 
@@ -261,20 +312,30 @@
     MZFormSheetPresentationController *presentationController = (id)[fromViewController presentationController];
 
     CGRect sourceViewFrame = sourceView.frame;
-
-    if (self.currentDirection == MZFormSheetPanGestureDismissDirectionLeft) {
-        sourceViewFrame.origin.x = -sourceViewFrame.size.width;
-
-    } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionRight) {
-        sourceViewFrame.origin.x = [UIScreen mainScreen].bounds.size.width;
-
-    } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionUp) {
-        sourceViewFrame.origin.y = -sourceViewFrame.size.height;
-
-    } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionDown) {
-        sourceViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height;
+    
+    if (self.edgeDismissing) {
+        if (self.currentDirection == MZFormSheetPanGestureDismissDirectionLeft) {
+            sourceViewFrame.origin.x = -sourceViewFrame.size.width;
+            
+        } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionRight) {
+            sourceViewFrame.origin.x = [UIScreen mainScreen].bounds.size.width;
+            
+        } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionUp) {
+            sourceViewFrame.origin.y = -sourceViewFrame.size.height;
+            
+        } else if (self.currentDirection == MZFormSheetPanGestureDismissDirectionDown) {
+            sourceViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height;
+        }
+        
+    } else {
+        if (CGRectGetMidY(sourceViewFrame) < transitionContext.containerView.frame.size.height/2) {
+            sourceViewFrame.origin.y = -sourceViewFrame.size.height;
+        } else {
+            sourceViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height;
+        }
     }
 
+    
     [UIView animateWithDuration:self.transitionDuration delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.3 options:0 animations:^{
         sourceView.frame = sourceViewFrame;
         presentationController.dimmingView.alpha = 0.0;

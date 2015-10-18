@@ -36,5 +36,9 @@ typedef NS_OPTIONS(NSUInteger, MZFormSheetPanGestureDismissDirection) {
 
 @protocol MZFormSheetPresentationViewControllerInteractiveTransitioning <NSObject>
 @property (nonatomic, assign, getter=isPresenting) BOOL presenting;
-- (void)handleDismissalPanGestureRecognizer:(UIPanGestureRecognizer *)recognizer dismissDirection:(MZFormSheetPanGestureDismissDirection)dismissDirection forPresentingView:(UIView *)presentingView fromViewController:(UIViewController *)viewController;
+
+@optional
+- (void)handleEdgeDismissalPanGestureRecognizer:(UIPanGestureRecognizer *)recognizer dismissDirection:(MZFormSheetPanGestureDismissDirection)dismissDirection forPresentingView:(UIView *)presentingView fromViewController:(UIViewController *)viewController;
+
+- (void)handlePresentingViewDismissalPanGestureRecognizer:(UIPanGestureRecognizer *)recognizer forPresentingView:(UIView *)presentingView fromViewController:(UIViewController *)viewController;
 @end
