@@ -12,7 +12,7 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MZTransition.registerTransitionClass(CustomTransition.self, forTransitionStyle: MZFormSheetPresentationTransitionStyle.StyleCustom)
+        MZTransition.registerTransitionClass(CustomTransition.self, forTransitionStyle: .Custom)
     }
 
     func formSheetControllerWithNavigationController() -> UINavigationController {
@@ -94,6 +94,13 @@ class ViewController: UITableViewController {
         let presentedViewController = navigationController.viewControllers.first as! PresentedTableViewController
         presentedViewController.textFieldBecomeFirstResponder = true
         
+        formSheetController.presentationController?.frameConfigurationHandler = { [weak formSheetController] view, currentFrame in
+            if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
+                return CGRectMake(CGRectGetMidX(formSheetController!.presentationController!.containerView!.bounds) - 210, currentFrame.origin.y, 420, currentFrame.size.height)
+            }
+            return currentFrame
+        };
+        
         self.presentViewController(formSheetController, animated: true, completion: nil)
     }
     
@@ -155,7 +162,7 @@ class ViewController: UITableViewController {
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
         formSheetController.presentationController?.shouldApplyBackgroundBlurEffect = true
         formSheetController.presentationController?.movementActionWhenKeyboardAppears = MZFormSheetActionWhenKeyboardAppears(rawValue: movementOption)!
-        formSheetController.contentViewControllerTransitionStyle = MZFormSheetPresentationTransitionStyle.StyleFade
+        formSheetController.contentViewControllerTransitionStyle = MZFormSheetPresentationTransitionStyle.Fade
         let presentedViewController = navigationController.viewControllers.first as! PresentedTableViewController
         presentedViewController.textFieldBecomeFirstResponder = true
         
