@@ -103,6 +103,20 @@
     self.contentViewController.view.layer.cornerRadius = _contentViewCornerRadius;
 }
 
+- (void)setContentViewControllerTransitionStyle:(MZFormSheetPresentationTransitionStyle)contentViewControllerTransitionStyle {
+    if (_contentViewControllerTransitionStyle != contentViewControllerTransitionStyle) {
+        _contentViewControllerTransitionStyle = contentViewControllerTransitionStyle;
+        
+        if ([self.animatorForPresentationController isKindOfClass:[MZFormSheetPresentationViewControllerAnimator class]]) {
+            
+            MZFormSheetPresentationViewControllerAnimator *animator = (id)self.animatorForPresentationController;
+            Class transitionClass = [MZTransition sharedTransitionClasses][@(self.contentViewControllerTransitionStyle)];
+            id<MZFormSheetPresentationViewControllerTransitionProtocol> transition = [[transitionClass alloc] init];
+            animator.transition = transition;
+        }
+    }
+}
+
 - (void)setShadowRadius:(CGFloat)shadowRadius {
     _shadowRadius = shadowRadius;
     if (_shadowRadius > 0) {
