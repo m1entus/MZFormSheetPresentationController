@@ -207,7 +207,6 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 
 - (void)presentationTransitionWillBegin {
     
-    
     if (self.presentationTransitionWillBeginCompletionHandler) {
         self.presentationTransitionWillBeginCompletionHandler(self.presentingViewController);
     }
@@ -432,7 +431,7 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
         }
         
     } else if (self.shouldCenterVertically) {
-        formSheetRect.origin.y = CGRectGetMidY(self.containerView.bounds) - formSheetRect.size.height;
+        formSheetRect.origin.y = CGRectGetMidY(self.containerView.bounds) - formSheetRect.size.height/2;
     } else {
         formSheetRect.origin.y = self.topInset;
     }

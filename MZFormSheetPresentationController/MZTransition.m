@@ -226,8 +226,8 @@ CGFloat const MZFormSheetPresentationViewControllerDefaultAnimationDuration = 0.
 @implementation MZPresentationSlideBounceFromLeftTransition
 + (void)load {
     [MZTransition registerTransitionClass:self forTransitionStyle:
-     MZFormSheetPresentationTransitionStylelideAndBounceFromLeft];
-    [MZTransition registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStylelideAndBounceFromLeft];
+     MZFormSheetPresentationTransitionStyleSlideAndBounceFromLeft];
+    [MZTransition registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideAndBounceFromLeft];
 }
 
 - (void)entryFormSheetControllerTransition:(UIViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {

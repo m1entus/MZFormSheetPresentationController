@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger, MZFormSheetPresentationTransitionStyle) {
   MZFormSheetPresentationTransitionStyleSlideFromBottom,
   MZFormSheetPresentationTransitionStyleSlideFromLeft,
   MZFormSheetPresentationTransitionStyleSlideFromRight,
-  MZFormSheetPresentationTransitionStylelideAndBounceFromLeft,
+  MZFormSheetPresentationTransitionStyleSlideAndBounceFromLeft,
   MZFormSheetPresentationTransitionStyleSlideAndBounceFromRight,
   MZFormSheetPresentationTransitionStyleFade,
   MZFormSheetPresentationTransitionStyleBounce,

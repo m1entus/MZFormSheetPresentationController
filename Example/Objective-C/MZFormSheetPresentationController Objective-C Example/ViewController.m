@@ -183,6 +183,11 @@
     PresentedTableViewController *presentedViewController = [navigationController.viewControllers firstObject];
     presentedViewController.textFieldBecomeFirstResponder = YES;
     
+    // Always on center
+    if (movementOption == MZFormSheetActionWhenKeyboardAppearsCenterVertically) {
+        formSheetController.presentationController.shouldCenterVertically = YES;
+    }
+    
     [self presentViewController:formSheetController animated:YES completion:nil];
 }
 

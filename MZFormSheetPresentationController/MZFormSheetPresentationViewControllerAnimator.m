@@ -72,7 +72,6 @@ CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDura
     UIView *containerView = [transitionContext containerView];
 
     [containerView addSubview:targetView];
-    targetView.frame = [transitionContext finalFrameForViewController:targetViewController];
 
     if (self.transition) {
 
