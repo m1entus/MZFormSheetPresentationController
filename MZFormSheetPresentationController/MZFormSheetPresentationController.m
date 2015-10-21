@@ -27,6 +27,7 @@
 #import <objc/runtime.h>
 #import "MZBlurEffectAdapter.h"
 #import <JGMethodSwizzler/JGMethodSwizzler.h>
+#import "MZFormSheetPresentationContentSizing.h"
 
 CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 
@@ -92,6 +93,37 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     }
 }
 
+- (void)setContentViewSize:(CGSize)contentViewSize {
+    if (!CGSizeEqualToSize(_contentViewSize, contentViewSize)) {
+        _contentViewSize = contentViewSize;
+        [self setupFormSheetViewControllerFrame];
+    }
+}
+
+- (BOOL)isPresentedViewControllerUsingModifiedContentFrame {
+    if ([self.presentedViewController conformsToProtocol:@protocol(MZFormSheetPresentationContentSizing)]) {
+        if ([self.presentedViewController respondsToSelector:@selector(shouldUseContentViewFrameForPresentationController:)]) {
+            id <MZFormSheetPresentationContentSizing> presentedViewController = (id <MZFormSheetPresentationContentSizing>)self.presentedViewController;
+            return [presentedViewController shouldUseContentViewFrameForPresentationController:self];
+        }
+    }
+    return NO;
+}
+
+- (CGRect)modifiedContentViewFrameForFrame:(CGRect)frame {
+    id <MZFormSheetPresentationContentSizing> presentedViewController = (id <MZFormSheetPresentationContentSizing>)self.presentedViewController;
+    return [presentedViewController contentViewFrameForPresentationController:self currentFrame:frame];
+}
+
+- (CGSize)internalContentViewSize {
+    if ([self isPresentedViewControllerUsingModifiedContentFrame]) {
+        CGRect modifiedFrame = [self modifiedContentViewFrameForFrame:(CGRect){ .origin = self.presentedView.frame.origin, .size = self.contentViewSize }];
+        return modifiedFrame.size;
+    }
+    return self.contentViewSize;
+}
+
+
 - (void)setBackgroundColor:(UIColor * __nullable)backgroundColor {
     _backgroundColor = backgroundColor;
     self.dimmingView.backgroundColor = _backgroundColor;
@@ -129,6 +161,11 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     return self;
 }
 
+#pragma mark - Public
+
+- (void)layoutPresentingViewController {
+    [self setupFormSheetViewControllerFrame];
+}
 
 #pragma mark - Private
 
@@ -208,7 +245,7 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 - (void)presentationTransitionWillBegin {
     
     if (self.presentationTransitionWillBeginCompletionHandler) {
-        self.presentationTransitionWillBeginCompletionHandler(self.presentingViewController);
+        self.presentationTransitionWillBeginCompletionHandler(self.presentedViewController);
     }
     
     if (self.shouldUseMotionEffect) {
@@ -235,7 +272,7 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     [self presentedView].frame = [self frameOfPresentedViewInContainerView];
     [self setupFormSheetViewControllerFrame];
     
-    [self.presentingViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+    [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         [UIView animateWithDuration:[context transitionDuration] animations:^{
             self.dimmingView.alpha = 1.0;
         }];
@@ -251,15 +288,15 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
         [self.dimmingView removeFromSuperview];
     }
     if (self.presentationTransitionDidEndCompletionHandler) {
-        self.presentationTransitionDidEndCompletionHandler(self.presentingViewController, completed);
+        self.presentationTransitionDidEndCompletionHandler(self.presentedViewController, completed);
     }
 }
 
 - (void)dismissalTransitionWillBegin {
     if (self.presentationTransitionWillBeginCompletionHandler) {
-        self.presentationTransitionWillBeginCompletionHandler(self.presentingViewController);
+        self.presentationTransitionWillBeginCompletionHandler(self.presentedViewController);
     }
-    [self.presentingViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+    [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         [UIView animateWithDuration:[context transitionDuration] animations:^{
             self.dimmingView.alpha = 0.0;
         }];
@@ -282,7 +319,7 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 }
 
 - (CGRect)frameOfPresentedViewInContainerView {
-    return CGRectMake(CGRectGetMidX([UIScreen mainScreen].bounds) - self.contentViewSize.width/2, [self topInset], self.contentViewSize.width, self.contentViewSize.height);
+    return [self formSheetViewControllerFrame];
 }
 
 - (BOOL)shouldPresentInFullscreen {
@@ -398,10 +435,9 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 
 #pragma mark - Frame Configuration
 
-- (void)setupFormSheetViewControllerFrame {
-
+- (CGRect)formSheetViewControllerFrame {
     CGRect formSheetRect = self.presentedView.frame;
-    formSheetRect.size = self.contentViewSize;
+    formSheetRect.size = self.internalContentViewSize;
     
     if (self.shouldCenterHorizontally) {
         formSheetRect.origin.x = CGRectGetMidX(self.containerView.bounds) - formSheetRect.size.width/2;
@@ -436,11 +472,23 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
         formSheetRect.origin.y = self.topInset;
     }
     
+    CGRect modifiedPresentedViewFrame = CGRectZero;
+    
     if (self.frameConfigurationHandler) {
-        self.presentedView.frame = self.frameConfigurationHandler(self.presentedView,formSheetRect);
+        modifiedPresentedViewFrame = self.frameConfigurationHandler(self.presentedView,formSheetRect);
     } else {
-        self.presentedView.frame = formSheetRect;
+        modifiedPresentedViewFrame = formSheetRect;
     }
+    
+    if ([self isPresentedViewControllerUsingModifiedContentFrame]) {
+        modifiedPresentedViewFrame = [self modifiedContentViewFrameForFrame:modifiedPresentedViewFrame];
+    }
+    
+    return modifiedPresentedViewFrame;
+}
+
+- (void)setupFormSheetViewControllerFrame {
+    self.presentedView.frame = [self formSheetViewControllerFrame];
 }
 
 #pragma mark - Rotation

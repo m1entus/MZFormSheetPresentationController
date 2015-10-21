@@ -334,6 +334,28 @@
     return [self.contentViewController shouldAutorotate];
 }
 
+#pragma mark - <MZFormSheetPresentationContentSizing>
+
+- (BOOL)shouldUseContentViewFrameForPresentationController:(MZFormSheetPresentationController *)presentationController {
+    if ([self.contentViewController conformsToProtocol:@protocol(MZFormSheetPresentationContentSizing)]) {
+        if ([self.contentViewController respondsToSelector:@selector(shouldUseContentViewFrameForPresentationController:)]) {
+            return [(id <MZFormSheetPresentationContentSizing>)self.contentViewController shouldUseContentViewFrameForPresentationController:presentationController];
+        }
+    }
+    
+    return NO;
+}
+
+- (CGRect)contentViewFrameForPresentationController:(MZFormSheetPresentationController *)presentationController currentFrame:(CGRect)currentFrame {
+    if ([self.contentViewController conformsToProtocol:@protocol(MZFormSheetPresentationContentSizing)]) {
+        if ([self.contentViewController respondsToSelector:@selector(contentViewFrameForPresentationController:currentFrame:)]) {
+            return [(id <MZFormSheetPresentationContentSizing>)self.contentViewController contentViewFrameForPresentationController:presentationController currentFrame:currentFrame];
+        }
+    }
+    
+    return CGRectZero;
+}
+
 #pragma mark - <UIViewControllerTransitioningDelegate>
 
 - (UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source {

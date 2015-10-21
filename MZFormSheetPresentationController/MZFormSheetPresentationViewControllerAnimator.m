@@ -57,8 +57,8 @@ CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransitionDura
     UIViewController *sourceViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *targetViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 
-    UIView *sourceView = [transitionContext respondsToSelector:@selector(viewForKey:)] ? [transitionContext viewForKey:UITransitionContextFromViewKey] : sourceViewController.view;
-    UIView *targetView = [transitionContext respondsToSelector:@selector(viewForKey:)] ? [transitionContext viewForKey:UITransitionContextToViewKey] : sourceViewController.view;
+    UIView *sourceView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+    UIView *targetView = [transitionContext viewForKey:UITransitionContextToViewKey];
 
     if (self.isPresenting) {
         [self animateTransitionForPresentation:transitionContext sourceViewController:sourceViewController sourceView:sourceView targetViewController:targetViewController targetView:targetView];

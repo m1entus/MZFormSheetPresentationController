@@ -148,6 +148,11 @@ typedef NS_ENUM(NSInteger, MZFormSheetActionWhenKeyboardAppears) {
  *  This completion handler allow you to change frame during rotation and animations
  *  for presentedView
  */
-@property (nonatomic, copy, nonnull) MZFormSheetPresentationFrameConfigurationHandler frameConfigurationHandler;
+@property (nonatomic, copy, nullable) MZFormSheetPresentationFrameConfigurationHandler frameConfigurationHandler;
+
+/**
+ *  This method recalculate presenting view frame
+ */
+- (void)layoutPresentingViewController;
 
 @end

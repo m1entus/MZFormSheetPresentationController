@@ -205,7 +205,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         switch (indexPath.row) {
             case 0: [self passDataToViewControllerAction]; break;
             case 1: [self blurEffectAction]; break;
@@ -224,9 +224,9 @@
         }
     }
     
-    if (indexPath.section == 1) {
+    if (indexPath.section == 2) {
         [self presentFormSheetControllerWithTransition:indexPath.row];
-    } else if (indexPath.section == 2) {
+    } else if (indexPath.section == 3) {
         [self presentFormSheetControllerWithKeyboardMovement:indexPath.row];
     }
 }

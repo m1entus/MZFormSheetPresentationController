@@ -26,6 +26,7 @@ Here are a couple of images showing `MZFormSheetPresentationController` in actio
 * Added frame configuration handler which allow you to change frame during rotation and animations
 * Added `shouldCenterHorizontally` property
 * Allowed make your custom animator to support native transitions
+* Allow to make dynamic contentViewSize depents on displayed UIViewController
 
 ## Upgrade from 1.x
 

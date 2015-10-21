@@ -29,12 +29,13 @@
 #import <MZAppearance/MZAppearance.h>
 #import "MZFormSheetPresentationViewControllerAnimatedTransitioning.h"
 #import "MZFormSheetPresentationViewControllerInteractiveTransitioning.h"
+#import "MZFormSheetPresentationContentSizing.h"
 
 extern CGFloat const MZFormSheetPresentationViewControllerDefaultAnimationDuration;
 
 typedef void(^MZFormSheetPresentationViewControllerCompletionHandler)(UIViewController * __nonnull contentViewController);
 
-@interface MZFormSheetPresentationViewController : UIViewController <MZAppearance, UIViewControllerTransitioningDelegate>
+@interface MZFormSheetPresentationViewController : UIViewController <MZAppearance, MZFormSheetPresentationContentSizing, UIViewControllerTransitioningDelegate>
 
 
 /**
