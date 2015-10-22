@@ -11,10 +11,10 @@ This project is continuation of [`MZFormSheetController`](https://github.com/m1e
 
 Here are a couple of images showing `MZFormSheetPresentationController` in action:
 
-[![](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/screen1.png)](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/screen1.png)
+[![](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/animation2.gif)](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/animation2.gif)
 [![](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/animation1.gif)](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/animation1.gif)
 [![](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/screen2.png)](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/screen2.png)
-[![](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/animation2.gif)](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/animation2.gif)
+[![](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/screen1.png)](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/screen1.png)
 
 ## 2.0.0 Change Log:
 * Fully tested and certified for iOS 9

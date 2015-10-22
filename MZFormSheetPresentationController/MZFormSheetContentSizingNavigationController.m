@@ -33,27 +33,6 @@
     return [(id<MZFormSheetPresentationContentSizing>)self.visibleViewController contentViewFrameForPresentationController:presentationController currentFrame:currentFrame];
 }
 
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    [super pushViewController:viewController animated:animated];
-    
-//    MZFormSheetPresentationController *presentation = (id)self.mz_formSheetPresentingPresentationController.presentationController;
-//    [UIView animateWithDuration:self.animator.duration animations:^{
-//        [presentation layoutPresentingViewController];
-//    }];
-//    
-}
-
-- (UIViewController *)popViewControllerAnimated:(BOOL)animated {
-    UIViewController *viewController = [super popViewControllerAnimated:animated];
-    
-//    MZFormSheetPresentationController *presentation = (id)self.mz_formSheetPresentingPresentationController.presentationController;
-//    [UIView animateWithDuration:self.animator.duration animations:^{
-//        [presentation layoutPresentingViewController];
-//    }];
-    
-    return viewController;
-}
-
 #pragma mark - <UINavigationControllerDelegate>
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
