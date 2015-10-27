@@ -1,6 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/JGMethodSwizzler" "${PODS_ROOT}/Headers/Public/MZAppearance"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/JGMethodSwizzler" -isystem "${PODS_ROOT}/Headers/Public/MZAppearance"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-JGMethodSwizzler" -l"Pods-MZAppearance" -framework "Foundation" -framework "QuartzCore"
-OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/MZAppearance"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/MZAppearance"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"MZAppearance" -framework "QuartzCore"
 PODS_ROOT = ${SRCROOT}/Pods

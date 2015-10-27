@@ -20,17 +20,18 @@
 		643ED5D31B332A02004663AF /* MZFormSheetPresentationViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5CC1B332A02004663AF /* MZFormSheetPresentationViewControllerSegue.m */; };
 		643ED5D41B332A02004663AF /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5CE1B332A02004663AF /* MZTransition.m */; };
 		643ED5D51B332A02004663AF /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5D01B332A02004663AF /* UIViewController+TargetViewController.m */; };
-		6448854F1BD7F87D00386380 /* MZFormSheetContentSizingNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6448854E1BD7F87D00386380 /* MZFormSheetContentSizingNavigationController.m */; settings = {ASSET_TAGS = (); }; };
-		644885521BD7F8A100386380 /* MZFormSheetContentSizingNavigationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 644885511BD7F8A100386380 /* MZFormSheetContentSizingNavigationControllerAnimator.m */; settings = {ASSET_TAGS = (); }; };
-		644C65861BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 644C65851BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m */; settings = {ASSET_TAGS = (); }; };
-		644C65891BD265A300ACE2C5 /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 644C65881BD265A300ACE2C5 /* MZFormSheetPresentationController.m */; settings = {ASSET_TAGS = (); }; };
-		64717C381BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C371BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m */; settings = {ASSET_TAGS = (); }; };
+		6448854F1BD7F87D00386380 /* MZFormSheetContentSizingNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6448854E1BD7F87D00386380 /* MZFormSheetContentSizingNavigationController.m */; };
+		644885521BD7F8A100386380 /* MZFormSheetContentSizingNavigationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 644885511BD7F8A100386380 /* MZFormSheetContentSizingNavigationControllerAnimator.m */; };
+		644C65861BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 644C65851BD2589900ACE2C5 /* CustomPrenstationControllerAnimator.m */; };
+		644C65891BD265A300ACE2C5 /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 644C65881BD265A300ACE2C5 /* MZFormSheetPresentationController.m */; };
+		64717C381BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C371BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m */; };
 		6494BD391B33344700C331EE /* PresentedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD381B33344700C331EE /* PresentedTableViewController.m */; };
 		6494BD3C1B33355B00C331EE /* CustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD3B1B33355B00C331EE /* CustomTransition.m */; };
-		6498C8001BD8EA3D0015277D /* DynamicContentMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6498C7FF1BD8EA3D0015277D /* DynamicContentMainViewController.m */; settings = {ASSET_TAGS = (); }; };
-		6498C8031BD8F59C0015277D /* DynamicContentFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6498C8021BD8F59C0015277D /* DynamicContentFirstViewController.m */; settings = {ASSET_TAGS = (); }; };
-		6498C8061BD8F69A0015277D /* DynamicContentSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6498C8051BD8F69A0015277D /* DynamicContentSecondViewController.m */; settings = {ASSET_TAGS = (); }; };
-		D247E7411BD7D25400CDEB72 /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D247E7401BD7D25400CDEB72 /* TextViewController.m */; settings = {ASSET_TAGS = (); }; };
+		6498C8001BD8EA3D0015277D /* DynamicContentMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6498C7FF1BD8EA3D0015277D /* DynamicContentMainViewController.m */; };
+		6498C8031BD8F59C0015277D /* DynamicContentFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6498C8021BD8F59C0015277D /* DynamicContentFirstViewController.m */; };
+		6498C8061BD8F69A0015277D /* DynamicContentSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6498C8051BD8F69A0015277D /* DynamicContentSecondViewController.m */; };
+		64BDDA791BE0387E00AE7363 /* MZMethodSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BDDA781BE0387E00AE7363 /* MZMethodSwizzler.m */; };
+		D247E7411BD7D25400CDEB72 /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D247E7401BD7D25400CDEB72 /* TextViewController.m */; };
 		D2BC83911B4C05DC00BCAE95 /* MZBlurEffectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BC83901B4C05DC00BCAE95 /* MZBlurEffectAdapter.m */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,8 @@
 		6498C8021BD8F59C0015277D /* DynamicContentFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicContentFirstViewController.m; sourceTree = "<group>"; };
 		6498C8041BD8F69A0015277D /* DynamicContentSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicContentSecondViewController.h; sourceTree = "<group>"; };
 		6498C8051BD8F69A0015277D /* DynamicContentSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicContentSecondViewController.m; sourceTree = "<group>"; };
+		64BDDA771BE0387E00AE7363 /* MZMethodSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMethodSwizzler.h; sourceTree = "<group>"; };
+		64BDDA781BE0387E00AE7363 /* MZMethodSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMethodSwizzler.m; sourceTree = "<group>"; };
 		64F090211BD2ABFB0040E7EA /* MZFormSheetPresentationViewControllerAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationViewControllerAnimatedTransitioning.h; sourceTree = "<group>"; };
 		D247E73E1BD7CF9700CDEB72 /* MZFormSheetPresentationContentSizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationContentSizing.h; sourceTree = "<group>"; };
 		D247E73F1BD7D25400CDEB72 /* TextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 		643ED5C61B3329E5004663AF /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
+				64BDDA771BE0387E00AE7363 /* MZMethodSwizzler.h */,
+				64BDDA781BE0387E00AE7363 /* MZMethodSwizzler.m */,
 				D2BC838F1B4C05DC00BCAE95 /* MZBlurEffectAdapter.h */,
 				D2BC83901B4C05DC00BCAE95 /* MZBlurEffectAdapter.m */,
 				D247E73E1BD7CF9700CDEB72 /* MZFormSheetPresentationContentSizing.h */,
@@ -248,6 +253,7 @@
 				643ED59A1B3329A2004663AF /* Frameworks */,
 				643ED59B1B3329A2004663AF /* Resources */,
 				9B3DF32B2B8860B42DA6D05F /* Copy Pods Resources */,
+				957AF91B4E05F16F5424F321 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -319,6 +325,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		957AF91B4E05F16F5424F321 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9B3DF32B2B8860B42DA6D05F /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,6 +366,7 @@
 				6498C8001BD8EA3D0015277D /* DynamicContentMainViewController.m in Sources */,
 				643ED5A91B3329A2004663AF /* ViewController.m in Sources */,
 				6448854F1BD7F87D00386380 /* MZFormSheetContentSizingNavigationController.m in Sources */,
+				64BDDA791BE0387E00AE7363 /* MZMethodSwizzler.m in Sources */,
 				644C65891BD265A300ACE2C5 /* MZFormSheetPresentationController.m in Sources */,
 				D247E7411BD7D25400CDEB72 /* TextViewController.m in Sources */,
 				6494BD391B33344700C331EE /* PresentedTableViewController.m in Sources */,

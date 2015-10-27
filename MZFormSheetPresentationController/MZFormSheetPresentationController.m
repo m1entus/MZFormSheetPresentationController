@@ -26,7 +26,7 @@
 #import "MZFormSheetPresentationController.h"
 #import <objc/runtime.h>
 #import "MZBlurEffectAdapter.h"
-#import <JGMethodSwizzler/JGMethodSwizzler.h>
+#import "MZMethodSwizzler.h"
 #import "MZFormSheetPresentationContentSizing.h"
 
 CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
@@ -209,8 +209,8 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 
 - (void)turnOnTransparentTouch {
     __weak typeof(self) weakSelf = self;
-    [self.containerView swizzleMethod:@selector(pointInside:withEvent:) withReplacement:JGMethodReplacementProviderBlock {
-        return JGMethodReplacement(BOOL, UIView *, CGPoint point, UIEvent *event) {
+    [self.containerView swizzleMethod:@selector(pointInside:withEvent:) withReplacement:MZMethodReplacementProviderBlock {
+        return MZMethodReplacement(BOOL, UIView *, CGPoint point, UIEvent *event) {
             if (!CGRectContainsPoint(weakSelf.presentedView.frame, point)){
                 return NO;
             }
