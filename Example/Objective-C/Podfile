@@ -1,2 +1,10 @@
 platform :ios, "8.0"
 pod 'MZAppearance'
+
+target :tvos, :exclusive => true do
+    platform :tvos, "9.0"
+    pod 'MZAppearance'
+    link_with 'tvOSApplication'
+end
+
+

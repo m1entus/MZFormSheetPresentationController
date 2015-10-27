@@ -31,6 +31,23 @@
 		6498C8031BD8F59C0015277D /* DynamicContentFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6498C8021BD8F59C0015277D /* DynamicContentFirstViewController.m */; };
 		6498C8061BD8F69A0015277D /* DynamicContentSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6498C8051BD8F69A0015277D /* DynamicContentSecondViewController.m */; };
 		64BDDA791BE0387E00AE7363 /* MZMethodSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BDDA781BE0387E00AE7363 /* MZMethodSwizzler.m */; };
+		64BDDA821BE03B3600AE7363 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BDDA811BE03B3600AE7363 /* main.m */; };
+		64BDDA851BE03B3600AE7363 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BDDA841BE03B3600AE7363 /* AppDelegate.m */; };
+		64BDDA881BE03B3600AE7363 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BDDA871BE03B3600AE7363 /* ViewController.m */; };
+		64BDDA8B1BE03B3600AE7363 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64BDDA891BE03B3600AE7363 /* Main.storyboard */; };
+		64BDDA8D1BE03B3600AE7363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64BDDA8C1BE03B3600AE7363 /* Assets.xcassets */; };
+		64BDDA931BE03B5500AE7363 /* MZMethodSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BDDA781BE0387E00AE7363 /* MZMethodSwizzler.m */; };
+		64BDDA951BE03B5500AE7363 /* MZBlurEffectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BC83901B4C05DC00BCAE95 /* MZBlurEffectAdapter.m */; };
+		64BDDA981BE03B5500AE7363 /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 644C65881BD265A300ACE2C5 /* MZFormSheetPresentationController.m */; };
+		64BDDA9A1BE03B5500AE7363 /* MZFormSheetPresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5C81B332A02004663AF /* MZFormSheetPresentationViewController.m */; };
+		64BDDA9D1BE03B5500AE7363 /* MZFormSheetPresentationViewControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5CA1B332A02004663AF /* MZFormSheetPresentationViewControllerAnimator.m */; };
+		64BDDAA01BE03B5500AE7363 /* MZFormSheetPresentationViewControllerInteractiveAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C371BD39503005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m */; };
+		64BDDAA21BE03B5500AE7363 /* MZFormSheetPresentationViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5CC1B332A02004663AF /* MZFormSheetPresentationViewControllerSegue.m */; };
+		64BDDAA41BE03B5500AE7363 /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5CE1B332A02004663AF /* MZTransition.m */; };
+		64BDDAA61BE03B5500AE7363 /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ED5D01B332A02004663AF /* UIViewController+TargetViewController.m */; };
+		64BDDAA81BE03B5500AE7363 /* MZFormSheetContentSizingNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6448854E1BD7F87D00386380 /* MZFormSheetContentSizingNavigationController.m */; };
+		64BDDAAA1BE03B5500AE7363 /* MZFormSheetContentSizingNavigationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 644885511BD7F8A100386380 /* MZFormSheetContentSizingNavigationControllerAnimator.m */; };
+		B5BDA518260D850EDC41349C /* libPods-tvos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C56F822423D3A961CE099E43 /* libPods-tvos.a */; };
 		D247E7411BD7D25400CDEB72 /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D247E7401BD7D25400CDEB72 /* TextViewController.m */; };
 		D2BC83911B4C05DC00BCAE95 /* MZBlurEffectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BC83901B4C05DC00BCAE95 /* MZBlurEffectAdapter.m */; };
 /* End PBXBuildFile section */
@@ -38,6 +55,7 @@
 /* Begin PBXFileReference section */
 		333C114802656D29351E2C45 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		38480D01C8AF9A62E2EEC81C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		41B04EF7B38E20EB36BF3B30 /* Pods-tvos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tvos/Pods-tvos.debug.xcconfig"; sourceTree = "<group>"; };
 		640560951B389D3700CE2950 /* TransparentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentViewController.h; sourceTree = "<group>"; };
 		640560961B389D3700CE2950 /* TransparentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentViewController.m; sourceTree = "<group>"; };
 		643ED59D1B3329A2004663AF /* MZFormSheetPresentationController Objective-C Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MZFormSheetPresentationController Objective-C Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,12 +103,23 @@
 		6498C8051BD8F69A0015277D /* DynamicContentSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicContentSecondViewController.m; sourceTree = "<group>"; };
 		64BDDA771BE0387E00AE7363 /* MZMethodSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMethodSwizzler.h; sourceTree = "<group>"; };
 		64BDDA781BE0387E00AE7363 /* MZMethodSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMethodSwizzler.m; sourceTree = "<group>"; };
+		64BDDA7E1BE03B3600AE7363 /* tvOSApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOSApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		64BDDA811BE03B3600AE7363 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		64BDDA831BE03B3600AE7363 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		64BDDA841BE03B3600AE7363 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		64BDDA861BE03B3600AE7363 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		64BDDA871BE03B3600AE7363 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		64BDDA8A1BE03B3600AE7363 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		64BDDA8C1BE03B3600AE7363 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		64BDDA8E1BE03B3600AE7363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64F090211BD2ABFB0040E7EA /* MZFormSheetPresentationViewControllerAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationViewControllerAnimatedTransitioning.h; sourceTree = "<group>"; };
+		C56F822423D3A961CE099E43 /* libPods-tvos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tvos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D247E73E1BD7CF9700CDEB72 /* MZFormSheetPresentationContentSizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationContentSizing.h; sourceTree = "<group>"; };
 		D247E73F1BD7D25400CDEB72 /* TextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
 		D247E7401BD7D25400CDEB72 /* TextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
 		D2BC838F1B4C05DC00BCAE95 /* MZBlurEffectAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZBlurEffectAdapter.h; sourceTree = "<group>"; };
 		D2BC83901B4C05DC00BCAE95 /* MZBlurEffectAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZBlurEffectAdapter.m; sourceTree = "<group>"; };
+		D38B9BD334414B15AC5E5FFA /* Pods-tvos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tvos.release.xcconfig"; path = "Pods/Target Support Files/Pods-tvos/Pods-tvos.release.xcconfig"; sourceTree = "<group>"; };
 		DF6D3FC74FB8A87B637F99AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +132,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		64BDDA7B1BE03B3600AE7363 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5BDA518260D850EDC41349C /* libPods-tvos.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -111,6 +148,7 @@
 			children = (
 				643ED59F1B3329A2004663AF /* MZFormSheetPresentationController Objective-C Example */,
 				643ED5B91B3329A2004663AF /* MZFormSheetPresentationController Objective-C ExampleTests */,
+				64BDDA7F1BE03B3600AE7363 /* tvOSApplication */,
 				643ED59E1B3329A2004663AF /* Products */,
 				DF0E8B0AA01DE50DCF422B62 /* Pods */,
 				E1AB08825E0FD37D78CED311 /* Frameworks */,
@@ -121,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				643ED59D1B3329A2004663AF /* MZFormSheetPresentationController Objective-C Example.app */,
+				64BDDA7E1BE03B3600AE7363 /* tvOSApplication.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,11 +263,36 @@
 			name = "Dynamic Content";
 			sourceTree = "<group>";
 		};
+		64BDDA7F1BE03B3600AE7363 /* tvOSApplication */ = {
+			isa = PBXGroup;
+			children = (
+				64BDDA831BE03B3600AE7363 /* AppDelegate.h */,
+				64BDDA841BE03B3600AE7363 /* AppDelegate.m */,
+				64BDDA861BE03B3600AE7363 /* ViewController.h */,
+				64BDDA871BE03B3600AE7363 /* ViewController.m */,
+				64BDDA891BE03B3600AE7363 /* Main.storyboard */,
+				64BDDA8C1BE03B3600AE7363 /* Assets.xcassets */,
+				64BDDA8E1BE03B3600AE7363 /* Info.plist */,
+				64BDDA801BE03B3600AE7363 /* Supporting Files */,
+			);
+			path = tvOSApplication;
+			sourceTree = "<group>";
+		};
+		64BDDA801BE03B3600AE7363 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				64BDDA811BE03B3600AE7363 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		DF0E8B0AA01DE50DCF422B62 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				38480D01C8AF9A62E2EEC81C /* Pods.debug.xcconfig */,
 				333C114802656D29351E2C45 /* Pods.release.xcconfig */,
+				41B04EF7B38E20EB36BF3B30 /* Pods-tvos.debug.xcconfig */,
+				D38B9BD334414B15AC5E5FFA /* Pods-tvos.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -237,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				DF6D3FC74FB8A87B637F99AF /* libPods.a */,
+				C56F822423D3A961CE099E43 /* libPods-tvos.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -264,6 +329,26 @@
 			productReference = 643ED59D1B3329A2004663AF /* MZFormSheetPresentationController Objective-C Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		64BDDA7D1BE03B3600AE7363 /* tvOSApplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64BDDA8F1BE03B3600AE7363 /* Build configuration list for PBXNativeTarget "tvOSApplication" */;
+			buildPhases = (
+				C215267972467727E6DD0097 /* Check Pods Manifest.lock */,
+				64BDDA7A1BE03B3600AE7363 /* Sources */,
+				64BDDA7B1BE03B3600AE7363 /* Frameworks */,
+				64BDDA7C1BE03B3600AE7363 /* Resources */,
+				A52E218937C2EEF6D66278DB /* Embed Pods Frameworks */,
+				F100B9A6D8BF59EF65D6B852 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tvOSApplication;
+			productName = tvOSApplication;
+			productReference = 64BDDA7E1BE03B3600AE7363 /* tvOSApplication.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -275,6 +360,9 @@
 				TargetAttributes = {
 					643ED59C1B3329A2004663AF = {
 						CreatedOnToolsVersion = 6.3.2;
+					};
+					64BDDA7D1BE03B3600AE7363 = {
+						CreatedOnToolsVersion = 7.1;
 					};
 				};
 			};
@@ -292,6 +380,7 @@
 			projectRoot = "";
 			targets = (
 				643ED59C1B3329A2004663AF /* MZFormSheetPresentationController Objective-C Example */,
+				64BDDA7D1BE03B3600AE7363 /* tvOSApplication */,
 			);
 		};
 /* End PBXProject section */
@@ -304,6 +393,15 @@
 				643ED5AC1B3329A2004663AF /* Main.storyboard in Resources */,
 				643ED5B11B3329A2004663AF /* LaunchScreen.xib in Resources */,
 				643ED5AE1B3329A2004663AF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64BDDA7C1BE03B3600AE7363 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64BDDA8D1BE03B3600AE7363 /* Assets.xcassets in Resources */,
+				64BDDA8B1BE03B3600AE7363 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +453,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A52E218937C2EEF6D66278DB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvos/Pods-tvos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C215267972467727E6DD0097 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F100B9A6D8BF59EF65D6B852 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tvos/Pods-tvos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -387,6 +530,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		64BDDA7A1BE03B3600AE7363 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64BDDA931BE03B5500AE7363 /* MZMethodSwizzler.m in Sources */,
+				64BDDA951BE03B5500AE7363 /* MZBlurEffectAdapter.m in Sources */,
+				64BDDA981BE03B5500AE7363 /* MZFormSheetPresentationController.m in Sources */,
+				64BDDA9A1BE03B5500AE7363 /* MZFormSheetPresentationViewController.m in Sources */,
+				64BDDA9D1BE03B5500AE7363 /* MZFormSheetPresentationViewControllerAnimator.m in Sources */,
+				64BDDAA01BE03B5500AE7363 /* MZFormSheetPresentationViewControllerInteractiveAnimator.m in Sources */,
+				64BDDAA21BE03B5500AE7363 /* MZFormSheetPresentationViewControllerSegue.m in Sources */,
+				64BDDAA41BE03B5500AE7363 /* MZTransition.m in Sources */,
+				64BDDAA61BE03B5500AE7363 /* UIViewController+TargetViewController.m in Sources */,
+				64BDDAA81BE03B5500AE7363 /* MZFormSheetContentSizingNavigationController.m in Sources */,
+				64BDDAAA1BE03B5500AE7363 /* MZFormSheetContentSizingNavigationControllerAnimator.m in Sources */,
+				64BDDA881BE03B3600AE7363 /* ViewController.m in Sources */,
+				64BDDA851BE03B3600AE7363 /* AppDelegate.m in Sources */,
+				64BDDA821BE03B3600AE7363 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -404,6 +568,14 @@
 				643ED5B01B3329A2004663AF /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		64BDDA891BE03B3600AE7363 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64BDDA8A1BE03B3600AE7363 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -519,6 +691,39 @@
 			};
 			name = Release;
 		};
+		64BDDA901BE03B3600AE7363 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41B04EF7B38E20EB36BF3B30 /* Pods-tvos.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = tvOSApplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.tvOSApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		64BDDA911BE03B3600AE7363 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D38B9BD334414B15AC5E5FFA /* Pods-tvos.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = tvOSApplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.tvOSApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -536,6 +741,15 @@
 			buildConfigurations = (
 				643ED5C11B3329A2004663AF /* Debug */,
 				643ED5C21B3329A2004663AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64BDDA8F1BE03B3600AE7363 /* Build configuration list for PBXNativeTarget "tvOSApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64BDDA901BE03B3600AE7363 /* Debug */,
+				64BDDA911BE03B3600AE7363 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -348,7 +348,9 @@ NS_INLINE BOOL deswizzleMethod(__unsafe_unretained id object, SEL selector) {
 NS_INLINE void swizzleInstance(__unsafe_unretained id object, SEL selector, MZMethodReplacementProvider replacementProvider) {
     Class class = [object class];
     
-    NSCAssert(blockIsValidReplacementProvider(replacementProvider), @"Invalid method replacemt provider");
+    if (!blockIsValidReplacementProvider(replacementProvider)) {
+        NSCAssert(blockIsValidReplacementProvider(replacementProvider), @"Invalid method replacemt provider");
+    }
     
     NSCAssert([object respondsToSelector:selector], @"Invalid method: -[%@ %@]", NSStringFromClass(class), NSStringFromSelector(selector));
     
@@ -417,7 +419,10 @@ NS_INLINE void swizzleInstance(__unsafe_unretained id object, SEL selector, MZMe
     
     id replaceBlock = replacementProvider(origIMP, class, selector);
     
-    NSCAssert(blockIsCompatibleWithMethodType(replaceBlock, class, selector, YES), @"Invalid method replacement");
+    if (!blockIsCompatibleWithMethodType(replaceBlock, class, selector, YES)) {
+        NSCAssert(blockIsCompatibleWithMethodType(replaceBlock, class, selector, YES), @"Invalid method replacement");
+    }
+    
     
     classSwizzleMethod(newClass, origMethod, imp_implementationWithBlock(replaceBlock));
     

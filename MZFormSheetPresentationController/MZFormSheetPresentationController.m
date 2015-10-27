@@ -194,15 +194,23 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 }
 
 - (CGFloat)yCoordinateBelowStatusBar {
+#if TARGET_OS_TV
+    return 0;
+#else
     return [UIApplication sharedApplication].statusBarFrame.size.height;
+#endif
 }
 
 - (CGFloat)topInset {
+#if TARGET_OS_TV
+    return self.landscapeTopInset;
+#else
     if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
         return self.portraitTopInset + [self yCoordinateBelowStatusBar];
     } else {
         return self.landscapeTopInset + [self yCoordinateBelowStatusBar];
     }
+#endif
 }
 
 #pragma mark - Transparent Touch

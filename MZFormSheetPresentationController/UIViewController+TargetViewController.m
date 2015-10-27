@@ -36,6 +36,7 @@
 }
 
 - (UIViewController *)mz_childTargetViewControllerForStatusBarStyle {
+#if !TARGET_OS_TV
     UIViewController *childTargetViewController;
 
     if ([self respondsToSelector:@selector(childViewControllerForStatusBarStyle)]) {
@@ -44,11 +45,13 @@
             return [childTargetViewController mz_childTargetViewControllerForStatusBarStyle];
         }
     }
+#endif
 
     return self;
 }
 
 - (UIViewController *)mz_childTargetViewControllerForStatusBarHidden {
+#if !TARGET_OS_TV
     UIViewController *childTargetViewController;
 
     if ([self respondsToSelector:@selector(childViewControllerForStatusBarHidden)]) {
@@ -57,7 +60,7 @@
             return [childTargetViewController mz_childTargetViewControllerForStatusBarHidden];
         }
     }
-
+#endif
     return self;
 }
 
