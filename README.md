@@ -16,8 +16,9 @@ Here are a couple of images showing `MZFormSheetPresentationController` in actio
 [![](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/screen2.png)](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/screen2.png)
 [![](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/screen1.png)](https://raw.github.com/m1entus/MZFormSheetPresentationController/master/Screens/screen1.png)
 
-## 2.0.0 Change Log:
+## 2.x Change Log:
 * Fully tested and certified for iOS 9
+* Support for tvOS
 * Fixed issue with text size based on size class
 * Fixed autolayout issues
 * Added dissmisal pan gesture on each direction
