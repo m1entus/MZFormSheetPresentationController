@@ -200,6 +200,26 @@
     [self presentViewController:formSheetController animated:YES completion:nil];
 }
 
+- (void)modalPresentationInsideFormSheetController {
+    UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
+    formSheetController.presentationController.shouldDismissOnBackgroundViewTap = YES;
+    formSheetController.presentationController.portraitTopInset = 10;
+    
+    // This need to be set because presented modaly view need to be masked
+    formSheetController.view.layer.masksToBounds = YES;
+    
+    [self presentViewController:formSheetController animated:YES completion:^{
+        UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TransparentViewController"];
+        controller.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        controller.view.layer.cornerRadius = navigationController.view.layer.cornerRadius;
+        
+        // Imporatant is to present view controller from navigationController
+        // because UITransitionView will be added to navigationController view !!!
+        [navigationController presentViewController:controller animated:YES completion:nil];
+    }];
+}
+
 #pragma mark - Table View
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -219,6 +239,7 @@
             case 9: [self transparentBackgroundViewAction]; break;
             case 10: [self customPresentationControllerAnimator]; break;
             case 11: [self panGestureDismissIngGesture]; break;
+            case 12: [self modalPresentationInsideFormSheetController]; break;
             default:
                 break;
         }

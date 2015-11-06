@@ -175,7 +175,8 @@
         self.contentViewController = viewController;
         self.modalPresentationStyle = UIModalPresentationCustom;
         self.transitioningDelegate = self;
-
+        self.definesPresentationContext = YES;
+        
         id appearance = [[self class] appearance];
         [appearance applyInvocationTo:self];
     }
