@@ -31,6 +31,7 @@
     [containerView addSubview:sourceView];
     [containerView addSubview:targetView];
     targetView.alpha = 0.0;
+    targetView.frame = [transitionContext finalFrameForViewController:targetViewController];
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                           delay:0
