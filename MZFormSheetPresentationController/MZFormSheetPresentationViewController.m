@@ -174,6 +174,7 @@
         NSParameterAssert(viewController);
         self.contentViewController = viewController;
         self.modalPresentationStyle = UIModalPresentationCustom;
+        self.modalPresentationCapturesStatusBarAppearance = YES;
         self.transitioningDelegate = self;
         self.definesPresentationContext = YES;
         

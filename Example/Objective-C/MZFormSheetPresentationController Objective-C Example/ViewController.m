@@ -160,6 +160,8 @@
     UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TransparentViewController"];
     MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:viewController];
     formSheetController.presentationController.transparentTouchEnabled = NO;
+    // Uncomment if you don't want to capture status bar appearance in presentedViewController
+//    formSheetController.modalPresentationCapturesStatusBarAppearance = NO;
     
     [self presentViewController:formSheetController animated:YES completion:nil];
 }
