@@ -28,7 +28,7 @@
 #import "MZFormSheetPresentationViewController.h"
 
 @interface MZFormSheetPresentationViewControllerInteractiveAnimator ()
-@property (nonatomic, strong) id<UIViewControllerContextTransitioning> transitionContext;
+@property (nonatomic, weak) id<UIViewControllerContextTransitioning> transitionContext;
 @property (nonatomic, assign) CGRect sourceViewInitialFrame;
 @property (nonatomic, assign) CGPoint panGestureRecognizerStartLocation;
 @property (nonatomic, assign) MZFormSheetPanGestureDismissDirection dismissDirection;
