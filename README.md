@@ -175,7 +175,7 @@ formSheetController.shouldApplyBackgroundBlurEffect = true
 
 ## Transitions
 
-MZFormSheetPresentationController has predefined couple transitions.
+MZFormSheetPresentationViewController has predefined couple transitions.
 
 Objective-C
 ``` objective-c
