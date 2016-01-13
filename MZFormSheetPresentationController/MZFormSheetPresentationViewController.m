@@ -128,9 +128,9 @@
     self.view.layer.shadowRadius = shadowRadius;
 }
 
-- (void)setInteractivePanGestureDissmisalDireciton:(MZFormSheetPanGestureDismissDirection)interactivePanGestureDissmisalDireciton {
-    _interactivePanGestureDissmisalDireciton = interactivePanGestureDissmisalDireciton;
-    if (_interactivePanGestureDissmisalDireciton != MZFormSheetPanGestureDismissDirectionNone) {
+- (void)setInteractivePanGestureDissmisalDirection:(MZFormSheetPanGestureDismissDirection)interactivePanGestureDissmisalDirection {
+    _interactivePanGestureDissmisalDirection = interactivePanGestureDissmisalDirection;
+    if (_interactivePanGestureDissmisalDirection != MZFormSheetPanGestureDismissDirectionNone) {
         [self addEdgeDismissalPanGestureRecognizer];
     } else {
         [self removeEdgeDismissalPanGestureRecognizer];
@@ -200,7 +200,7 @@
     [super viewWillAppear:animated];
     if (!self.presentedViewController) {
 
-        if (self.interactivePanGestureDissmisalDireciton != MZFormSheetPanGestureDismissDirectionNone) {
+        if (self.interactivePanGestureDissmisalDirection != MZFormSheetPanGestureDismissDirectionNone) {
             [self addEdgeDismissalPanGestureRecognizer];
         }
         
@@ -285,7 +285,7 @@
         
     } else {
         if ([self.interactionAnimatorForPresentationController respondsToSelector:@selector(handleEdgeDismissalPanGestureRecognizer:dismissDirection:forPresentingView:fromViewController:)]) {
-            [self.interactionAnimatorForPresentationController handleEdgeDismissalPanGestureRecognizer:recognizer dismissDirection:self.interactivePanGestureDissmisalDireciton forPresentingView:self.view fromViewController:self];
+            [self.interactionAnimatorForPresentationController handleEdgeDismissalPanGestureRecognizer:recognizer dismissDirection:self.interactivePanGestureDissmisalDirection forPresentingView:self.view fromViewController:self];
         }
     }
     
