@@ -68,7 +68,7 @@
 - (void)blurEffectAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
-    formSheetController.interactivePanGestureDissmisalDireciton = MZFormSheetPanGestureDismissDirectionAll;
+    formSheetController.interactivePanGestureDissmisalDirection = MZFormSheetPanGestureDismissDirectionAll;
     formSheetController.presentationController.shouldApplyBackgroundBlurEffect = YES;
     formSheetController.presentationController.blurEffectStyle = UIBlurEffectStyleLight;
     
@@ -119,7 +119,7 @@
 - (void)contentViewShadowAction {
     UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
-    formSheetController.interactivePanGestureDissmisalDireciton = MZFormSheetPanGestureDismissDirectionUp | MZFormSheetPanGestureDismissDirectionDown | MZFormSheetPanGestureDismissDirectionLeft | MZFormSheetPanGestureDismissDirectionRight;
+    formSheetController.interactivePanGestureDissmisalDirection = MZFormSheetPanGestureDismissDirectionUp | MZFormSheetPanGestureDismissDirectionDown | MZFormSheetPanGestureDismissDirectionLeft | MZFormSheetPanGestureDismissDirectionRight;
 
     __weak MZFormSheetPresentationViewController *weakController = formSheetController;
     formSheetController.willPresentContentViewControllerHandler = ^(UIViewController *a) {
@@ -170,7 +170,7 @@
 //    UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TransparentViewController"];
     MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:viewController];
-    formSheetController.interactivePanGestureDissmisalDireciton = MZFormSheetPanGestureDismissDirectionAll;
+    formSheetController.interactivePanGestureDissmisalDirection = MZFormSheetPanGestureDismissDirectionAll;
     formSheetController.allowDismissByPanningPresentedView = YES;
 
     [self presentViewController:formSheetController animated:YES completion:nil];
