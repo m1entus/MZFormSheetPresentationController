@@ -170,7 +170,10 @@
 
 - (instancetype)initWithContentView:(UIView *)contentView {
     UIViewController *viewController = [[UIViewController alloc] init];
+    contentView.translatesAutoresizingMaskIntoConstraints = NO;
     [viewController.view addSubview:contentView];
+    [viewController.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(contentView)]];
+    [viewController.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[contentView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(contentView)]];
 
     if (self = [self initWithContentViewController:viewController]) {
         self.presentationController.contentViewSize = contentView.frame.size;
