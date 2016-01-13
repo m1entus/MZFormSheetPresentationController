@@ -139,10 +139,26 @@ class ViewController: UITableViewController {
         self.presentViewController(formSheetController, animated: true, completion: nil)
     }
     
-    func panGestureDismissIngGesture() {
+    func panGestureDismissingGesture() {
         let navigationController = self.formSheetControllerWithNavigationController()
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
         formSheetController.interactivePanGestureDissmisalDirection = .All;
+        self.presentViewController(formSheetController, animated: true, completion: nil)
+    }
+
+    func formSheetView() {
+        let label = UILabel(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 200.0, height: 25.0)))
+        label.backgroundColor = .blueColor()
+        label.text = "Testing with just a view"
+        label.textAlignment = .Center
+        label.textColor = .whiteColor()
+
+        let formSheetController = MZFormSheetPresentationViewController(contentView: label)
+        if let presentationController = formSheetController.presentationController {
+            presentationController.shouldCenterVertically = true
+            presentationController.shouldDismissOnBackgroundViewTap = true
+        }
+
         self.presentViewController(formSheetController, animated: true, completion: nil)
     }
     
@@ -183,7 +199,8 @@ class ViewController: UITableViewController {
             case 7: contentViewShadowAction()
             case 8: twoFormSheetControllersAction()
             case 9: transparentBackgroundViewAction()
-            case 10: panGestureDismissIngGesture()
+            case 10: panGestureDismissingGesture()
+            case 11: formSheetView()
             default: break;
             }
         } else if indexPath.section == 1 {

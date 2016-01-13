@@ -168,6 +168,17 @@
 
 #pragma mark - View Life cycle
 
+- (instancetype)initWithContentView:(UIView *)contentView {
+    UIViewController *viewController = [[UIViewController alloc] init];
+    [viewController.view addSubview:contentView];
+
+    if (self = [self initWithContentViewController:viewController]) {
+        self.presentationController.contentViewSize = contentView.frame.size;
+    }
+
+    return self;
+}
+
 - (instancetype)initWithContentViewController:(UIViewController *)viewController {
     if (self = [self init]) {
 

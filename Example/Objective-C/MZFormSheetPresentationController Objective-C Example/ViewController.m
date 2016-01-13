@@ -166,7 +166,7 @@
     [self presentViewController:formSheetController animated:YES completion:nil];
 }
 
-- (void)panGestureDismissIngGesture {
+- (void)panGestureDismissingGesture {
 //    UINavigationController *navigationController = [self formSheetControllerWithNavigationController];
     UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TransparentViewController"];
     MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:viewController];
@@ -222,6 +222,17 @@
     }];
 }
 
+- (void)formSheetView {
+    UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 280.0f, 187.0f)];
+    image.image = [UIImage imageNamed:@"home"];
+
+    MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentView:image];
+    formSheetController.presentationController.shouldCenterVertically = YES;
+    formSheetController.presentationController.shouldDismissOnBackgroundViewTap = YES;
+
+    [self presentViewController:formSheetController animated:YES completion:nil];
+}
+
 #pragma mark - Table View
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -240,8 +251,9 @@
             case 8: [self twoFormSheetControllersAction]; break;
             case 9: [self transparentBackgroundViewAction]; break;
             case 10: [self customPresentationControllerAnimator]; break;
-            case 11: [self panGestureDismissIngGesture]; break;
+            case 11: [self panGestureDismissingGesture]; break;
             case 12: [self modalPresentationInsideFormSheetController]; break;
+            case 13: [self formSheetView]; break;
             default:
                 break;
         }
