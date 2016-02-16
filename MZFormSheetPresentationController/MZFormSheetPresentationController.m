@@ -483,7 +483,7 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     CGRect modifiedPresentedViewFrame = CGRectZero;
     
     if (self.frameConfigurationHandler) {
-        modifiedPresentedViewFrame = self.frameConfigurationHandler(self.presentedView,formSheetRect);
+        modifiedPresentedViewFrame = self.frameConfigurationHandler(self.presentedView,formSheetRect,self.isKeyboardVisible);
     } else {
         modifiedPresentedViewFrame = formSheetRect;
     }

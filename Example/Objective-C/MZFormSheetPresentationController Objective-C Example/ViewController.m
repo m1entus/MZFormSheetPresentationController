@@ -105,7 +105,7 @@
     presentedViewController.textFieldBecomeFirstResponder = YES;
     
     __weak typeof(formSheetController) weakFormSheet = formSheetController;
-    formSheetController.presentationController.frameConfigurationHandler = ^(UIView * __nonnull presentedView, CGRect currentFrame) {
+    formSheetController.presentationController.frameConfigurationHandler = ^(UIView * __nonnull presentedView, CGRect currentFrame, BOOL isKeyboardVisible) {
         if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
             return CGRectMake(CGRectGetMidX(weakFormSheet.presentationController.containerView.bounds) - 210, currentFrame.origin.y, 420, currentFrame.size.height);
         }

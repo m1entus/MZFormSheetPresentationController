@@ -94,7 +94,7 @@ class ViewController: UITableViewController {
         let presentedViewController = navigationController.viewControllers.first as! PresentedTableViewController
         presentedViewController.textFieldBecomeFirstResponder = true
         
-        formSheetController.presentationController?.frameConfigurationHandler = { [weak formSheetController] view, currentFrame in
+        formSheetController.presentationController?.frameConfigurationHandler = { [weak formSheetController] view, currentFrame, isKeyboardVisible in
             if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
                 return CGRectMake(CGRectGetMidX(formSheetController!.presentationController!.containerView!.bounds) - 210, currentFrame.origin.y, 420, currentFrame.size.height)
             }

@@ -30,7 +30,7 @@
 typedef void(^MZFormSheetPresentationControllerTransitionBeginCompletionHandler)(UIViewController * __nonnull presentingViewController);
 typedef void(^MZFormSheetPresentationControllerTransitionEndCompletionHandler)(UIViewController * __nonnull presentingViewController, BOOL completed);
 typedef void(^MZFormSheetPresentationControllerTapHandler)(CGPoint location);
-typedef CGRect(^MZFormSheetPresentationFrameConfigurationHandler)(UIView * __nonnull presentedView, CGRect currentFrame);
+typedef CGRect(^MZFormSheetPresentationFrameConfigurationHandler)(UIView * __nonnull presentedView, CGRect currentFrame, BOOL isKeyboardVisible);
 
 typedef NS_ENUM(NSInteger, MZFormSheetActionWhenKeyboardAppears) {
     MZFormSheetActionWhenKeyboardAppearsDoNothing = 0,
@@ -84,6 +84,10 @@ typedef NS_ENUM(NSInteger, MZFormSheetActionWhenKeyboardAppears) {
  */
 @property (nonatomic, assign) BOOL shouldCenterVertically MZ_APPEARANCE_SELECTOR;
 
+/**
+ *  Returns whether the keyboard is visible
+ */
+@property (nonatomic, assign, readonly, getter=isKeyboardVisible) BOOL keyboardVisible;
 
 /**
  The background color of the background view.
