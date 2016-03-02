@@ -194,7 +194,7 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 }
 
 - (CGFloat)yCoordinateBelowStatusBar {
-#if TARGET_OS_TV
+#if TARGET_OS_TV || !NS_EXTENSION_UNAVAILABLE_IOS
     return 0;
 #else
     return [UIApplication sharedApplication].statusBarFrame.size.height;
@@ -202,7 +202,7 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 }
 
 - (CGFloat)topInset {
-#if TARGET_OS_TV
+#if TARGET_OS_TV || !NS_EXTENSION_UNAVAILABLE_IOS
     return self.landscapeTopInset;
 #else
     if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
