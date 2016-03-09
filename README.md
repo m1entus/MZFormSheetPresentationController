@@ -46,6 +46,15 @@ As a major version change, the API introduced in 2.0 is not backward compatible 
 
 MZFormSheetPresentationController requires either iOS 8.x and above.
 
+## Installation
+###[Carthage](https://github.com/Carthage/Carthage)
+
+Add the following line to your `Cartfile`.
+
+```github "m1entus/MZFormSheetPresentationController" "master"```
+
+Then run `carthage update --no-use-binaries` or just `carthage update`. For details of the installation and usage of Carthage, visit [it's project page](https://github.com/Carthage/Carthage).
+
 ## How To Use
 
 There are two example projects, one is for Objective-C second is for Swift.
