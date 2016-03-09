@@ -33,6 +33,7 @@
 		468A6C331C4B2FD700F84D81 /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 468A6C1A1C4B2FD700F84D81 /* MZTransition.m */; };
 		468A6C341C4B2FD700F84D81 /* UIViewController+TargetViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C1B1C4B2FD700F84D81 /* UIViewController+TargetViewController.h */; };
 		468A6C351C4B2FD700F84D81 /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 468A6C1C1C4B2FD700F84D81 /* UIViewController+TargetViewController.m */; };
+		AE0D4D1B1C90801300A82E3B /* MZAppearance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0D4D1A1C90801300A82E3B /* MZAppearance.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		468A6C1A1C4B2FD700F84D81 /* MZTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTransition.m; sourceTree = "<group>"; };
 		468A6C1B1C4B2FD700F84D81 /* UIViewController+TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TargetViewController.h"; sourceTree = "<group>"; };
 		468A6C1C1C4B2FD700F84D81 /* UIViewController+TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TargetViewController.m"; sourceTree = "<group>"; };
+		AE0D4D1A1C90801300A82E3B /* MZAppearance.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MZAppearance.framework; path = Carthage/Build/iOS/MZAppearance.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0D4D1B1C90801300A82E3B /* MZAppearance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +83,7 @@
 		468A6BEF1C4B2FAD00F84D81 = {
 			isa = PBXGroup;
 			children = (
+				AE0D4D1A1C90801300A82E3B /* MZAppearance.framework */,
 				468A6BFB1C4B2FAD00F84D81 /* MZFormSheetPresentationController */,
 				468A6BFA1C4B2FAD00F84D81 /* Products */,
 			);
@@ -163,6 +167,7 @@
 				468A6BF51C4B2FAD00F84D81 /* Frameworks */,
 				468A6BF61C4B2FAD00F84D81 /* Headers */,
 				468A6BF71C4B2FAD00F84D81 /* Resources */,
+				AE0D4D1C1C90802100A82E3B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -213,6 +218,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AE0D4D1C1C90802100A82E3B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/MZAppearance.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		468A6BF41C4B2FAD00F84D81 /* Sources */ = {
@@ -332,6 +354,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MZFormSheetPresentationController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -348,6 +374,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MZFormSheetPresentationController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
