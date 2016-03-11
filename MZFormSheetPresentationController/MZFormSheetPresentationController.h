@@ -109,7 +109,7 @@ typedef NS_ENUM(NSInteger, MZFormSheetActionWhenKeyboardAppears) {
 
 /**
  The movement action to use when the keyboard appears.
- By default, this is MZFormSheetActionWhenKeyboardAppears.
+ By default, this is MZFormSheetActionWhenKeyboardAppearsDoNothing.
  */
 @property (nonatomic, assign) MZFormSheetActionWhenKeyboardAppears movementActionWhenKeyboardAppears MZ_APPEARANCE_SELECTOR;
 

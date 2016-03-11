@@ -149,6 +149,11 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     }
 }
 
+- (void)setDidTapOnBackgroundViewCompletionHandler:(MZFormSheetPresentationControllerTapHandler)didTapOnBackgroundViewCompletionHandler {
+    _didTapOnBackgroundViewCompletionHandler = didTapOnBackgroundViewCompletionHandler;
+    [self addBackgroundTapGestureRecognizer];
+}
+
 #pragma mark - Init
 
 - (instancetype)initWithPresentedViewController:(UIViewController *)presentedViewController presentingViewController:(UIViewController *)presentingViewController {
