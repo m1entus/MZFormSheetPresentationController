@@ -140,9 +140,9 @@
 - (void)setAllowDismissByPanningPresentedView:(BOOL)allowDismissByPanningPresentedView {
     _allowDismissByPanningPresentedView = allowDismissByPanningPresentedView;
     if (_allowDismissByPanningPresentedView) {
-        [self addPresentaingViewDismissalPanGestureRecognizer];
+        [self addPresentingViewDismissalPanGestureRecognizer];
     } else {
-        [self removePresentaingViewDismissalPanGestureRecognizer];
+        [self removePresentingViewDismissalPanGestureRecognizer];
     }
 }
 
@@ -219,7 +219,7 @@
         }
         
         if (self.allowDismissByPanningPresentedView) {
-            [self addPresentaingViewDismissalPanGestureRecognizer];
+            [self addPresentingViewDismissalPanGestureRecognizer];
         }
 
         if (self.willPresentContentViewControllerHandler) {
@@ -259,14 +259,14 @@
 
 #pragma mark - UIGestureRecognizer
 
-- (void)addPresentaingViewDismissalPanGestureRecognizer {
+- (void)addPresentingViewDismissalPanGestureRecognizer {
     
-    [self removePresentaingViewDismissalPanGestureRecognizer];
+    [self removePresentingViewDismissalPanGestureRecognizer];
     self.presentedViewDissmisalPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleDismissalPanGestureRecognizer:)];
     [self.view addGestureRecognizer:self.presentedViewDissmisalPanGestureRecognizer];
 }
 
-- (void)removePresentaingViewDismissalPanGestureRecognizer {
+- (void)removePresentingViewDismissalPanGestureRecognizer {
     [self.presentedViewDissmisalPanGestureRecognizer.view removeGestureRecognizer:self.presentedViewDissmisalPanGestureRecognizer];
     self.presentedViewDissmisalPanGestureRecognizer = nil;
 }
