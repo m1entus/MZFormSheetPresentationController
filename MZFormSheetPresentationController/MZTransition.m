@@ -220,6 +220,76 @@ CGFloat const MZFormSheetPresentationViewControllerDefaultAnimationDuration = 0.
 }
 @end
 
+@interface MZPresentationSlideBounceFromTopTransition : MZTransition
+@end
+
+@implementation MZPresentationSlideBounceFromTopTransition
++ (void)load {
+    [MZTransition registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideAndBounceFromTop];
+    [MZTransition registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideAndBounceFromTop];
+}
+
+- (void)entryFormSheetControllerTransition:(UIViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+    NSLog(@"entryFormSheetControllerTransition");
+    CGFloat y = formSheetController.view.center.y;
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    animation.values = @[ @(y - [UIScreen mainScreen].bounds.size.height), @(y + 20), @(y - 10), @(y) ];
+    animation.keyTimes = @[ @(0), @(0.5), @(0.75), @(1) ];
+    animation.timingFunctions = @[ [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut] ];
+    animation.duration = MZPresentationTransitionDefaultBounceDuration;
+    animation.delegate = self;
+    [animation setValue:completionHandler forKey:@"completionHandler"];
+    [formSheetController.view.layer addAnimation:animation forKey:@"bounceBottom"];
+}
+
+- (void)exitFormSheetControllerTransition:(UIViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+    CGRect formSheetRect = formSheetController.view.frame;
+    formSheetRect.origin.y = -[UIScreen mainScreen].bounds.size.height;
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
+                     animations:^{
+                         formSheetController.view.frame = formSheetRect;
+                     }
+                     completion:^(BOOL finished) {
+                         completionHandler();
+                     }];
+}
+@end
+
+@interface MZPresentationSlideBounceFromBottomTransition : MZTransition
+@end
+
+@implementation MZPresentationSlideBounceFromBottomTransition
++ (void)load {
+    [MZTransition registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideAndBounceFromBottom];
+    [MZTransition registerTransitionClass:self forTransitionStyle:MZFormSheetPresentationTransitionStyleSlideAndBounceFromBottom];
+}
+
+- (void)entryFormSheetControllerTransition:(UIViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+    NSLog(@"entryFormSheetControllerTransition");
+    CGFloat y = formSheetController.view.center.y;
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    animation.values = @[ @(y + [UIScreen mainScreen].bounds.size.height), @(y - 20), @(y + 10), @(y) ];
+    animation.keyTimes = @[ @(0), @(0.5), @(0.75), @(1) ];
+    animation.timingFunctions = @[ [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut] ];
+    animation.duration = MZPresentationTransitionDefaultBounceDuration;
+    animation.delegate = self;
+    [animation setValue:completionHandler forKey:@"completionHandler"];
+    [formSheetController.view.layer addAnimation:animation forKey:@"bounceBottom"];
+}
+
+- (void)exitFormSheetControllerTransition:(UIViewController *)formSheetController completionHandler:(MZTransitionCompletionHandler)completionHandler {
+    CGRect formSheetRect = formSheetController.view.frame;
+    formSheetRect.origin.y = [UIScreen mainScreen].bounds.size.height;
+    [UIView animateWithDuration:MZFormSheetPresentationViewControllerDefaultAnimationDuration
+                     animations:^{
+                         formSheetController.view.frame = formSheetRect;
+                     }
+                     completion:^(BOOL finished) {
+                         completionHandler();
+                     }];
+}
+@end
+
 @interface MZPresentationSlideBounceFromLeftTransition : MZTransition
 @end
 
