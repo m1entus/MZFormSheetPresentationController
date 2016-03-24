@@ -188,20 +188,20 @@ MZFormSheetPresentationViewController has predefined couple transitions.
 
 Objective-C
 ``` objective-c
-typedef NS_ENUM(NSInteger, MZFormSheetTransitionStyle) {
-   MZFormSheetTransitionStyleSlideFromTop = 0,
-   MZFormSheetTransitionStyleSlideFromBottom,
-   MZFormSheetTransitionStyleSlideFromLeft,
-   MZFormSheetTransitionStyleSlideFromRight,
-   MZFormSheetPresentationTransitionStyleSlideAndBounceFromTop,
-   MZFormSheetPresentationTransitionStyleSlideAndBounceFromBottom,
-   MZFormSheetTransitionStyleSlideAndBounceFromLeft,
-   MZFormSheetTransitionStyleSlideAndBounceFromRight,
-   MZFormSheetTransitionStyleFade,
-   MZFormSheetTransitionStyleBounce,
-   MZFormSheetTransitionStyleDropDown,
-   MZFormSheetTransitionStyleCustom,
-   MZFormSheetTransitionStyleNone,
+typedef NS_ENUM(NSInteger, MZFormSheetPresentationTransitionStyle) {
+ MZFormSheetPresentationTransitionStyleSlideFromTop = 0,
+ MZFormSheetPresentationTransitionStyleSlideFromBottom,
+ MZFormSheetPresentationTransitionStyleSlideFromLeft,
+ MZFormSheetPresentationTransitionStyleSlideFromRight,
+ MZFormSheetPresentationTransitionStyleSlideAndBounceFromTop,
+ MZFormSheetPresentationTransitionStyleSlideAndBounceFromBottom,
+ MZFormSheetPresentationTransitionStyleSlideAndBounceFromLeft,
+ MZFormSheetPresentationTransitionStyleSlideAndBounceFromRight,
+ MZFormSheetPresentationTransitionStyleFade,
+ MZFormSheetPresentationTransitionStyleBounce,
+ MZFormSheetPresentationTransitionStyleDropDown,
+ MZFormSheetPresentationTransitionStyleCustom,
+ MZFormSheetPresentationTransitionStyleNone,
 };
 ```
 
@@ -209,7 +209,7 @@ If you want to use them you will have to just assign `contentViewControllerTrans
 
 Objective-C
 ``` objective-c
-formSheetController.contentViewControllerTransitionStyle = MZFormSheetTransitionStyleFade;
+formSheetController.contentViewControllerTransitionStyle = MZFormSheetPresentationTransitionStyleFade;
 ```
 
 You can also create your own transition by implementing `MZFormSheetPresentationViewControllerTransitionProtocol` protocol and register your transition class as a custom style.
