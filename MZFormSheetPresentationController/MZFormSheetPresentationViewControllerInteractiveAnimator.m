@@ -150,8 +150,6 @@
 
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         if ([self shouldFailGestureRecognizerForDismissDirection:dismissDirection location:location presentingView:presentingView]) {
-            recognizer.enabled = NO;
-            recognizer.enabled = YES;
             return;
         }
 
