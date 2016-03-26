@@ -475,13 +475,19 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
                 case MZFormSheetActionWhenKeyboardAppearsMoveToTopInset:
                     formSheetRect.origin.y = [self topInset];
                     break;
+                case MZFormSheetActionWhenKeyboardAppearsAlwaysAboveKeyboard:
                 case MZFormSheetActionWhenKeyboardAppearsAboveKeyboard:
                     formSheetRect.origin.y = formSheetRect.origin.y + (screenRect.size.height - CGRectGetMaxY(formSheetRect)) - MZFormSheetPresentationControllerDefaultAboveKeyboardMargin;
                 default:
                     break;
             }
         } else {
-            formSheetRect.origin.y = [self yCoordinateBelowStatusBar];
+            if (self.movementActionWhenKeyboardAppears == MZFormSheetActionWhenKeyboardAppearsAlwaysAboveKeyboard) {
+                formSheetRect.origin.y = formSheetRect.origin.y + (screenRect.size.height - CGRectGetMaxY(formSheetRect)) - MZFormSheetPresentationControllerDefaultAboveKeyboardMargin;
+            } else {
+                formSheetRect.origin.y = [self yCoordinateBelowStatusBar];
+            }
+            
         }
         
     } else if (self.shouldCenterVertically) {

@@ -37,7 +37,17 @@ typedef NS_ENUM(NSInteger, MZFormSheetActionWhenKeyboardAppears) {
     MZFormSheetActionWhenKeyboardAppearsCenterVertically,
     MZFormSheetActionWhenKeyboardAppearsMoveToTop,
     MZFormSheetActionWhenKeyboardAppearsMoveToTopInset,
-    MZFormSheetActionWhenKeyboardAppearsAboveKeyboard
+    /**
+     *  If contentViewSize is less than screenSize when keyboard appeard
+     *  then formSheet will move to the top inset
+     */
+    MZFormSheetActionWhenKeyboardAppearsAboveKeyboard,
+    
+    /**
+     *  This will force that formSheet will always move above keyboard
+     *  even if contentViewSize is larger than screenSize
+     */
+    MZFormSheetActionWhenKeyboardAppearsAlwaysAboveKeyboard
 };
 
 @interface MZFormSheetPresentationController : UIPresentationController <MZAppearance>
