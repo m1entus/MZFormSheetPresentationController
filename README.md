@@ -340,8 +340,8 @@ Swift
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let identifier = segue.identifier {
         if identifier == "segue" {
-            let presentationSegue = segue as! MZFormSheetPresentationControllerSegue
-            presentationSegue.formSheetPresentationController.presepresentationController?.shouldApplyBackgroundBlurEffect = true
+            let presentationSegue = segue as! MZFormSheetPresentationViewControllerSegue
+            presentationSegue.formSheetPresentationController.presentationController?.shouldApplyBackgroundBlurEffect = true
             let navigationController = presentationSegue.formSheetPresentationController.contentViewController as! UINavigationController
             let presentedViewController = navigationController.viewControllers.first as! PresentedTableViewController
             presentedViewController.textFieldBecomeFirstResponder = true
