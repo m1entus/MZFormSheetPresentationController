@@ -28,6 +28,7 @@
 #import "MZBlurEffectAdapter.h"
 #import "MZMethodSwizzler.h"
 #import "MZFormSheetPresentationContentSizing.h"
+#import "MZFormSheetPresentationViewController.h"
 
 CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 
@@ -455,7 +456,15 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 
 - (CGRect)formSheetViewControllerFrame {
     CGRect formSheetRect = self.presentedView.frame;
-    formSheetRect.size = self.internalContentViewSize;
+    CGSize contentViewSize = self.internalContentViewSize;
+    
+    if (CGSizeEqualToSize(contentViewSize, UILayoutFittingCompressedSize) || CGSizeEqualToSize(contentViewSize, UILayoutFittingExpandedSize)) {
+        MZFormSheetPresentationViewController *presentationViewController = (MZFormSheetPresentationViewController *)self.presentedViewController;
+        UIView *contentView = presentationViewController.contentViewController.view;
+        formSheetRect.size = [contentView systemLayoutSizeFittingSize: contentViewSize];
+    } else {
+        formSheetRect.size = contentViewSize;
+    }
     
     if (self.shouldCenterHorizontally) {
         formSheetRect.origin.x = CGRectGetMidX(self.containerView.bounds) - formSheetRect.size.width/2;
