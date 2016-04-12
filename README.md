@@ -65,7 +65,7 @@ Objective-C
 ``` objective-c
 UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"formSheetController"];
 MZFormSheetPresentationViewController *formSheetController = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:navigationController];
-formSheetController.presentationController.contentViewSize = CGSizeMake(250, 250);
+formSheetController.presentationController.contentViewSize = CGSizeMake(250, 250); // or pass in UILayoutFittingCompressedSize to size automatically with auto-layout
 
 [self presentViewController:formSheetController animated:YES completion:nil];
 ```
@@ -74,7 +74,7 @@ Swift
 ```swift
 let navigationController = self.storyboard!.instantiateViewControllerWithIdentifier("formSheetController") as! UINavigationController
 let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
-formSheetController.presentationController?.contentViewSize = CGSizeMake(250, 250)
+formSheetController.presentationController?.contentViewSize = CGSizeMake(250, 250)  // or pass in UILayoutFittingCompressedSize to size automatically with auto-layout
 
 self.presentViewController(formSheetController, animated: true, completion: nil)
 ```

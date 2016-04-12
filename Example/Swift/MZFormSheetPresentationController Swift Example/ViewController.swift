@@ -79,6 +79,14 @@ class ViewController: UITableViewController {
         self.presentViewController(formSheetController, animated: true, completion: nil)
     }
     
+    func compressedContentViewSizeAction() {
+        let navigationController = self.formSheetControllerWithNavigationController()
+        let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
+        formSheetController.presentationController?.contentViewSize = UILayoutFittingCompressedSize
+        
+        self.presentViewController(formSheetController, animated: true, completion: nil)
+    }
+    
     func customBackgroundColorAction() {
         let navigationController = self.formSheetControllerWithNavigationController()
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
@@ -193,14 +201,15 @@ class ViewController: UITableViewController {
             case 1: blurEffectAction()
             case 2: parallaxEffectAction()
             case 3: customContentViewSizeAction()
-            case 4: customBackgroundColorAction()
-            case 5: /* Storyboard segue */ break;
-            case 6: centerVerticallyAction()
-            case 7: contentViewShadowAction()
-            case 8: twoFormSheetControllersAction()
-            case 9: transparentBackgroundViewAction()
-            case 10: panGestureDismissingGesture()
-            case 11: formSheetView()
+            case 4: compressedContentViewSizeAction()
+            case 5: customBackgroundColorAction()
+            case 6: /* Storyboard segue */ break;
+            case 7: centerVerticallyAction()
+            case 8: contentViewShadowAction()
+            case 9: twoFormSheetControllersAction()
+            case 10: transparentBackgroundViewAction()
+            case 11: panGestureDismissingGesture()
+            case 12: formSheetView()
             default: break;
             }
         } else if indexPath.section == 1 {
