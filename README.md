@@ -355,6 +355,24 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
 MZFormSheetPresentationController uses ARC.
 
+## App Extensions
+
+Some position calculations access [UIApplication sharedApplication] which is not permitted in application extensions. If you want to use MZFormSheetPresentationController in extensions add the MZ_APP_EXTENSIONS=1 preprocessor macro in the corresponding target.
+
+If you use Cocoapods you can use a post install hook to do that:
+```ruby
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        if target.name == "MZFormSheetPresentationController"
+            target.build_configurations.each do |config|
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'MZ_APP_EXTENSIONS=1'
+            end
+        end
+    end
+end
+```
+
 ## Contact
 
 [Michal Zaborowski](http://github.com/m1entus)
