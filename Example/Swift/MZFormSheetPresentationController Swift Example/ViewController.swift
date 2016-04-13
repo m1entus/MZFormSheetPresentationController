@@ -150,7 +150,7 @@ class ViewController: UITableViewController {
     func panGestureDismissingGesture() {
         let navigationController = self.formSheetControllerWithNavigationController()
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
-        formSheetController.interactivePanGestureDissmisalDirection = .All;
+        formSheetController.interactivePanGestureDismissalDirection = .All;
         self.presentViewController(formSheetController, animated: true, completion: nil)
     }
 
