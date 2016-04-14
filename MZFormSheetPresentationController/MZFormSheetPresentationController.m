@@ -455,13 +455,16 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 #pragma mark - Frame Configuration
 
 - (CGRect)formSheetViewControllerFrame {
+    MZFormSheetPresentationViewController *presentationViewController = (MZFormSheetPresentationViewController *)self.presentedViewController;
+    
     CGRect formSheetRect = self.presentedView.frame;
     CGSize contentViewSize = self.internalContentViewSize;
+    UIView *contentView = presentationViewController.contentViewController.view;
     
-    if (CGSizeEqualToSize(contentViewSize, UILayoutFittingCompressedSize) || CGSizeEqualToSize(contentViewSize, UILayoutFittingExpandedSize)) {
-        MZFormSheetPresentationViewController *presentationViewController = (MZFormSheetPresentationViewController *)self.presentedViewController;
-        UIView *contentView = presentationViewController.contentViewController.view;
+    if (CGSizeEqualToSize(contentViewSize, UILayoutFittingCompressedSize)) {
         formSheetRect.size = [contentView systemLayoutSizeFittingSize: contentViewSize];
+    } else if (CGSizeEqualToSize(contentViewSize, UILayoutFittingExpandedSize)) {
+        formSheetRect.size = [contentView systemLayoutSizeFittingSize: self.containerView.bounds.size];
     } else {
         formSheetRect.size = contentViewSize;
     }
