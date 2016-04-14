@@ -62,7 +62,7 @@ typedef void(^MZFormSheetPresentationViewControllerCompletionHandler)(UIViewCont
  *  Allow dismiss the modals by swiping up/down/left/right on the navigation bar.
  *  By default, this is None.
  */
-@property (nonatomic, assign) MZFormSheetPanGestureDismissDirection interactivePanGestureDissmisalDirection;
+@property (nonatomic, assign) MZFormSheetPanGestureDismissDirection interactivePanGestureDismissalDirection;
 
 /**
  *  Allow dismiss the modals by swiping up/down/left/right on the presented view.
