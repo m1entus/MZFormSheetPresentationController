@@ -55,6 +55,23 @@ Add the following line to your `Cartfile`.
 
 Then run `carthage update --no-use-binaries` or just `carthage update`. For details of the installation and usage of Carthage, visit [it's project page](https://github.com/Carthage/Carthage).
 
+###[CocoaPods](https://github.com/CocoaPods/CocoaPods)
+
+Add the following line to your `Podfile`.
+
+```
+# Uncomment this line to define a global platform for your project
+platform :ios, '8.0'
+# Uncomment this line if you're using Swift
+use_frameworks!
+
+target 'ProjectName' do
+    pod 'MZFormSheetPresentationController'
+end
+```
+
+Then run `pod install --verbose` or just `pod install`. For details of the installation and usage of CocoaPods, visit [it's project page](https://github.com/CocoaPods/CocoaPods).
+
 ## How To Use
 
 There are two example projects, one is for Objective-C second is for Swift.
