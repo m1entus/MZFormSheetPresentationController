@@ -25,7 +25,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MZAppearance/MZAppearance.h>
-#import "MZTransition.h"
+#import <MZFormSheetPresentationController/MZTransition.h>
+#import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
 
 typedef void(^MZFormSheetPresentationControllerTransitionBeginCompletionHandler)(UIViewController * __nonnull presentingViewController);
 typedef void(^MZFormSheetPresentationControllerTransitionEndCompletionHandler)(UIViewController * __nonnull presentingViewController, BOOL completed);

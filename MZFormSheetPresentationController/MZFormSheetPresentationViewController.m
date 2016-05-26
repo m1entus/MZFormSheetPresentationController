@@ -24,6 +24,8 @@
 //  THE SOFTWARE.
 
 #import "MZFormSheetPresentationViewController.h"
+
+#import "MZFormSheetPresentationController.h"
 #import "UIViewController+TargetViewController.h"
 #import "MZFormSheetPresentationViewControllerAnimator.h"
 #import "MZFormSheetPresentationViewControllerInteractiveAnimator.h"

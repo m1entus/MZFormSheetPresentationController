@@ -24,12 +24,12 @@
 //  THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import "MZTransition.h"
-#import "MZFormSheetPresentationController.h"
+#import <MZFormSheetPresentationController/MZTransition.h>
 #import <MZAppearance/MZAppearance.h>
-#import "MZFormSheetPresentationViewControllerAnimatedTransitioning.h"
-#import "MZFormSheetPresentationViewControllerInteractiveTransitioning.h"
-#import "MZFormSheetPresentationContentSizing.h"
+
+#import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerAnimatedTransitioning.h>
+#import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveTransitioning.h>
+#import <MZFormSheetPresentationController/MZFormSheetPresentationContentSizing.h>
 
 extern CGFloat const MZFormSheetPresentationViewControllerDefaultAnimationDuration;
 
