@@ -59,7 +59,17 @@ Then run `carthage update --no-use-binaries` or just `carthage update`. For deta
 
 Add the following line to your `Podfile`.
 
-```pod 'MZFormSheetPresentationController' ```
+```
+# Uncomment this line to define a global platform for your project
+platform :ios, '8.0'
+# Uncomment this line if you're using Swift
+use_frameworks!
+
+target 'ProjectName' do
+    pod 'MZFormSheetPresentationController'
+end
+
+```
 
 Then run `pod install --verbose` or just `pod install`. For details of the installation and usage of CocoaPods, visit [it's project page](https://github.com/CocoaPods/CocoaPods).
 
