@@ -68,7 +68,6 @@ use_frameworks!
 target 'ProjectName' do
     pod 'MZFormSheetPresentationController'
 end
-
 ```
 
 Then run `pod install --verbose` or just `pod install`. For details of the installation and usage of CocoaPods, visit [it's project page](https://github.com/CocoaPods/CocoaPods).
