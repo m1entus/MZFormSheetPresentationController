@@ -1,6 +1,6 @@
 //
-//  MZFormSheetPresentationViewControllerAnimator.m
-//  MZFormSheetPresentationViewControllerAnimator
+//  MZFormSheetPresentationViewController.h
+//  MZFormSheetPresentationViewController
 //
 //  Created by Michał Zaborowski on 24.02.2015.
 //  Copyright (c) 2015 Michał Zaborowski. All rights reserved.
@@ -25,8 +25,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MZAppearance/MZAppearance.h>
-#import <MZFormSheetPresentationController/MZTransition.h>
-#import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
+#import "MZTransition.h"
 
 typedef void(^MZFormSheetPresentationControllerTransitionBeginCompletionHandler)(UIViewController * __nonnull presentingViewController);
 typedef void(^MZFormSheetPresentationControllerTransitionEndCompletionHandler)(UIViewController * __nonnull presentingViewController, BOOL completed);
