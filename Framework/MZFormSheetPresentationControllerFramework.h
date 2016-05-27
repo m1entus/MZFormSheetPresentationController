@@ -1,7 +1,19 @@
 //
 //  MZFormSheetPresentationControllerFramework.h
-//  MZFormSheetPresentationController Framework Header
+//  MZFormSheetPresentationControllerFramework
 //
+
+#import <UIKit/UIKit.h>
+
+//! Project version number for MZFormSheetPresentation.
+FOUNDATION_EXPORT double MZFormSheetPresentationControllerVersionNumber;
+
+//! Project version string for MZFormSheetPresentation.
+FOUNDATION_EXPORT const unsigned char MZFormSheetPresentationControllerVersionString[];
+
+// In this header, you should import all the public headers of 
+// your framework using statements like 
+// #import <MZFormSheetPresentationController/PublicHeader.h>
 
 #import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewController.h>
