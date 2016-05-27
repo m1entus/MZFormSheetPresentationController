@@ -1,6 +1,6 @@
 //
-//  MZFormSheetPresentationViewControllerAnimator.m
-//  MZFormSheetPresentationViewControllerAnimator
+//  MZFormSheetPresentationViewController.h
+//  MZFormSheetPresentationViewController
 //
 //  Created by Michał Zaborowski on 24.02.2015.
 //  Copyright (c) 2015 Michał Zaborowski. All rights reserved.
