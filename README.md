@@ -53,7 +53,14 @@ Add the following line to your `Cartfile`.
 
 ```github "m1entus/MZFormSheetPresentationController" "master"```
 
-Then run `carthage update --no-use-binaries` or just `carthage update`. For details of the installation and usage of Carthage, visit [it's project page](https://github.com/Carthage/Carthage).
+Then run `carthage update --no-use-binaries` or just `carthage update`. 
+
+After building the framework you will need to add it to your project and import it using the Framework header:
+
+```#import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerFramework.h>```
+
+For further details on the installation and usage of Carthage, visit [it's project page](https://github.com/Carthage/Carthage).
+
 
 ###[CocoaPods](https://github.com/CocoaPods/CocoaPods)
 
