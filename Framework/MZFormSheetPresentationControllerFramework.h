@@ -26,3 +26,5 @@ FOUNDATION_EXPORT const unsigned char MZFormSheetPresentationControllerVersionSt
 
 #import <MZFormSheetPresentationController/MZFormSheetPresentationContentSizing.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerSegue.h>
+
+#import <MZFormSheetPresentationController/MZBlurEffectAdapter.h>
