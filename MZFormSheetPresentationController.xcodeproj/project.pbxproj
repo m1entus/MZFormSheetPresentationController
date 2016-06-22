@@ -24,7 +24,7 @@
 		468A6C301C4B2FD700F84D81 /* MZMethodSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C171C4B2FD700F84D81 /* MZMethodSwizzler.h */; };
 		468A6C311C4B2FD700F84D81 /* MZMethodSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 468A6C181C4B2FD700F84D81 /* MZMethodSwizzler.m */; };
 		468A6C331C4B2FD700F84D81 /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 468A6C1A1C4B2FD700F84D81 /* MZTransition.m */; };
-		468A6C341C4B2FD700F84D81 /* UIViewController+TargetViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C1B1C4B2FD700F84D81 /* UIViewController+TargetViewController.h */; };
+		468A6C341C4B2FD700F84D81 /* UIViewController+TargetViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C1B1C4B2FD700F84D81 /* UIViewController+TargetViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		468A6C351C4B2FD700F84D81 /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 468A6C1C1C4B2FD700F84D81 /* UIViewController+TargetViewController.m */; };
 		5411A1BA1CF7D13B000FB618 /* MZFormSheetPresentationControllerFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 5411A1B91CF7D13B000FB618 /* MZFormSheetPresentationControllerFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5411A1BB1CF7D159000FB618 /* MZFormSheetPresentationContentSizing.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C091C4B2FD700F84D81 /* MZFormSheetPresentationContentSizing.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,6 +32,8 @@
 		5411A1BD1CF7D184000FB618 /* MZFormSheetPresentationViewControllerAnimatedTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C0F1C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerAnimatedTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5411A1BE1CF7D19E000FB618 /* MZTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C191C4B2FD700F84D81 /* MZTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5411A1BF1CF7D1B4000FB618 /* MZFormSheetPresentationViewControllerInteractiveTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C141C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerInteractiveTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5417DDCB1D1AF81300E95BE7 /* MZFormSheetContentSizingNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5417DDCA1D1AF81300E95BE7 /* MZFormSheetContentSizingNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5417DDCC1D1AF82A00E95BE7 /* MZFormSheetContentSizingNavigationControllerAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C071C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationControllerAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE0D4D1B1C90801300A82E3B /* MZAppearance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0D4D1A1C90801300A82E3B /* MZAppearance.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,7 @@
 		468A6C1C1C4B2FD700F84D81 /* UIViewController+TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TargetViewController.m"; sourceTree = "<group>"; };
 		5411A1B81CF7D13B000FB618 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		5411A1B91CF7D13B000FB618 /* MZFormSheetPresentationControllerFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationControllerFramework.h; sourceTree = "<group>"; };
+		5417DDCA1D1AF81300E95BE7 /* MZFormSheetContentSizingNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetContentSizingNavigationController.h; sourceTree = "<group>"; };
 		AE0D4D1A1C90801300A82E3B /* MZAppearance.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MZAppearance.framework; path = Carthage/Build/iOS/MZAppearance.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,21 +108,22 @@
 				468A6C041C4B2FD700F84D81 /* MZBlurEffectAdapter.h */,
 				468A6C051C4B2FD700F84D81 /* MZBlurEffectAdapter.m */,
 				468A6BFC1C4B2FAD00F84D81 /* MZFormSheetPresentationController.h */,
+				468A6C091C4B2FD700F84D81 /* MZFormSheetPresentationContentSizing.h */,
+				5417DDCA1D1AF81300E95BE7 /* MZFormSheetContentSizingNavigationController.h */,
 				468A6C061C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationController.m */,
 				468A6C071C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationControllerAnimator.h */,
 				468A6C081C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationControllerAnimator.m */,
-				468A6C091C4B2FD700F84D81 /* MZFormSheetPresentationContentSizing.h */,
 				468A6C0A1C4B2FD700F84D81 /* MZFormSheetPresentationController Swift Example-Bridging-Header.h */,
 				468A6C0B1C4B2FD700F84D81 /* MZFormSheetPresentationController.h */,
 				468A6C0C1C4B2FD700F84D81 /* MZFormSheetPresentationController.m */,
 				468A6C0D1C4B2FD700F84D81 /* MZFormSheetPresentationViewController.h */,
 				468A6C0E1C4B2FD700F84D81 /* MZFormSheetPresentationViewController.m */,
-				468A6C0F1C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerAnimatedTransitioning.h */,
 				468A6C101C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerAnimator.h */,
 				468A6C111C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerAnimator.m */,
 				468A6C121C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerInteractiveAnimator.h */,
 				468A6C131C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerInteractiveAnimator.m */,
 				468A6C141C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerInteractiveTransitioning.h */,
+				468A6C0F1C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerAnimatedTransitioning.h */,
 				468A6C151C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerSegue.h */,
 				468A6C161C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerSegue.m */,
 				468A6C171C4B2FD700F84D81 /* MZMethodSwizzler.h */,
@@ -158,10 +162,12 @@
 				468A6C2B1C4B2FD700F84D81 /* MZFormSheetPresentationViewControllerInteractiveAnimator.h in Headers */,
 				5411A1BF1CF7D1B4000FB618 /* MZFormSheetPresentationViewControllerInteractiveTransitioning.h in Headers */,
 				5411A1BE1CF7D19E000FB618 /* MZTransition.h in Headers */,
-				5411A1BB1CF7D159000FB618 /* MZFormSheetPresentationContentSizing.h in Headers */,
 				468A6C1D1C4B2FD700F84D81 /* MZBlurEffectAdapter.h in Headers */,
-				468A6C231C4B2FD700F84D81 /* MZFormSheetPresentationController Swift Example-Bridging-Header.h in Headers */,
 				468A6C341C4B2FD700F84D81 /* UIViewController+TargetViewController.h in Headers */,
+				5411A1BB1CF7D159000FB618 /* MZFormSheetPresentationContentSizing.h in Headers */,
+				5417DDCB1D1AF81300E95BE7 /* MZFormSheetContentSizingNavigationController.h in Headers */,
+				5417DDCC1D1AF82A00E95BE7 /* MZFormSheetContentSizingNavigationControllerAnimator.h in Headers */,
+				468A6C231C4B2FD700F84D81 /* MZFormSheetPresentationController Swift Example-Bridging-Header.h in Headers */,
 				468A6C301C4B2FD700F84D81 /* MZMethodSwizzler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
