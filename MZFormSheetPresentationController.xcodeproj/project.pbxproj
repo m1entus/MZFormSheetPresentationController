@@ -183,7 +183,6 @@
 				468A6BF51C4B2FAD00F84D81 /* Frameworks */,
 				468A6BF61C4B2FAD00F84D81 /* Headers */,
 				468A6BF71C4B2FAD00F84D81 /* Resources */,
-				AE0D4D1C1C90802100A82E3B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -234,23 +233,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		AE0D4D1C1C90802100A82E3B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/MZAppearance.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		468A6BF41C4B2FAD00F84D81 /* Sources */ = {
