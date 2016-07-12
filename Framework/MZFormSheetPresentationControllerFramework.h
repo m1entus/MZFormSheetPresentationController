@@ -17,6 +17,8 @@ FOUNDATION_EXPORT const unsigned char MZFormSheetPresentationControllerVersionSt
 
 #import <MZFormSheetPresentationController/MZFormSheetPresentationController.h>
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewController.h>
+#import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerSegue.h>
+#import <MZFormSheetPresentationController/MZFormSheetPresentationController Swift Example-Bridging-Header.h>
 
 #import <MZFormSheetPresentationController/MZTransition.h>
 
@@ -26,7 +28,8 @@ FOUNDATION_EXPORT const unsigned char MZFormSheetPresentationControllerVersionSt
 #import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveTransitioning.h>
 
 #import <MZFormSheetPresentationController/MZFormSheetPresentationContentSizing.h>
-#import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerSegue.h>
+#import <MZFormSheetPresentationController/MZFormSheetContentSizingNavigationController.h>
+#import <MZFormSheetPresentationController/MZFormSheetContentSizingNavigationControllerAnimator.h>
 
 #import <MZFormSheetPresentationController/MZBlurEffectAdapter.h>
-#import <MZFormSheetPresentationController/MZFormSheetPresentationController Swift Example-Bridging-Header.h>
+#import <MZFormSheetPresentationController/UIViewController+TargetViewController.h>
