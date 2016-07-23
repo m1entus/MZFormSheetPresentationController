@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 #import "MZTransition.h"
 
-@interface CustomTransition : NSObject <MZFormSheetPresentationViewControllerTransitionProtocol>
+@interface CustomTransition : MZTransition <MZFormSheetPresentationViewControllerTransitionProtocol>
 @end

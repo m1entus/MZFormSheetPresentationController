@@ -33,7 +33,7 @@ extern CGFloat const MZFormSheetPresentationViewControllerAnimatorDefaultTransit
 @property (nonatomic, assign, getter=isPresenting) BOOL presenting;
 @property (nonatomic, assign, getter=isInteractive) BOOL interactive;
 @property (nonatomic, assign) CGFloat transitionDuration;
-@property (nonatomic, strong) MZTransition *transition;
+@property (nonatomic, strong) id<MZFormSheetPresentationViewControllerTransitionProtocol> transition;
 
 + (instancetype)animatorForTransitionStyle:(MZFormSheetPresentationTransitionStyle)transitionStyle;
 @end
