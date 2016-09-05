@@ -17,7 +17,7 @@ class PresentedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: Selector("close"))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: #selector(PresentedTableViewController.close))
         
         if let text = self.passingString {
             self.textField.text = text;
