@@ -105,6 +105,13 @@ typedef NS_ENUM(NSInteger, MZFormSheetActionWhenKeyboardAppears) {
  */
 @property (nonatomic, strong, nullable) UIColor *backgroundColor MZ_APPEARANCE_SELECTOR;
 
+/**
+ The background visibility percentage.
+ If UIViewPropertyAnimator is available, this adjusts the blur amount, otherwise,
+ it changes dimmingView's alpha.
+ */
+@property (nonatomic) CGFloat backgroundVisibilityPercentage;
+
 /*
  The intensity of the blur effect. See UIBlurEffectStyle for valid options.
  By default, this is UIBlurEffectStyleLight
