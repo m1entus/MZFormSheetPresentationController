@@ -267,7 +267,7 @@
             percentComplete = 0;
         }
         
-        presentationController.dimmingView.alpha = (1.0 - percentComplete);
+        presentationController.backgroundVisibilityPercentage = percentComplete;
         
         
         if (self.currentDirection == MZFormSheetPanGestureDismissDirectionLeft) {
@@ -291,7 +291,7 @@
             sourceViewFrame.origin.y = CGRectGetMinY(self.sourceViewInitialFrame) + (distanceToPass * percentComplete);
         }
     } else {
-        presentationController.dimmingView.alpha = (1.0 - fabs(percentComplete));
+        presentationController.backgroundVisibilityPercentage = percentComplete;
         
         
         distanceToPass = CGRectGetHeight(transitionContext.containerView.bounds) - CGRectGetMidY(self.sourceViewInitialFrame);
@@ -336,7 +336,7 @@
     
     [UIView animateWithDuration:self.transitionDuration delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.3 options:0 animations:^{
         sourceView.frame = sourceViewFrame;
-        presentationController.dimmingView.alpha = 0.0;
+        presentationController.backgroundVisibilityPercentage = 1.0;
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];
     }];
@@ -350,7 +350,7 @@
     MZFormSheetPresentationController *presentationController = (id)[fromViewController presentationController];
 
     [UIView animateWithDuration:self.transitionDuration delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.3 options:0 animations:^{
-        presentationController.dimmingView.alpha = 1.0;
+        presentationController.backgroundVisibilityPercentage = 0.0;
         sourceView.frame = self.sourceViewInitialFrame;
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:NO];

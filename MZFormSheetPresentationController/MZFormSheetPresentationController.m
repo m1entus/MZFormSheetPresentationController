@@ -40,6 +40,9 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 
 @property (nonatomic, assign, getter=isKeyboardVisible) BOOL keyboardVisible;
 @property (nonatomic, strong) NSValue *screenFrameWhenKeyboardVisible;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+@property (nonatomic, strong) UIViewPropertyAnimator *propertyAnimator;
+#endif
 @end
 
 @implementation MZFormSheetPresentationController
@@ -198,10 +201,30 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
         
         self.dimmingView.backgroundColor = [UIColor clearColor];
         [self.dimmingView addSubview:self.blurBackgroundView];
+        
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+        if ([UIViewPropertyAnimator class]) {
+            self.propertyAnimator = [[UIViewPropertyAnimator alloc] initWithDuration:1.0 curve:UIViewAnimationCurveLinear animations:^{
+                self.blurBackgroundView.effect = nil;
+            }];
+        }
+#endif
     } else {
         self.dimmingView.backgroundColor = self.backgroundColor;
     }
-    
+}
+
+- (void)setBackgroundVisibilityPercentage:(CGFloat)backgroundVisibilityPercentage {
+    _backgroundVisibilityPercentage = backgroundVisibilityPercentage;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+    if (self.propertyAnimator && [self shouldTransitionBlur]) {
+        self.propertyAnimator.fractionComplete = backgroundVisibilityPercentage;
+    } else {
+        self.dimmingView.alpha = 1.0 - backgroundVisibilityPercentage;
+    }
+#else
+    self.dimmingView.alpha = 1.0 - backgroundVisibilityPercentage;
+#endif
 }
 
 - (CGFloat)yCoordinateBelowStatusBar {
@@ -222,6 +245,10 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
         return self.landscapeTopInset + [self yCoordinateBelowStatusBar];
     }
 #endif
+}
+
+- (BOOL)shouldTransitionBlur {
+    return self.shouldApplyBackgroundBlurEffect && ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion) {9, 0, 0}]);
 }
 
 #pragma mark - Transparent Touch
@@ -283,7 +310,12 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     [self setupBackgroundBlurView];
     
     self.dimmingView.frame = self.containerView.bounds;
-    self.dimmingView.alpha = 0.0;
+    BOOL shouldTransitionBlur = [self shouldTransitionBlur];
+    if (shouldTransitionBlur) {
+        self.blurBackgroundView.effect = nil;
+    } else {
+        self.dimmingView.alpha = 0.0;
+    }
     [self.containerView addSubview:self.dimmingView];
     
     // this is some kind of bug :<, if we will delete this line, then inside custom animator
@@ -293,7 +325,11 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     
     [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         [UIView animateWithDuration:[context transitionDuration] animations:^{
-            self.dimmingView.alpha = 1.0;
+            if (shouldTransitionBlur) {
+                self.blurBackgroundView.effect = self.blurEffectAdapter.blurEffect;
+            } else {
+                self.dimmingView.alpha = 1.0;
+            }
         }];
     } completion:nil];
     
@@ -317,7 +353,8 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     }
     [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         [UIView animateWithDuration:[context transitionDuration] animations:^{
-            self.dimmingView.alpha = 0.0;
+            if (![self shouldTransitionBlur])
+                self.dimmingView.alpha = 0.0;
         }];
     } completion:nil];
     
