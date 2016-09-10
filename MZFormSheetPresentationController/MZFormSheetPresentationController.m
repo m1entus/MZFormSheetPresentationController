@@ -40,7 +40,9 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 
 @property (nonatomic, assign, getter=isKeyboardVisible) BOOL keyboardVisible;
 @property (nonatomic, strong) NSValue *screenFrameWhenKeyboardVisible;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 @property (nonatomic, strong) UIViewPropertyAnimator *propertyAnimator;
+#endif
 @end
 
 @implementation MZFormSheetPresentationController
@@ -200,11 +202,13 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
         self.dimmingView.backgroundColor = [UIColor clearColor];
         [self.dimmingView addSubview:self.blurBackgroundView];
         
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
         if ([UIViewPropertyAnimator class]) {
             self.propertyAnimator = [[UIViewPropertyAnimator alloc] initWithDuration:1.0 curve:UIViewAnimationCurveLinear animations:^{
                 self.blurBackgroundView.effect = nil;
             }];
         }
+#endif
     } else {
         self.dimmingView.backgroundColor = self.backgroundColor;
     }
@@ -212,11 +216,15 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
 
 - (void)setBackgroundVisibilityPercentage:(CGFloat)backgroundVisibilityPercentage {
     _backgroundVisibilityPercentage = backgroundVisibilityPercentage;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
     if (self.propertyAnimator && [self shouldTransitionBlur]) {
         self.propertyAnimator.fractionComplete = backgroundVisibilityPercentage;
     } else {
         self.dimmingView.alpha = 1.0 - backgroundVisibilityPercentage;
     }
+#else
+    self.dimmingView.alpha = 1.0 - backgroundVisibilityPercentage;
+#endif
 }
 
 - (CGFloat)yCoordinateBelowStatusBar {
