@@ -499,6 +499,8 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     UIView *contentView = presentationViewController.contentViewController.view;
     
     if (CGSizeEqualToSize(contentViewSize, UILayoutFittingCompressedSize)) {
+        [contentView setNeedsLayout];
+        [contentView layoutIfNeeded];
         formSheetRect.size = [contentView systemLayoutSizeFittingSize: contentViewSize];
     } else if (CGSizeEqualToSize(contentViewSize, UILayoutFittingExpandedSize)) {
         formSheetRect.size = [contentView systemLayoutSizeFittingSize: self.containerView.bounds.size];
