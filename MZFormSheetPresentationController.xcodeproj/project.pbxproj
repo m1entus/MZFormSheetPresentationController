@@ -11,7 +11,7 @@
 		468A6C1E1C4B2FD700F84D81 /* MZBlurEffectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 468A6C051C4B2FD700F84D81 /* MZBlurEffectAdapter.m */; };
 		468A6C1F1C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 468A6C061C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationController.m */; };
 		468A6C211C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 468A6C081C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationControllerAnimator.m */; };
-		468A6C231C4B2FD700F84D81 /* MZFormSheetPresentationController Swift Example-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C0A1C4B2FD700F84D81 /* MZFormSheetPresentationController Swift Example-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		468A6C231C4B2FD700F84D81 /* MZFormSheetPresentationController-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C0A1C4B2FD700F84D81 /* MZFormSheetPresentationController-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		468A6C241C4B2FD700F84D81 /* MZFormSheetPresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 468A6C0B1C4B2FD700F84D81 /* MZFormSheetPresentationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		468A6C251C4B2FD700F84D81 /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 468A6C0C1C4B2FD700F84D81 /* MZFormSheetPresentationController.m */; };
 		468A6C271C4B2FD700F84D81 /* MZFormSheetPresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 468A6C0E1C4B2FD700F84D81 /* MZFormSheetPresentationViewController.m */; };
@@ -39,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		468A6BF91C4B2FAD00F84D81 /* MZFormSheetPresentationController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MZFormSheetPresentationController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		468A6BFC1C4B2FAD00F84D81 /* MZFormSheetPresentationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationController.h; sourceTree = "<group>"; };
 		468A6BFE1C4B2FAD00F84D81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		468A6C041C4B2FD700F84D81 /* MZBlurEffectAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZBlurEffectAdapter.h; sourceTree = "<group>"; };
 		468A6C051C4B2FD700F84D81 /* MZBlurEffectAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZBlurEffectAdapter.m; sourceTree = "<group>"; };
@@ -47,7 +46,7 @@
 		468A6C071C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationControllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetContentSizingNavigationControllerAnimator.h; sourceTree = "<group>"; };
 		468A6C081C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetContentSizingNavigationControllerAnimator.m; sourceTree = "<group>"; };
 		468A6C091C4B2FD700F84D81 /* MZFormSheetPresentationContentSizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationContentSizing.h; sourceTree = "<group>"; };
-		468A6C0A1C4B2FD700F84D81 /* MZFormSheetPresentationController Swift Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MZFormSheetPresentationController Swift Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		468A6C0A1C4B2FD700F84D81 /* MZFormSheetPresentationController-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MZFormSheetPresentationController-Bridging-Header.h"; sourceTree = "<group>"; };
 		468A6C0B1C4B2FD700F84D81 /* MZFormSheetPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationController.h; sourceTree = "<group>"; };
 		468A6C0C1C4B2FD700F84D81 /* MZFormSheetPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetPresentationController.m; sourceTree = "<group>"; };
 		468A6C0D1C4B2FD700F84D81 /* MZFormSheetPresentationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationViewController.h; sourceTree = "<group>"; };
@@ -107,13 +106,12 @@
 			children = (
 				468A6C041C4B2FD700F84D81 /* MZBlurEffectAdapter.h */,
 				468A6C051C4B2FD700F84D81 /* MZBlurEffectAdapter.m */,
-				468A6BFC1C4B2FAD00F84D81 /* MZFormSheetPresentationController.h */,
 				468A6C091C4B2FD700F84D81 /* MZFormSheetPresentationContentSizing.h */,
 				5417DDCA1D1AF81300E95BE7 /* MZFormSheetContentSizingNavigationController.h */,
 				468A6C061C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationController.m */,
 				468A6C071C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationControllerAnimator.h */,
 				468A6C081C4B2FD700F84D81 /* MZFormSheetContentSizingNavigationControllerAnimator.m */,
-				468A6C0A1C4B2FD700F84D81 /* MZFormSheetPresentationController Swift Example-Bridging-Header.h */,
+				468A6C0A1C4B2FD700F84D81 /* MZFormSheetPresentationController-Bridging-Header.h */,
 				468A6C0B1C4B2FD700F84D81 /* MZFormSheetPresentationController.h */,
 				468A6C0C1C4B2FD700F84D81 /* MZFormSheetPresentationController.m */,
 				468A6C0D1C4B2FD700F84D81 /* MZFormSheetPresentationViewController.h */,
@@ -167,7 +165,7 @@
 				5411A1BB1CF7D159000FB618 /* MZFormSheetPresentationContentSizing.h in Headers */,
 				5417DDCB1D1AF81300E95BE7 /* MZFormSheetContentSizingNavigationController.h in Headers */,
 				5417DDCC1D1AF82A00E95BE7 /* MZFormSheetContentSizingNavigationControllerAnimator.h in Headers */,
-				468A6C231C4B2FD700F84D81 /* MZFormSheetPresentationController Swift Example-Bridging-Header.h in Headers */,
+				468A6C231C4B2FD700F84D81 /* MZFormSheetPresentationController-Bridging-Header.h in Headers */,
 				468A6C301C4B2FD700F84D81 /* MZMethodSwizzler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
