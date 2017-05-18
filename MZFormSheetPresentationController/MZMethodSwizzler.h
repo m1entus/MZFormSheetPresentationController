@@ -58,7 +58,7 @@ typedef id (^MZMethodReplacementProvider)(MZ_IMP original, __unsafe_unretained C
  Swizzle the specified instance method on this specific instance only.
  
  @param selector Selector of the method to swizzle.
- @param replacement The replacement block to use for swizzling the method. Its signature needs to be: return_type ^(id self, ...).
+ @param replacementProvider The replacement block to use for swizzling the method. Its signature needs to be: return_type ^(id self, ...).
  
  */
 - (void)swizzleMethod:(SEL)selector withReplacement:(MZMethodReplacementProvider)replacementProvider;
