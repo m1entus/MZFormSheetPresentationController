@@ -103,7 +103,7 @@ typedef void(^MZFormSheetPresentationViewControllerCompletionHandler)(UIViewCont
 
 /**
  Returns an initialized popup controller object with just a view.
- @param view This parameter must not be nil.
+ @param contentView This parameter must not be nil.
  */
 - (nonnull instancetype)initWithContentView:(UIView * __nonnull)contentView;
 
