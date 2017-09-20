@@ -338,9 +338,9 @@
 - (UIViewController *)childViewControllerForStatusBarHidden {
     if ([self.contentViewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navigationController = (UINavigationController *)self.contentViewController;
-        return [navigationController.topViewController mz_childTargetViewControllerForStatusBarStyle];
+        return [navigationController.topViewController mz_childTargetViewControllerForStatusBarHidden];
     }
-    return [self.contentViewController mz_childTargetViewControllerForStatusBarStyle];
+    return [self.contentViewController mz_childTargetViewControllerForStatusBarHidden];
 }
 
 #pragma mark - Rotation
