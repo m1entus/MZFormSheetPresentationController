@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @interface MZFormSheetContentSizingNavigationControllerAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 @property (nonatomic, assign) CGFloat duration;
