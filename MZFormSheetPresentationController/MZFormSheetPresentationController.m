@@ -57,6 +57,9 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     
     [self.dimmingView removeGestureRecognizer:self.backgroundTapGestureRecognizer];
     self.backgroundTapGestureRecognizer = nil;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+    [self.propertyAnimator stopAnimation:YES];
+#endif
 }
 
 #pragma mark - Appearance
