@@ -29,7 +29,7 @@
 
 extern NSString *const __nonnull MZTransitionExceptionMethodNotImplemented;
 
-typedef void (^MZTransitionCompletionHandler)();
+typedef void (^MZTransitionCompletionHandler)(void);
 
 @class MZFormSheetPresentationViewController;
 
