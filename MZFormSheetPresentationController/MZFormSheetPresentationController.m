@@ -467,13 +467,15 @@ CGFloat const MZFormSheetPresentationControllerDefaultAboveKeyboardMargin = 20;
     UIViewAnimationCurve curve = [[notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
     double duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
-    [UIView animateWithDuration:duration
-                          delay:0
-                        options:UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         [UIView setAnimationCurve:curve];
-                         [self setupFormSheetViewControllerFrame];
-                     } completion:nil];
+    if (self.keyboardVisible && self.movementActionWhenKeyboardAppears != MZFormSheetActionWhenKeyboardAppearsDoNothing) {
+        [UIView animateWithDuration:duration
+                              delay:0
+                            options:UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             [UIView setAnimationCurve:curve];
+                             [self setupFormSheetViewControllerFrame];
+                         } completion:nil];
+    }
 }
 
 - (void)willHideKeyboardNotification:(NSNotification *)notification __TVOS_PROHIBITED {
