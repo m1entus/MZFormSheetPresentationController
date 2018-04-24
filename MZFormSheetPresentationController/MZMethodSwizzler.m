@@ -30,6 +30,7 @@
 #import "MZMethodSwizzler.h"
 #import <objc/runtime.h>
 #import <libkern/OSAtomic.h>
+#import <os/lock.h>
 
 #pragma mark Defines
 
@@ -189,7 +190,7 @@ NS_INLINE void classSwizzleMethod(Class cls, Method method, IMP newImp) {
 
 #pragma mark - Original Implementations
 
-static OSSpinLock lock = OS_SPINLOCK_INIT;
+static os_unfair_lock_t lock = OS_SPINLOCK_INIT;
 
 static NSMutableDictionary *originalClassMethods;
 static NSMutableDictionary *originalInstanceMethods;
@@ -197,7 +198,7 @@ static NSMutableDictionary *originalInstanceInstanceMethods;
 
 
 NS_INLINE MZ_IMP originalInstanceInstanceMethodImplementation(__unsafe_unretained Class class, SEL selector, BOOL fetchOnly) {
-    NSCAssert(!OSSpinLockTry(&lock), @"Spin lock is not locked");
+    NSCAssert(!os_unfair_lock_trylock(lock), @"Spin lock is not locked");
     
     if (!originalInstanceInstanceMethods) {
         originalInstanceInstanceMethods = [[NSMutableDictionary alloc] init];
@@ -284,7 +285,7 @@ NS_INLINE void decreaseSwizzleCount(__unsafe_unretained id object) {
 }
 
 NS_INLINE BOOL deswizzleInstance(__unsafe_unretained id object) {
-    OSSpinLockLock(&lock);
+    os_unfair_lock_lock(lock);
     
     BOOL success = NO;
     
@@ -312,20 +313,20 @@ NS_INLINE BOOL deswizzleInstance(__unsafe_unretained id object) {
         success = YES;
     }
     
-    OSSpinLockUnlock(&lock);
+    os_unfair_lock_unlock(lock);
     
     return success;
 }
 
 NS_INLINE BOOL deswizzleMethod(__unsafe_unretained id object, SEL selector) {
-    OSSpinLockLock(&lock);
+    os_unfair_lock_lock(lock);
     
     BOOL success = NO;
     
     unsigned int count = swizzleCount(object);
     
     if (count == 1) {
-        OSSpinLockUnlock(&lock);
+        os_unfair_lock_unlock(lock);
         return deswizzleInstance(object);
     }
     else if (count > 1) {
@@ -339,7 +340,7 @@ NS_INLINE BOOL deswizzleMethod(__unsafe_unretained id object, SEL selector) {
         decreaseSwizzleCount(object);
     }
     
-    OSSpinLockUnlock(&lock);
+    os_unfair_lock_unlock(lock);
     
     return success;
 }
@@ -354,7 +355,7 @@ NS_INLINE void swizzleInstance(__unsafe_unretained id object, SEL selector, MZMe
     
     NSCAssert([object respondsToSelector:selector], @"Invalid method: -[%@ %@]", NSStringFromClass(class), NSStringFromSelector(selector));
     
-    OSSpinLockLock(&lock);
+    os_unfair_lock_lock(lock);
     
     if (!dynamicSubclassesByObject) {
         dynamicSubclassesByObject = [[NSMutableDictionary alloc] init];
@@ -428,7 +429,7 @@ NS_INLINE void swizzleInstance(__unsafe_unretained id object, SEL selector, MZMe
     
     object_setClass(object, newClass);
     
-    OSSpinLockUnlock(&lock);
+    os_unfair_lock_unlock(lock);
 }
 
 
