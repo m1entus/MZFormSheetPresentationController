@@ -190,7 +190,7 @@
 }
 
 - (instancetype)initWithContentViewController:(UIViewController *)viewController {
-    if (self = [self init]) {
+    if (self = [super init]) {
 
         NSParameterAssert(viewController);
         self.contentViewController = viewController;
