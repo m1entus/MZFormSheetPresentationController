@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		640560991B389F4300CE2950 /* TransparentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640560981B389F4300CE2950 /* TransparentViewController.swift */; };
-		64717C4D1BD3B7C2005CBA5A /* MZBlurEffectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C3B1BD3B7C2005CBA5A /* MZBlurEffectAdapter.m */; settings = {ASSET_TAGS = (); }; };
-		64717C4E1BD3B7C2005CBA5A /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C3E1BD3B7C2005CBA5A /* MZFormSheetPresentationController.m */; settings = {ASSET_TAGS = (); }; };
-		64717C4F1BD3B7C2005CBA5A /* MZFormSheetPresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C401BD3B7C2005CBA5A /* MZFormSheetPresentationViewController.m */; settings = {ASSET_TAGS = (); }; };
-		64717C501BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C431BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerAnimator.m */; settings = {ASSET_TAGS = (); }; };
-		64717C511BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C451BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m */; settings = {ASSET_TAGS = (); }; };
-		64717C521BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C481BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerSegue.m */; settings = {ASSET_TAGS = (); }; };
-		64717C531BD3B7C2005CBA5A /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C4A1BD3B7C2005CBA5A /* MZTransition.m */; settings = {ASSET_TAGS = (); }; };
-		64717C541BD3B7C2005CBA5A /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C4C1BD3B7C2005CBA5A /* UIViewController+TargetViewController.m */; settings = {ASSET_TAGS = (); }; };
+		64717C4D1BD3B7C2005CBA5A /* MZBlurEffectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C3B1BD3B7C2005CBA5A /* MZBlurEffectAdapter.m */; };
+		64717C4E1BD3B7C2005CBA5A /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C3E1BD3B7C2005CBA5A /* MZFormSheetPresentationController.m */; };
+		64717C4F1BD3B7C2005CBA5A /* MZFormSheetPresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C401BD3B7C2005CBA5A /* MZFormSheetPresentationViewController.m */; };
+		64717C501BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C431BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerAnimator.m */; };
+		64717C511BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C451BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerInteractiveAnimator.m */; };
+		64717C521BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C481BD3B7C2005CBA5A /* MZFormSheetPresentationViewControllerSegue.m */; };
+		64717C531BD3B7C2005CBA5A /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C4A1BD3B7C2005CBA5A /* MZTransition.m */; };
+		64717C541BD3B7C2005CBA5A /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64717C4C1BD3B7C2005CBA5A /* UIViewController+TargetViewController.m */; };
 		6494BD4C1B3343FC00C331EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD4B1B3343FC00C331EE /* AppDelegate.swift */; };
 		6494BD4E1B3343FC00C331EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494BD4D1B3343FC00C331EE /* ViewController.swift */; };
 		6494BD511B3343FC00C331EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6494BD4F1B3343FC00C331EE /* Main.storyboard */; };
@@ -31,7 +31,6 @@
 		640560981B389F4300CE2950 /* TransparentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentViewController.swift; sourceTree = "<group>"; };
 		64717C3A1BD3B7C2005CBA5A /* MZBlurEffectAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZBlurEffectAdapter.h; sourceTree = "<group>"; };
 		64717C3B1BD3B7C2005CBA5A /* MZBlurEffectAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZBlurEffectAdapter.m; sourceTree = "<group>"; };
-		64717C3C1BD3B7C2005CBA5A /* MZFormSheetPresentationController Swift Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MZFormSheetPresentationController Swift Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		64717C3D1BD3B7C2005CBA5A /* MZFormSheetPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationController.h; sourceTree = "<group>"; };
 		64717C3E1BD3B7C2005CBA5A /* MZFormSheetPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetPresentationController.m; sourceTree = "<group>"; };
 		64717C3F1BD3B7C2005CBA5A /* MZFormSheetPresentationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetPresentationViewController.h; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		6494BD611B3343FC00C331EE /* MZFormSheetPresentationController_Swift_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MZFormSheetPresentationController_Swift_ExampleTests.swift; sourceTree = "<group>"; };
 		6494BD7C1B3344AA00C331EE /* PresentedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedTableViewController.swift; sourceTree = "<group>"; };
 		6494BD7E1B3344BC00C331EE /* CustomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
+		7CE4D041234BAC6A00121B5F /* MZFormSheetPresentationController-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MZFormSheetPresentationController-Bridging-Header.h"; sourceTree = "<group>"; };
 		92BC176FBB0849533237A49D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F6981EFFBC4A3D8854472104 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -139,9 +139,9 @@
 		6494BD6B1B33443E00C331EE /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
+				7CE4D041234BAC6A00121B5F /* MZFormSheetPresentationController-Bridging-Header.h */,
 				64717C3A1BD3B7C2005CBA5A /* MZBlurEffectAdapter.h */,
 				64717C3B1BD3B7C2005CBA5A /* MZBlurEffectAdapter.m */,
-				64717C3C1BD3B7C2005CBA5A /* MZFormSheetPresentationController Swift Example-Bridging-Header.h */,
 				64717C3D1BD3B7C2005CBA5A /* MZFormSheetPresentationController.h */,
 				64717C3E1BD3B7C2005CBA5A /* MZFormSheetPresentationController.m */,
 				64717C3F1BD3B7C2005CBA5A /* MZFormSheetPresentationViewController.h */,
@@ -211,7 +211,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Michal Zaborowski";
 				TargetAttributes = {
 					6494BD451B3343FC00C331EE = {
@@ -221,7 +221,7 @@
 			};
 			buildConfigurationList = 6494BD411B3343FC00C331EE /* Build configuration list for PBXProject "MZFormSheetPresentationController Swift Example" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -345,19 +345,31 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -383,6 +395,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -391,19 +404,31 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -420,6 +445,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -431,12 +458,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "MZFormSheetPresentationController Swift Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.zaborowski.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "../../MZFormSheetPresentationController/MZFormSheetPresentationController Swift Example-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "../../MZFormSheetPresentationController/MZFormSheetPresentationController-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -446,11 +475,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = "MZFormSheetPresentationController Swift Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.zaborowski.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "../../MZFormSheetPresentationController/MZFormSheetPresentationController Swift Example-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "../../MZFormSheetPresentationController/MZFormSheetPresentationController-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

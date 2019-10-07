@@ -17,22 +17,22 @@ class PresentedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: #selector(PresentedTableViewController.close))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(PresentedTableViewController.close))
         
         if let text = self.passingString {
             self.textField.text = text;
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if textFieldBecomeFirstResponder {
             self.textField.becomeFirstResponder()
         }
     }
     
-    func close() -> Void {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @objc func close() -> Void {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

@@ -24,21 +24,21 @@ class TransparentViewController: UIViewController {
 
     @IBAction func turnOnTransparencyButtonTapped() {
         if let viewController = self.mz_formSheetPresentingPresentationController() {
-            viewController.presentationController?.backgroundColor = UIColor.clearColor()
-            viewController.presentationController?.transparentTouchEnabled = true
+            viewController.presentationController?.backgroundColor = UIColor.clear
+            viewController.presentationController?.isTransparentTouchEnabled = true
         }
         
     }
     
     @IBAction func turnOffTransparencyButtonTapped() {
         if let viewController = self.mz_formSheetPresentingPresentationController() {
-            viewController.presentationController?.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
-            viewController.presentationController?.transparentTouchEnabled = false
+            viewController.presentationController?.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+            viewController.presentationController?.isTransparentTouchEnabled = false
         }
     }
     
     @IBAction func dismiss() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
 }
