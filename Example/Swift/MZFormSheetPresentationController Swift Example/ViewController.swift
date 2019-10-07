@@ -12,14 +12,14 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MZTransition.registerTransitionClass(CustomTransition.self, forTransitionStyle: .Custom)
+        MZTransition.registerClass(CustomTransition.self, for: .custom)
     }
 
     func formSheetControllerWithNavigationController() -> UINavigationController {
-        return self.storyboard!.instantiateViewControllerWithIdentifier("formSheetController") as! UINavigationController
+        return self.storyboard!.instantiateViewController(withIdentifier: "formSheetController") as! UINavigationController
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "segue" {
                 let presentationSegue = segue as! MZFormSheetPresentationViewControllerSegue
@@ -51,16 +51,16 @@ class ViewController: UITableViewController {
             presentedViewController.textField?.text = "PASS DATA DIRECTLY TO OUTLET!!"
         }
         
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
     func blurEffectAction() {
         let navigationController = self.formSheetControllerWithNavigationController()
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
         formSheetController.presentationController?.shouldApplyBackgroundBlurEffect = true
-        formSheetController.presentationController?.blurEffectStyle = UIBlurEffectStyle.Dark
+        formSheetController.presentationController?.blurEffectStyle = UIBlurEffect.Style.dark
         
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
     func parallaxEffectAction() {
@@ -68,39 +68,39 @@ class ViewController: UITableViewController {
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
         formSheetController.presentationController?.shouldUseMotionEffect = true
         
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
     func customContentViewSizeAction() {
         let navigationController = self.formSheetControllerWithNavigationController()
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
-        formSheetController.presentationController?.contentViewSize = CGSizeMake(100, 100)
+        formSheetController.presentationController?.contentViewSize = CGSize(width: 100, height: 100)
         
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
     func compressedContentViewSizeAction() {
         let navigationController = self.formSheetControllerWithNavigationController()
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
-        formSheetController.presentationController?.contentViewSize = UILayoutFittingCompressedSize
+        formSheetController.presentationController?.contentViewSize = UIView.layoutFittingCompressedSize
         
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
     func expandedContentViewSizeAction() {
         let navigationController = self.formSheetControllerWithNavigationController()
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
-        formSheetController.presentationController?.contentViewSize = UILayoutFittingExpandedSize
+        formSheetController.presentationController?.contentViewSize = UIView.layoutFittingExpandedSize
         
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
     func customBackgroundColorAction() {
         let navigationController = self.formSheetControllerWithNavigationController()
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
-        formSheetController.presentationController?.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.3)
+        formSheetController.presentationController?.backgroundColor = UIColor.red.withAlphaComponent(0.3)
         
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
     func centerVerticallyAction() {
@@ -111,13 +111,13 @@ class ViewController: UITableViewController {
         presentedViewController.textFieldBecomeFirstResponder = true
         
         formSheetController.presentationController?.frameConfigurationHandler = { [weak formSheetController] view, currentFrame, isKeyboardVisible in
-            if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
-                return CGRectMake(CGRectGetMidX(formSheetController!.presentationController!.containerView!.bounds) - 210, currentFrame.origin.y, 420, currentFrame.size.height)
+            if UIApplication.shared.statusBarOrientation.isLandscape {
+                return CGRect(x: formSheetController!.presentationController!.containerView!.bounds.midX - 210, y: currentFrame.origin.y, width: 420, height: currentFrame.size.height)
             }
             return currentFrame
         };
         
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
     func contentViewShadowAction() {
@@ -131,7 +131,7 @@ class ViewController: UITableViewController {
             }
         }
         
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
     func twoFormSheetControllersAction() {
@@ -139,35 +139,35 @@ class ViewController: UITableViewController {
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
         formSheetController.presentationController?.shouldDismissOnBackgroundViewTap = true
         formSheetController.presentationController?.portraitTopInset = 10
-        self.presentViewController(formSheetController, animated: true, completion: {
+        self.present(formSheetController, animated: true, completion: {
             let navigationController = self.formSheetControllerWithNavigationController()
             let formSheetController2 = MZFormSheetPresentationViewController(contentViewController: navigationController)
             formSheetController2.presentationController?.shouldDismissOnBackgroundViewTap = true
             formSheetController2.presentationController?.shouldApplyBackgroundBlurEffect = true
-            formSheetController.presentViewController(formSheetController2, animated: true, completion: nil)
+            formSheetController.present(formSheetController2, animated: true, completion: nil)
         })
     }
     
     func transparentBackgroundViewAction() {
-        let viewController = self.storyboard!.instantiateViewControllerWithIdentifier("TransparentViewController") 
+        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "TransparentViewController")
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: viewController)
-        formSheetController.presentationController?.transparentTouchEnabled = false
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        formSheetController.presentationController?.isTransparentTouchEnabled = false
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
     func panGestureDismissingGesture() {
         let navigationController = self.formSheetControllerWithNavigationController()
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
-        formSheetController.interactivePanGestureDismissalDirection = .All;
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        formSheetController.interactivePanGestureDismissalDirection = .all;
+        self.present(formSheetController, animated: true, completion: nil)
     }
 
     func formSheetView() {
         let label = UILabel(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 200.0, height: 25.0)))
-        label.backgroundColor = .blueColor()
+        label.backgroundColor = .blue
         label.text = "Testing with just a view"
-        label.textAlignment = .Center
-        label.textColor = .whiteColor()
+        label.textAlignment = .center
+        label.textColor = .white
 
         let formSheetController = MZFormSheetPresentationViewController(contentView: label)
         if let presentationController = formSheetController.presentationController {
@@ -175,7 +175,7 @@ class ViewController: UITableViewController {
             presentationController.shouldDismissOnBackgroundViewTap = true
         }
 
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
     // MARK: -
@@ -186,7 +186,7 @@ class ViewController: UITableViewController {
         formSheetController.presentationController?.shouldDismissOnBackgroundViewTap = true
         formSheetController.contentViewControllerTransitionStyle = MZFormSheetPresentationTransitionStyle(rawValue: transition)!
         
-        self.presentViewController(formSheetController, animated: MZFormSheetPresentationTransitionStyle(rawValue: transition)! != .None, completion: nil)
+        self.present(formSheetController, animated: MZFormSheetPresentationTransitionStyle(rawValue: transition)! != .none, completion: nil)
     }
     
     func presentFormSheetControllerWithKeyboardMovement(movementOption: Int) {
@@ -194,15 +194,15 @@ class ViewController: UITableViewController {
         let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
         formSheetController.presentationController?.shouldApplyBackgroundBlurEffect = true
         formSheetController.presentationController?.movementActionWhenKeyboardAppears = MZFormSheetActionWhenKeyboardAppears(rawValue: movementOption)!
-        formSheetController.contentViewControllerTransitionStyle = MZFormSheetPresentationTransitionStyle.Fade
+        formSheetController.contentViewControllerTransitionStyle = MZFormSheetPresentationTransitionStyle.fade
         let presentedViewController = navigationController.viewControllers.first as! PresentedTableViewController
         presentedViewController.textFieldBecomeFirstResponder = true
         
-        self.presentViewController(formSheetController, animated: true, completion: nil)
+        self.present(formSheetController, animated: true, completion: nil)
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0: passDataToViewControllerAction()
@@ -222,9 +222,9 @@ class ViewController: UITableViewController {
             default: break;
             }
         } else if indexPath.section == 1 {
-            presentFormSheetControllerWithTransition(indexPath.row)
+            presentFormSheetControllerWithTransition(transition: indexPath.row)
         } else if indexPath.section == 2 {
-            presentFormSheetControllerWithKeyboardMovement(indexPath.row)
+            presentFormSheetControllerWithKeyboardMovement(movementOption: indexPath.row)
         }
     }
 }
