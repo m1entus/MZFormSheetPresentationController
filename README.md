@@ -96,11 +96,11 @@ formSheetController.presentationController.contentViewSize = CGSizeMake(250, 250
 
 Swift
 ```swift
-let navigationController = self.storyboard!.instantiateViewControllerWithIdentifier("formSheetController") as! UINavigationController
+let navigationController = self.storyboard!.instantiateViewController(withIdentifier: "formSheetController") as! UINavigationController
 let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
-formSheetController.presentationController?.contentViewSize = CGSizeMake(250, 250)  // or pass in UILayoutFittingCompressedSize to size automatically with auto-layout
+formSheetController.presentationController?.contentViewSize = CGSize(width: 250, height: 250)  // or pass in UILayoutFittingCompressedSize to size automatically with auto-layout
 
-self.presentViewController(formSheetController, animated: true, completion: nil)
+self.present(formSheetController, animated: true, completion: nil)
 ```
 
 This will display view controller inside form sheet container.
@@ -114,7 +114,7 @@ Objective-C
 
 Swift
 ```swift
-self.dismissViewControllerAnimated(true, completion: nil)
+self.dismiss(animated: true, completion: nil)
 ```
 
 Easy right ?!
@@ -155,7 +155,7 @@ formSheetController.willPresentContentViewControllerHandler = { vc in
     presentedViewController.textField?.text = "PASS DATA DIRECTLY TO OUTLET!!"
 }
 
-self.presentViewController(formSheetController, animated: true, completion: nil)
+self.present(formSheetController, animated: true, completion: nil)
 ```
 
 ## Using pan gesture to dismiss
@@ -253,9 +253,9 @@ Swift
 class CustomTransition: NSObject, MZFormSheetPresentationViewControllerTransitionProtocol {
 }
 
-MZTransition.registerTransitionClass(CustomTransition.self, forTransitionStyle: .Custom)
+MZTransition.registerClass(CustomTransition.self, for: .custom)
 
-formSheetController.contentViewControllerTransitionStyle = .Custom
+formSheetController.contentViewControllerTransitionStyle = .custom
 ```
 
 if you are creating own transition you have to call completionBlock at the end of animation.
@@ -281,11 +281,11 @@ Objective-C
 
 Swift
 ```swift
-func exitFormSheetControllerTransition(presentingViewController: UIViewController, completionHandler: MZTransitionCompletionHandler) {
+func exitFormSheetControllerTransition(_ presentingViewController: UIViewController, completionHandler: @escaping MZTransitionCompletionHandler) {
     var formSheetRect = presentingViewController.view.frame
-    formSheetRect.origin.x = UIScreen.mainScreen().bounds.size.width
+    formSheetRect.origin.x = UIScreen.main.bounds.width
 
-    UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+    UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
         presentingViewController.view.frame = formSheetRect
     }, completion: {(value: Bool)  -> Void in
         completionHandler()
@@ -306,7 +306,7 @@ formSheetController.presentationController.transparentTouchEnabled = YES;
 Swift
 ```swift
 let formSheetController = MZFormSheetPresentationViewController(contentViewController: viewController)
-formSheetController.presentationController?.transparentTouchEnabled = true
+formSheetController.presentationController?.isTransparentTouchEnabled = true
 ```
 
 ## Completion Blocks
@@ -361,7 +361,7 @@ Objective-C
 
 Swift
 ```swift
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let identifier = segue.identifier {
         if identifier == "segue" {
             let presentationSegue = segue as! MZFormSheetPresentationViewControllerSegue
